@@ -1,0 +1,13 @@
+[2019-02-20T13:38:33.684] [INFO] response - DEBUG=>999999999999
+[2019-02-20T13:38:33.751] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 96
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDY0MTExMywiZXhwIjoxNTUwNjQ4MzEzfQ.y8UeB9tfr_aCANh0TXylnQCWD4-bGRRCTAzQKsLlkLY\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550641113,\n      \"exp\": 1550648313\n    }\n  }\n}"
+*************** response log end ***************
+

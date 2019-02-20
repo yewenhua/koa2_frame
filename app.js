@@ -13,7 +13,7 @@ import bodyParser from 'koa-bodyparser';
 
 import admin from './router/admin'
 import api from './router/api'
-import web from './router/web'
+import wechat from './router/wechat'
 
 import filter from './middlewares/filter'
 import response from './middlewares/response'
@@ -48,7 +48,7 @@ app.use(bodyParser());
 
 app.use(admin.routes()).use(admin.allowedMethods());
 app.use(api.routes()).use(api.allowedMethods());
-app.use(web.routes()).use(web.allowedMethods());
+app.use(wechat.routes()).use(wechat.allowedMethods());
 
 app.on('error', function(err, ctx){
     //如果错误被try-catch捕获，就不触发error事件，这时必须调用ctx.app.emit(),手动释放error事件

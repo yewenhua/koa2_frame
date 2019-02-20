@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/command/material.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/site.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/wechat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crawler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crawler/site/site_58pic.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crawler/site/site_base.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crawler/task.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/services/CaptchaQQ.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/services/JsDati.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/services/UserAgent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/services/Wechat.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/router/web.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/mysql.js" afterPath="$PROJECT_DIR$/config/mysql.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/redis.js" afterPath="$PROJECT_DIR$/config/redis.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/UserController.js" afterPath="$PROJECT_DIR$/controllers/UserController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/wechat.js" afterPath="$PROJECT_DIR$/router/wechat.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,8 +18,8 @@
       <file leaf-file-name="wechat.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/wechat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
-              <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="59" />
+            <state relative-caret-position="801">
+              <caret line="41" column="21" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -48,8 +30,8 @@
       <file leaf-file-name="Wechat.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/Wechat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="31" />
+            <state relative-caret-position="281">
+              <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding>
                 <element signature="e#51#79#0" expanded="true" />
                 <marker date="1550640232581" expanded="false" signature="818:2959" ph="..." />
@@ -75,7 +57,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>route</find>
       <find>sequelize</find>
       <find>UserModel</find>
       <find>koaBody</find>
@@ -104,6 +85,7 @@
       <find>opencv4nodejs_1</find>
       <find>injection_1</find>
       <find>captchaQq</find>
+      <find>web</find>
       <find>formatted</find>
     </findStrings>
     <dirStrings>
@@ -147,7 +129,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/ecosystem.config.js" />
         <option value="$PROJECT_DIR$/config/mysql.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/controllers/UserController.js" />
         <option value="$PROJECT_DIR$/crawler.js" />
@@ -164,6 +145,7 @@
         <option value="$PROJECT_DIR$/services/UserAgent.js" />
         <option value="$PROJECT_DIR$/config/wechat.js" />
         <option value="$PROJECT_DIR$/services/Wechat.js" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/router/wechat.js" />
       </list>
     </option>
@@ -401,12 +383,12 @@
       <workItem from="1550109158475" duration="2655000" />
       <workItem from="1550123493558" duration="29666000" />
       <workItem from="1550301270719" duration="4063000" />
-      <workItem from="1550631154795" duration="6309000" />
+      <workItem from="1550631154795" duration="6437000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161899000" />
+    <option name="totallyTimeSpent" value="162027000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -741,14 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/CaptchaQQ.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -809,10 +783,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="50" column="35" lean-forward="false" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+          <folding>
+            <element signature="e#376#404#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/services/Wechat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="31" />
+        <state relative-caret-position="281">
+          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding>
             <element signature="e#51#79#0" expanded="true" />
             <marker date="1550640232581" expanded="false" signature="818:2959" ph="..." />
@@ -828,8 +812,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/router/wechat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="59" />
+        <state relative-caret-position="801">
+          <caret line="41" column="21" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

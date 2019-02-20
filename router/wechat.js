@@ -39,4 +39,4 @@ wechat.get('/entry', async ctx => {
     })
 
 
-export default web
+export default wechat
