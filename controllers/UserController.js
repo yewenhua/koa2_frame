@@ -18,6 +18,7 @@ class UserController extends BaseController{
     // 用户登录
     static async login(ctx) {
         // await ……
+        console.log('=================');
         logUtil.logDebug('999999999999');
         let row = await UserModel.findByName('jack');
 
@@ -29,7 +30,7 @@ class UserController extends BaseController{
         let payload = jwt.verify(token, 'my_secret');
 
         return ctx.success({
-            msg:'注册成功' + row.userName,
+            msg:'登录成功' + row.userName,
             data: {
                 token,
                 payload

@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "crypto": "^1.0.1",
     "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "ioredis": "^4.6.2",
     "jsonwebtoken": "^8.4.0",
     "koa": "^2.6.2",
     "koa-body": "^4.0.6",
@@ -27,8 +30,14 @@
     "mysql": "^2.16.0",
     "mysql2": "^1.6.4",
     "path": "^0.12.7",
+    "puppeteer": "^1.12.2",
+    "puppeteer-core": "^1.12.2",
+    "raw-body": "^2.3.3",
+    "request": "^2.88.0",
     "sequelize": "^4.42.0",
-    "sha1": "^1.1.1"
+    "sha1": "^1.1.1",
+    "xml2js": "^0.4.19",
+    "yargs": "^13.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

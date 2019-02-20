@@ -1,0 +1,265 @@
+[2019-02-14T15:42:24.580] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:42:26.497] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:42:27.176] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:42:27.627] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:42:27.960] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:01.041] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:01.072] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 53
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4MSwiZXhwIjoxNTUwMTM3MzgxfQ.5KdtxdyxSeky42BP95VP1YtWlwnkKCl4DsgmzXmNG0E\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130181,\n      \"exp\": 1550137381\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:02.082] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:02.092] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 12
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4MiwiZXhwIjoxNTUwMTM3MzgyfQ.Bmh8TYqljFQDbqNpZe2mQNQ92WmLtWhImqiGtSeYopk\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130182,\n      \"exp\": 1550137382\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:02.628] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:02.634] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 8
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4MiwiZXhwIjoxNTUwMTM3MzgyfQ.Bmh8TYqljFQDbqNpZe2mQNQ92WmLtWhImqiGtSeYopk\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130182,\n      \"exp\": 1550137382\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:03.091] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:03.099] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 9
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4MywiZXhwIjoxNTUwMTM3MzgzfQ.8R6g6JrgP1XCYxEhRYDBXuX8hgxEjuGgsEgaW99tLAY\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130183,\n      \"exp\": 1550137383\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:03.368] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:03.375] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 8
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4MywiZXhwIjoxNTUwMTM3MzgzfQ.8R6g6JrgP1XCYxEhRYDBXuX8hgxEjuGgsEgaW99tLAY\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130183,\n      \"exp\": 1550137383\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:03.595] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:03.607] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 12
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4MywiZXhwIjoxNTUwMTM3MzgzfQ.8R6g6JrgP1XCYxEhRYDBXuX8hgxEjuGgsEgaW99tLAY\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130183,\n      \"exp\": 1550137383\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:03.816] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:03.823] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 8
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4MywiZXhwIjoxNTUwMTM3MzgzfQ.8R6g6JrgP1XCYxEhRYDBXuX8hgxEjuGgsEgaW99tLAY\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130183,\n      \"exp\": 1550137383\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:04.012] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:04.019] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 8
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NCwiZXhwIjoxNTUwMTM3Mzg0fQ.uKdFQsHMvPSdWdBI6nruQZPfjnp69H-CWotlqUC4mK8\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130184,\n      \"exp\": 1550137384\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:04.195] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:04.203] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 9
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NCwiZXhwIjoxNTUwMTM3Mzg0fQ.uKdFQsHMvPSdWdBI6nruQZPfjnp69H-CWotlqUC4mK8\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130184,\n      \"exp\": 1550137384\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:04.368] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:04.374] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 7
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NCwiZXhwIjoxNTUwMTM3Mzg0fQ.uKdFQsHMvPSdWdBI6nruQZPfjnp69H-CWotlqUC4mK8\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130184,\n      \"exp\": 1550137384\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:04.579] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:04.585] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 7
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NCwiZXhwIjoxNTUwMTM3Mzg0fQ.uKdFQsHMvPSdWdBI6nruQZPfjnp69H-CWotlqUC4mK8\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130184,\n      \"exp\": 1550137384\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:04.824] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:04.832] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 8
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NCwiZXhwIjoxNTUwMTM3Mzg0fQ.uKdFQsHMvPSdWdBI6nruQZPfjnp69H-CWotlqUC4mK8\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130184,\n      \"exp\": 1550137384\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:05.080] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:05.087] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 8
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NSwiZXhwIjoxNTUwMTM3Mzg1fQ.P2-Axzw5gHaj-MlJz8micci2_bl32xb7RJsYjdookMk\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130185,\n      \"exp\": 1550137385\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:05.368] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:05.375] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 8
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NSwiZXhwIjoxNTUwMTM3Mzg1fQ.P2-Axzw5gHaj-MlJz8micci2_bl32xb7RJsYjdookMk\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130185,\n      \"exp\": 1550137385\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:05.641] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:05.649] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 10
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NSwiZXhwIjoxNTUwMTM3Mzg1fQ.P2-Axzw5gHaj-MlJz8micci2_bl32xb7RJsYjdookMk\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130185,\n      \"exp\": 1550137385\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:05.920] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:05.927] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 8
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NSwiZXhwIjoxNTUwMTM3Mzg1fQ.P2-Axzw5gHaj-MlJz8micci2_bl32xb7RJsYjdookMk\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130185,\n      \"exp\": 1550137385\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:06.768] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:06.775] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 8
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NiwiZXhwIjoxNTUwMTM3Mzg2fQ.qIFHPB8-Cl8eRqJFUkZR1cJkryAwe-RuMGILc1NL0ro\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130186,\n      \"exp\": 1550137386\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:07.168] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:07.176] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 9
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NywiZXhwIjoxNTUwMTM3Mzg3fQ.na4L-lnFXZuL7j_4lpBQbBvzO2JGTu9FwSn9BKyIqtI\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130187,\n      \"exp\": 1550137387\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:07.579] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:07.587] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 9
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4NywiZXhwIjoxNTUwMTM3Mzg3fQ.na4L-lnFXZuL7j_4lpBQbBvzO2JGTu9FwSn9BKyIqtI\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130187,\n      \"exp\": 1550137387\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-14T15:43:08.064] [INFO] response - DEBUG=>999999999999
+[2019-02-14T15:43:08.071] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 8
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"注册成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDEzMDE4OCwiZXhwIjoxNTUwMTM3Mzg4fQ.xWJ5Oaaqy7ZGNQOeUupuz3JJCbm1vt2_ATXtzFplxJ4\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550130188,\n      \"exp\": 1550137388\n    }\n  }\n}"
+*************** response log end ***************
+
