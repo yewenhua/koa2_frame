@@ -5,7 +5,7 @@
 import crypto from 'crypto';
 import xml2js from 'xml2js';
 
-class Wechat {
+class WechatService {
     static async checkSignature(timestamp, nonce, token) {
         let hash = crypto.createHash('sha1');
         const arr = [token, timestamp, nonce].sort();
@@ -25,6 +25,7 @@ class Wechat {
     }
 
     static async reply (content, fromUsername, toUsername) {
+        //回复消息模板
         let tpl = `
              <xml>
                  <ToUserName><![CDATA[<%-toUsername%>]]></ToUserName>
@@ -73,7 +74,7 @@ class Wechat {
 
         let info = {};
         let type = 'text';
-        info.content = content || '';
+        info.content = content || '默认消息';
         // 判断消息类型
         if (Array.isArray(content)) {
             type = 'news';
@@ -84,7 +85,7 @@ class Wechat {
                 info.content = content.content;
             }
             else {
-                type = 'music'
+                type = 'music';
             }
         }
         info.msgType = type;
@@ -95,4 +96,4 @@ class Wechat {
     }
 }
 
-export default Wechat
+export default WechatService

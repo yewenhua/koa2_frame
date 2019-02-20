@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/services/Wechat.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/WxController.js" afterPath="$PROJECT_DIR$/controllers/WxController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/wechat.js" afterPath="$PROJECT_DIR$/router/wechat.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,32 +16,35 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="wechat.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/router/wechat.js">
+      <file leaf-file-name="WxController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/WxController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="801">
-              <caret line="41" column="21" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+            <state relative-caret-position="462">
+              <caret line="45" column="42" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#0#46#0" expanded="true" />
+                <element signature="n#!!block;n#check#0;n#WxController#0" expanded="false" />
+                <element signature="e#864#949#0" expanded="false" />
+                <element signature="e#2080#4776#0" expanded="false" />
+                <element signature="e#2955#3679#0" expanded="false" />
+                <element signature="e#4151#4525#0" expanded="false" />
+                <element signature="e#5067#5244#0" expanded="false" />
+                <element signature="e#5388#5565#0" expanded="false" />
+                <element signature="n#!!block;n#getToken#0;n#WxController#0" expanded="false" />
+                <element signature="n#!!block;n#getJsapiTicket#0;n#WxController#0" expanded="false" />
+                <element signature="n#!!block;n#sign#0;n#WxController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wechat.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/Wechat.js">
+      <file leaf-file-name="wechat.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/router/wechat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="12" />
               <folding>
-                <element signature="e#51#79#0" expanded="true" />
-                <marker date="1550640232581" expanded="false" signature="818:2959" ph="..." />
-                <marker date="1550640232581" expanded="true" signature="1226:1687" ph="..." />
-                <marker date="1550640232581" expanded="true" signature="1305:1631" ph="..." />
-                <marker date="1550640232581" expanded="true" signature="1769:2123" ph="..." />
-                <marker date="1550640232581" expanded="true" signature="2205:2300" ph="..." />
-                <marker date="1550640232581" expanded="true" signature="2382:2477" ph="..." />
-                <marker date="1550640232581" expanded="true" signature="2559:2798" ph="..." />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,9 +61,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sequelize</find>
-      <find>UserModel</find>
-      <find>koaBody</find>
       <find>compose</find>
       <find>formatReqLog</find>
       <find>babelRegister</find>
@@ -87,6 +88,9 @@
       <find>captchaQq</find>
       <find>web</find>
       <find>formatted</find>
+      <find>msgType</find>
+      <find>content</find>
+      <find>Wechat</find>
     </findStrings>
     <dirStrings>
       <dir>D:\workspace\koa_project</dir>
@@ -109,7 +113,6 @@
         <option value="$PROJECT_DIR$/middlewares/reponse.js" />
         <option value="$PROJECT_DIR$/router/api.js" />
         <option value="$PROJECT_DIR$/utils/LogUtils.js" />
-        <option value="$PROJECT_DIR$/controllers/WxController.js" />
         <option value="$PROJECT_DIR$/logs/response/response-2019-01-15-10.log" />
         <option value="$PROJECT_DIR$/utils/LogUtil.js" />
         <option value="$PROJECT_DIR$/logs/response/response-2019-01-15-11.log" />
@@ -144,9 +147,11 @@
         <option value="$PROJECT_DIR$/services/JsDati.js" />
         <option value="$PROJECT_DIR$/services/UserAgent.js" />
         <option value="$PROJECT_DIR$/config/wechat.js" />
-        <option value="$PROJECT_DIR$/services/Wechat.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/router/wechat.js" />
+        <option value="$PROJECT_DIR$/services/Wechat.js" />
+        <option value="$PROJECT_DIR$/services/WechatService.js" />
+        <option value="$PROJECT_DIR$/controllers/WxController.js" />
       </list>
     </option>
   </component>
@@ -242,35 +247,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="koa_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="koa_project" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="koa_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="koa_project" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -383,12 +360,12 @@
       <workItem from="1550109158475" duration="2655000" />
       <workItem from="1550123493558" duration="29666000" />
       <workItem from="1550301270719" duration="4063000" />
-      <workItem from="1550631154795" duration="6437000" />
+      <workItem from="1550631154795" duration="12725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162027000" />
+    <option name="totallyTimeSpent" value="168315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -428,14 +405,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/error/error-2019-01-17-13.log" />
     <entry file="file://$PROJECT_DIR$/middlewares/error.js" />
     <entry file="file://$PROJECT_DIR$/logs/error/error-2019-01-17-14.log" />
     <entry file="file://$PROJECT_DIR$/logs/error/error-2019-01-17.log">
@@ -514,13 +483,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/LogUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -713,16 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/WxController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="36" column="33" lean-forward="true" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#45#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/CaptchaQQ.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -730,14 +682,6 @@
           <folding>
             <element signature="e#0#49#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/UserController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="15" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -793,27 +737,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/router/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="52" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="1" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/LogUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/UserController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/services/Wechat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="74">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/WechatService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="76" column="39" lean-forward="false" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
           <folding>
-            <element signature="e#51#79#0" expanded="true" />
-            <marker date="1550640232581" expanded="false" signature="818:2959" ph="..." />
-            <marker date="1550640232581" expanded="true" signature="1226:1687" ph="..." />
-            <marker date="1550640232581" expanded="true" signature="1305:1631" ph="..." />
-            <marker date="1550640232581" expanded="true" signature="1769:2123" ph="..." />
-            <marker date="1550640232581" expanded="true" signature="2205:2300" ph="..." />
-            <marker date="1550640232581" expanded="true" signature="2382:2477" ph="..." />
-            <marker date="1550640232581" expanded="true" signature="2559:2798" ph="..." />
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1550646809125" expanded="false" signature="842:2983" ph="..." />
+            <marker date="1550646809125" expanded="true" signature="1250:1711" ph="..." />
+            <marker date="1550646809125" expanded="true" signature="1329:1655" ph="..." />
+            <marker date="1550646809125" expanded="true" signature="1793:2147" ph="..." />
+            <marker date="1550646809125" expanded="true" signature="2229:2324" ph="..." />
+            <marker date="1550646809125" expanded="true" signature="2406:2501" ph="..." />
+            <marker date="1550646809125" expanded="true" signature="2583:2822" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/WxController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="45" column="42" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+            <element signature="n#!!block;n#check#0;n#WxController#0" expanded="false" />
+            <element signature="e#864#949#0" expanded="false" />
+            <element signature="e#2080#4776#0" expanded="false" />
+            <element signature="e#2955#3679#0" expanded="false" />
+            <element signature="e#4151#4525#0" expanded="false" />
+            <element signature="e#5067#5244#0" expanded="false" />
+            <element signature="e#5388#5565#0" expanded="false" />
+            <element signature="n#!!block;n#getToken#0;n#WxController#0" expanded="false" />
+            <element signature="n#!!block;n#getJsapiTicket#0;n#WxController#0" expanded="false" />
+            <element signature="n#!!block;n#sign#0;n#WxController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/router/wechat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="801">
-          <caret line="41" column="21" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+        <state relative-caret-position="60">
+          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="12" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
