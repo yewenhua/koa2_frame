@@ -165,6 +165,10 @@ class WxController extends BaseController{
             }
         });
     }
+
+    static async wxpay(ctx){
+
+    }
 }
 
 export default WxController;

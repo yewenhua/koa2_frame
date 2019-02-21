@@ -38,7 +38,8 @@ app.use(koaJwt({
     path: [
         /^\/api\/login/,
         /^\/api\/forget/,
-        /^\/wechat\/token/
+        /^\/wechat\/token/,
+        /^\/wechat\/pay/
     ]
     //数组中的路径不需要通过jwt验证
 }));
