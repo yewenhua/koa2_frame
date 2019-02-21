@@ -35,7 +35,12 @@ app.use(staticFun);
 app.use(koaJwt({
     secret: 'my_secret'
 }).unless({
-    path: [/^\/api\/login/, /^\/api\/forget/] //数组中的路径不需要通过jwt验证
+    path: [
+        /^\/api\/login/,
+        /^\/api\/forget/,
+        /^\/wechat\/token/
+    ]
+    //数组中的路径不需要通过jwt验证
 }));
 
 

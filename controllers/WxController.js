@@ -1,5 +1,4 @@
 import BaseController from './BaseController';
-import sha1 from 'sha1';
 import wxconf from '../config/wechat';
 import WechatService from '../services/WechatService';
 import rawBody from 'raw-body';
@@ -60,12 +59,11 @@ class WxController extends BaseController{
                         switch (eventKey) {
                             case 'V1001_FIRST':
                                 //单图文消息
-                                let url = 'http://maoxy.com';
                                 content = [{
                                     title: '欢迎光临',
                                     description: '点击查看~',
                                     picurl:  'https://share.voc.so/app/images/t77_thumb@2x.png',
-                                    url: url
+                                    url: 'http://maoxy.com'
                                 }];
                                 break;
                             case 'V1002_SECOND':
@@ -151,42 +149,21 @@ class WxController extends BaseController{
         }
     }
 
-    static async getToken(ctx) {
-        // await ……
-        let APPID = 'wxdbe18f838fcee2ba';
-        let APPSECRET = 'c4ed6f5686ede08670db66769dfc63b4'
-
-        let options = {
-            method: 'GET',
-            hostname: 'api.weixin.qq.com',
-            port: 80,
-            path: '/cgi-bin/token?grant_type=client_credential&appid='+APPID+'&secret='+APPSECRET
-        };
-
-        let url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + APPID + '&secret=' + APPSECRET;
-
-    }
-
-    static async getJsapiTicket(token) {
-        // await ……
-        let url = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='+token+'&type=jsapi';
-    }
-
-    static async sign(ctx) {
-        // await ……
-        const noncestr='Wm3WZYTPz0wzccnW12';
-        const url = decodeURIComponent(ctx.url);
-        const timestamp = Date.parse(new Date)/1000;
-        let jsticket = '';
-
-        let data = {
-            noncestr: noncestr,
-            timestamp: timestamp,
-            url: url,
-            jsapi_ticket:list[0].jsticket,
-            signature:sha1('jsapi_ticket=' + jsticket + '&noncestr=' + noncestr + '&timestamp=' + timestamp + '&url=' + url)
-        }
-
+    static async token(ctx){
+        let APPID = wxconf.appID;
+        let APPSECRET = wxconf.appSecret;
+        let url = decodeURIComponent(ctx.host + ctx.url);
+        let accessToken = await WechatService.accessToken(APPID, APPSECRET);
+        let jsapiTicket = await WechatService.jsapiTicket(APPID, APPSECRET);
+        let jssdkSign = await WechatService.jssdkSign(url, APPID);
+        return ctx.success({
+            msg:'登录成功',
+            data: {
+                accessToken,
+                jsapiTicket,
+                jssdkSign
+            }
+        });
     }
 }
 

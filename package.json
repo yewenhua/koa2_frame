@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "crypto": "^1.0.1",
+    "crypto-js": "^3.1.9-1",
     "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "ioredis": "^4.6.2",
@@ -33,9 +34,11 @@
     "puppeteer": "^1.12.2",
     "puppeteer-core": "^1.12.2",
     "raw-body": "^2.3.3",
+    "redis": "^2.8.0",
     "request": "^2.88.0",
     "sequelize": "^4.42.0",
     "sha1": "^1.1.1",
+    "superagent": "^4.1.0",
     "xml2js": "^0.4.19",
     "yargs": "^13.2.0"
   },

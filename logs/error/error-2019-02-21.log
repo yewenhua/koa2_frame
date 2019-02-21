@@ -1,0 +1,309 @@
+[2019-02-21T09:56:23.374] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 7
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-21T09:56:49.205] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 15
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-21T09:56:49.984] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 2
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-21T11:05:20.092] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 18
+err name: ReferenceError
+err message: window is not defined
+err stack: ReferenceError: window is not defined
+    at _callee3$ (D:/workspace/koa_project/controllers/WxController.js:153:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\controllers\WxController.js:31:191)
+    at D:\workspace\koa_project\controllers\WxController.js:31:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa_project\controllers\WxController.js:31:99
+    at token (D:\workspace\koa_project\controllers\WxController.js:346:30)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa_project\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa_project\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa_project\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa_project\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa_project\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa_project\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+*************** error log end ***************
+
+[2019-02-21T11:05:23.066] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 2
+err name: ReferenceError
+err message: window is not defined
+err stack: ReferenceError: window is not defined
+    at _callee3$ (D:/workspace/koa_project/controllers/WxController.js:153:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\controllers\WxController.js:31:191)
+    at D:\workspace\koa_project\controllers\WxController.js:31:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa_project\controllers\WxController.js:31:99
+    at token (D:\workspace\koa_project\controllers\WxController.js:346:30)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa_project\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa_project\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa_project\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa_project\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa_project\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa_project\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+*************** error log end ***************
+
+[2019-02-21T13:15:16.767] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 485
+err name: ReferenceError
+err message: wxconf is not defined
+err stack: ReferenceError: wxconf is not defined
+    at Function._callee7$ (D:/workspace/koa_project/services/WechatService.js:202:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\services\WechatService.js:43:191)
+    at D:\workspace\koa_project\services\WechatService.js:43:361
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-21T13:15:18.749] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 6
+err name: ReferenceError
+err message: wxconf is not defined
+err stack: ReferenceError: wxconf is not defined
+    at Function._callee7$ (D:/workspace/koa_project/services/WechatService.js:202:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\services\WechatService.js:43:191)
+    at D:\workspace\koa_project\services\WechatService.js:43:361
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-21T13:15:19.171] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 5
+err name: ReferenceError
+err message: wxconf is not defined
+err stack: ReferenceError: wxconf is not defined
+    at Function._callee7$ (D:/workspace/koa_project/services/WechatService.js:202:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\services\WechatService.js:43:191)
+    at D:\workspace\koa_project\services\WechatService.js:43:361
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-21T13:15:19.386] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 5
+err name: ReferenceError
+err message: wxconf is not defined
+err stack: ReferenceError: wxconf is not defined
+    at Function._callee7$ (D:/workspace/koa_project/services/WechatService.js:202:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\services\WechatService.js:43:191)
+    at D:\workspace\koa_project\services\WechatService.js:43:361
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-21T13:15:19.579] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 4
+err name: ReferenceError
+err message: wxconf is not defined
+err stack: ReferenceError: wxconf is not defined
+    at Function._callee7$ (D:/workspace/koa_project/services/WechatService.js:202:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\services\WechatService.js:43:191)
+    at D:\workspace\koa_project\services\WechatService.js:43:361
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-21T13:15:19.778] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 5
+err name: ReferenceError
+err message: wxconf is not defined
+err stack: ReferenceError: wxconf is not defined
+    at Function._callee7$ (D:/workspace/koa_project/services/WechatService.js:202:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\services\WechatService.js:43:191)
+    at D:\workspace\koa_project\services\WechatService.js:43:361
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-21T13:15:19.996] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 6
+err name: ReferenceError
+err message: wxconf is not defined
+err stack: ReferenceError: wxconf is not defined
+    at Function._callee7$ (D:/workspace/koa_project/services/WechatService.js:202:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\services\WechatService.js:43:191)
+    at D:\workspace\koa_project\services\WechatService.js:43:361
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-21T13:15:20.235] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 4
+err name: ReferenceError
+err message: wxconf is not defined
+err stack: ReferenceError: wxconf is not defined
+    at Function._callee7$ (D:/workspace/koa_project/services/WechatService.js:202:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\services\WechatService.js:43:191)
+    at D:\workspace\koa_project\services\WechatService.js:43:361
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-21T13:15:39.081] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 7
+err name: ReferenceError
+err message: wxconf is not defined
+err stack: ReferenceError: wxconf is not defined
+    at Function._callee7$ (D:/workspace/koa_project/services/WechatService.js:202:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\services\WechatService.js:43:191)
+    at D:\workspace\koa_project\services\WechatService.js:43:361
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-21T13:15:49.903] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 16
+err name: ReferenceError
+err message: wxconf is not defined
+err stack: ReferenceError: wxconf is not defined
+    at Function._callee7$ (D:/workspace/koa_project/services/WechatService.js:202:13)
+    at tryCatch (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa_project\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa_project\services\WechatService.js:43:191)
+    at D:\workspace\koa_project\services\WechatService.js:43:361
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+

@@ -8,6 +8,7 @@ const wechat = new Router({
 wechat
     .get('/entry', WxCtrl.check)
     .post('/entry', WxCtrl.run)
+    .get('/token', WxCtrl.token)
 
 
 export default wechat

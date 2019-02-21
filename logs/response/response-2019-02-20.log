@@ -1,13 +1,218 @@
-[2019-02-20T13:38:33.684] [INFO] response - DEBUG=>999999999999
-[2019-02-20T13:38:33.751] [INFO] response - 
+[2019-02-20T16:37:51.719] [INFO] response - 
 *************** response log start ***************
 request method: GET
-request originalUrl:  /api/login
+request originalUrl:  /wechat/test
 request client ip:  ::1
 request query:  {}
-response time: 96
+response time: 38
 response status: 200
 response body: 
-"{\n  \"code\": 200,\n  \"msg\": \"登录成功HELLO:  (jack)\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2F0IiwiaWQiOjEsImlhdCI6MTU1MDY0MTExMywiZXhwIjoxNTUwNjQ4MzEzfQ.y8UeB9tfr_aCANh0TXylnQCWD4-bGRRCTAzQKsLlkLY\",\n    \"payload\": {\n      \"name\": \"cat\",\n      \"id\": 1,\n      \"iat\": 1550641113,\n      \"exp\": 1550648313\n    }\n  }\n}"
+"test"
+*************** response log end ***************
+
+[2019-02-20T16:37:51.925] [INFO] response - DEBUG=>18_vHCOHDRx-2gBwIyz6j7DCl6bftHPoZ8Zr-jN_tPSDvaxFvaB87I0NRZ3HP6iup2lF03wRPSqcWjr7X9c3Z52xGavyjPDCPorgK1dACDSKpFdEX8sg2flKs-MguWqCBSTOnaQ_xGRJxttEEcaAIIiAGAUCC
+[2019-02-20T16:55:52.684] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 19
+response status: 200
+response body: 
+"test"
+*************** response log end ***************
+
+[2019-02-20T16:55:52.948] [INFO] response - DEBUG=>18_PqY7dlLwRUzL5fFPvLEGBpzTBBKFiSua-UzBvUnV0MvfRBBO6nI6GpgTp7nVr2AGpqlHVHMH1bEG3gqohnQrNAATEeX9oX8IwliBxselR4lJeO-mzXkr5DD4WFjP67GcwbKK-eL_GYgERlGHSGPgABAIWF
+[2019-02-20T16:57:16.204] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 7
+response status: 200
+response body: 
+"test"
+*************** response log end ***************
+
+[2019-02-20T16:57:30.093] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 5
+response status: 200
+response body: 
+"test"
+*************** response log end ***************
+
+[2019-02-20T17:02:35.787] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 16
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": {}\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:03:08.100] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 4
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": {}\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:03:08.555] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 1
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": {}\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:03:08.783] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 2
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": {}\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:03:08.935] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 2
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": {}\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:03:09.095] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 2
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": {}\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:03:09.273] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 2
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": {}\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:03:29.034] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 18
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": {}\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:03:31.872] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 3
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": {}\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:09:12.443] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 32
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": {}\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:10:05.221] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 20
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": \"18_PqY7dlLwRUzL5fFPvLEGBpzTBBKFiSua-UzBvUnV0MvfRBBO6nI6GpgTp7nVr2AGpqlHVHMH1bEG3gqohnQrNAATEeX9oX8IwliBxselR4lJeO-mzXkr5DD4WFjP67GcwbKK-eL_GYgERlGHSGPgABAIWF\"\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:10:07.308] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 6
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": \"18_PqY7dlLwRUzL5fFPvLEGBpzTBBKFiSua-UzBvUnV0MvfRBBO6nI6GpgTp7nVr2AGpqlHVHMH1bEG3gqohnQrNAATEeX9oX8IwliBxselR4lJeO-mzXkr5DD4WFjP67GcwbKK-eL_GYgERlGHSGPgABAIWF\"\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:10:07.843] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 5
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": \"18_PqY7dlLwRUzL5fFPvLEGBpzTBBKFiSua-UzBvUnV0MvfRBBO6nI6GpgTp7nVr2AGpqlHVHMH1bEG3gqohnQrNAATEeX9oX8IwliBxselR4lJeO-mzXkr5DD4WFjP67GcwbKK-eL_GYgERlGHSGPgABAIWF\"\n  }\n}"
+*************** response log end ***************
+
+[2019-02-20T17:10:08.195] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 5
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": \"18_PqY7dlLwRUzL5fFPvLEGBpzTBBKFiSua-UzBvUnV0MvfRBBO6nI6GpgTp7nVr2AGpqlHVHMH1bEG3gqohnQrNAATEeX9oX8IwliBxselR4lJeO-mzXkr5DD4WFjP67GcwbKK-eL_GYgERlGHSGPgABAIWF\"\n  }\n}"
 *************** response log end ***************
 

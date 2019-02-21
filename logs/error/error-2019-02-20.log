@@ -15,3 +15,173 @@ err stack: UnauthorizedError: Authentication Error
     at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
 *************** error log end ***************
 
+[2019-02-20T16:17:25.737] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 10
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-20T16:17:25.765] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /favicon.ico
+request client ip:  ::1
+request query:  {}
+response time: 1
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-20T16:20:03.859] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 8
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-20T16:20:04.538] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 2
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-20T16:20:04.888] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 2
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-20T16:20:05.120] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 2
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-20T16:20:05.304] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 1
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-20T16:20:05.544] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 2
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-20T16:20:06.032] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 2
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-20T16:20:06.272] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /wechat/test
+request client ip:  ::1
+request query:  {}
+response time: 2
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+

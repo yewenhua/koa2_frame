@@ -1,0 +1,72 @@
+[2019-02-21T13:16:08.833] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 22
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_sIqWkxMOvQ5Xu2BQZGGfArfEcIQy3zL0iji8H6HKThXOrIl7usssakzmDbumickKbG3fqPQQ0dqRHd4qHAzZWQ-QjNakdJKc6M5OAkYsqkuNmAV49o9sWFGBoKd3zHHpNa7I2SnOC8RpcUk7FDQjACAWUH\"\n  }\n}"
+*************** response log end ***************
+
+[2019-02-21T13:16:59.867] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 26
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_sIqWkxMOvQ5Xu2BQZGGfArfEcIQy3zL0iji8H6HKThXOrIl7usssakzmDbumickKbG3fqPQQ0dqRHd4qHAzZWQ-QjNakdJKc6M5OAkYsqkuNmAV49o9sWFGBoKd3zHHpNa7I2SnOC8RpcUk7FDQjACAWUH\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P54irXV7XieFUvuXW_BdRhNKal36rNRZe8nemSDE4iiEDw\"\n  }\n}"
+*************** response log end ***************
+
+[2019-02-21T13:17:01.900] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 5
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_sIqWkxMOvQ5Xu2BQZGGfArfEcIQy3zL0iji8H6HKThXOrIl7usssakzmDbumickKbG3fqPQQ0dqRHd4qHAzZWQ-QjNakdJKc6M5OAkYsqkuNmAV49o9sWFGBoKd3zHHpNa7I2SnOC8RpcUk7FDQjACAWUH\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P54irXV7XieFUvuXW_BdRhNKal36rNRZe8nemSDE4iiEDw\"\n  }\n}"
+*************** response log end ***************
+
+[2019-02-21T13:17:02.553] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 3
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_sIqWkxMOvQ5Xu2BQZGGfArfEcIQy3zL0iji8H6HKThXOrIl7usssakzmDbumickKbG3fqPQQ0dqRHd4qHAzZWQ-QjNakdJKc6M5OAkYsqkuNmAV49o9sWFGBoKd3zHHpNa7I2SnOC8RpcUk7FDQjACAWUH\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P54irXV7XieFUvuXW_BdRhNKal36rNRZe8nemSDE4iiEDw\"\n  }\n}"
+*************** response log end ***************
+
+[2019-02-21T13:17:02.968] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 3
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_sIqWkxMOvQ5Xu2BQZGGfArfEcIQy3zL0iji8H6HKThXOrIl7usssakzmDbumickKbG3fqPQQ0dqRHd4qHAzZWQ-QjNakdJKc6M5OAkYsqkuNmAV49o9sWFGBoKd3zHHpNa7I2SnOC8RpcUk7FDQjACAWUH\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P54irXV7XieFUvuXW_BdRhNKal36rNRZe8nemSDE4iiEDw\"\n  }\n}"
+*************** response log end ***************
+
+[2019-02-21T13:18:00.213] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::1
+request query:  {}
+response time: 22
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_sIqWkxMOvQ5Xu2BQZGGfArfEcIQy3zL0iji8H6HKThXOrIl7usssakzmDbumickKbG3fqPQQ0dqRHd4qHAzZWQ-QjNakdJKc6M5OAkYsqkuNmAV49o9sWFGBoKd3zHHpNa7I2SnOC8RpcUk7FDQjACAWUH\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P54irXV7XieFUvuXW_BdRhNKal36rNRZe8nemSDE4iiEDw\",\n    \"jssdkSign\": {\n      \"jsapi_ticket\": null,\n      \"nonceStr\": \"gjrj8qypw3c\",\n      \"timestamp\": \"1550726280\",\n      \"url\": \"localhost:3000/wechat/token\",\n      \"signature\": \"506114cecfa1a1bc77f4b063b79fa64e6b1cba22\",\n      \"appId\": \"wx0fe97dc71af51a56\"\n    }\n  }\n}"
+*************** response log end ***************
+
