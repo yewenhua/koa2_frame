@@ -15,13 +15,13 @@ class WxpayService {
         // 支付的 key
         const PAY_API_KEY = params.payApiKey;
         // attach 是一个任意的字符串, 会原样返回, 可以用作一个标记
-        const attach = 'GJS-ORG';
+        const attach = params.attach;
         // 一个随机字符串
         const nonceStr = await WxpayService.nonceStr();
         // 用户的 openId
         const openId = params.openId;
         // 生成商家内部自定义的订单号, 商家内部的系统用的, 不用 attach 加入也是可以的
-        const tradeId = await WxpayService.tradeId(attach);
+        const tradeId = params.tradeId;
         // 生成签名
 
         let productIntro = params.productIntro || 'pay for goods';
@@ -46,6 +46,14 @@ class WxpayService {
 
         //将微信需要的数据拼成 xml 发送出去
         const sendData = await WxpayService.prePaySendData(appId, attach, productIntro, mchId, nonceStr, notifyUrl, openId, tradeId, ip, price, sign);
+        let url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
+        let rtnData = await request.post(url)
+            .set('Content-Type', 'application/xml')
+            .send(sendData);
+
+        if (rtnData.status == 200 && rtnData.text) {
+
+        }
     }
 
     static async notify(params, PAY_API_KEY){

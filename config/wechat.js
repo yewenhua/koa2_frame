@@ -5,5 +5,7 @@
 module.exports = {
     appID: process.env.WX_APPID || '',
     appSecret: process.env.WX_APPSECRET || '',
-    token: process.env.WX_TOKEN || ''
+    token: process.env.WX_TOKEN || '',
+    mchId: process.env.MCHID || '',
+    payApiKey: process.env.PAYAPIKEY || ''
 }

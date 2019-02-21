@@ -1,6 +1,7 @@
 import BaseController from './BaseController';
 import wxconf from '../config/wechat';
 import WechatService from '../services/WechatService';
+import WxpayService from '../services/WxpayService';
 import rawBody from 'raw-body';
 
 const logUtil = require('../utils/logUtil');
@@ -167,7 +168,33 @@ class WxController extends BaseController{
     }
 
     static async wxpay(ctx){
+        let appId = wxconf.appID;
+        let appSecret = wxconf.appSecret;
+        let mchId = wxconf.mchId;
+        let payApiKey = wxconf.payApiKey;
+        let attach = 'maoxy';
+        let tradeId = await WxpayService.tradeId(attach);
 
+        let params = {
+            appId: appId,
+            appSecret: appSecret,
+            mchId: mchId,
+            payApiKey: payApiKey,
+            tradeId: tradeId,
+            openId: '',
+            attach: attach,
+            productIntro: '',
+            notifyUrl: '',
+            price: '',
+            ip: ''
+        };
+        let prepayInfo = await WxpayService.prepay(params);
+        if(prepayInfo && prepayInfo.code == 0){
+            let payInfo = await WxpayService.payParams(appId, prepayInfo.data.prepayId, tradeId, payApiKey);
+        }
+        else{
+
+        }
     }
 }
 
