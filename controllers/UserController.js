@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 import UserModel from '../models/UserModel'
 import BaseController from './BaseController'
-import logUtil from '../utils/logUtil';
 
 /*
  * UserController
