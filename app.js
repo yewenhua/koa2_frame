@@ -9,7 +9,7 @@ const router = new koaRouter();
 
 import convert from 'koa-convert';   //比较老的使用Generate函数的koa中间件(< koa2)，官方提供了一个灵活的工具可以将他们转为基于Promise的中间件供Koa2使用
 import json from 'koa-json';
-import bodyParser from 'koa-bodyparser';
+import koaBody from 'koa-body';
 
 import admin from './router/admin'
 import api from './router/api'
@@ -39,7 +39,8 @@ app.use(koaJwt({
         /^\/api\/login/,
         /^\/api\/forget/,
         /^\/wechat\/token/,
-        /^\/wechat\/pay/
+        /^\/wechat\/pay/,
+        /^\/api\/upload/
     ]
     //数组中的路径不需要通过jwt验证
 }));
@@ -49,7 +50,14 @@ app.use(koaJwt({
 app.use(convert(json()));
 
 // body解析
-app.use(bodyParser());
+app.use(koaBody({
+    multipart:true, // 支持文件上传
+    formidable:{
+        uploadDir: path.join(__dirname, 'static/upload/'), // 设置文件上传目录
+        keepExtensions: true,    // 保持文件的后缀
+        maxFieldsSize: 10 * 1024 * 1024, // 文件上传大小
+    }
+}));
 
 
 app.use(admin.routes()).use(admin.allowedMethods());

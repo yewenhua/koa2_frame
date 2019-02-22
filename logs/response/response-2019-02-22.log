@@ -1,0 +1,75 @@
+[2019-02-22T10:43:10.326] [INFO] response - DEBUG=>ACCESSTOKEN==>18_s9-xtk34myaZAXFaLLG-Cg_IULz1TYx6V7drR7naOYl8YaeCAYS2JZ6tcJIrtANOPbaXXFLbP4k00N7d8Tj36BWDpAQkVMYGh3B7isT8IRDTpKVkD0CDU2eTa3IVOWbAIAFYG
+[2019-02-22T10:43:10.468] [INFO] response - DEBUG=>TICKET==>HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P550DWsKHucT_X3Ix7DO0FGLLfc0xBRPepbTmnpmzC-24g
+[2019-02-22T10:43:10.569] [INFO] response - DEBUG=>ACCESSTOKEN==>undefined
+[2019-02-22T10:43:10.582] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::ffff:127.0.0.1
+request query:  {}
+response time: 550
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_s9-xtk34myaZAXFaLLG-Cg_IULz1TYx6V7drR7naOYl8YaeCAYS2JZ6tcJIrtANOPbaXXFLbP4k00N7d8Tj36BWDpAQkVMYGh3B7isT8IRDTpKVkD0CDU2eTa3IVOWbAIAFYG\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P550DWsKHucT_X3Ix7DO0FGLLfc0xBRPepbTmnpmzC-24g\",\n    \"jssdkSign\": {\n      \"jsapi_ticket\": null,\n      \"nonceStr\": \"re9cb7171ha\",\n      \"timestamp\": \"1550803390\",\n      \"url\": \"www.pf.com:3000/wechat/token\",\n      \"signature\": \"d0e24977f78781c9af52dc6c23e0a6cce0485db4\",\n      \"appId\": \"wx0fe97dc71af51a56\"\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-22T10:47:34.205] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::ffff:127.0.0.1
+request query:  {}
+response time: 34
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_s9-xtk34myaZAXFaLLG-Cg_IULz1TYx6V7drR7naOYl8YaeCAYS2JZ6tcJIrtANOPbaXXFLbP4k00N7d8Tj36BWDpAQkVMYGh3B7isT8IRDTpKVkD0CDU2eTa3IVOWbAIAFYG\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P550DWsKHucT_X3Ix7DO0FGLLfc0xBRPepbTmnpmzC-24g\",\n    \"jssdkSign\": {\n      \"jsapi_ticket\": null,\n      \"nonceStr\": \"8zawvwj23uu\",\n      \"timestamp\": \"1550803654\",\n      \"url\": \"localhost:3000/wechat/token\",\n      \"signature\": \"e9226eebc56ea5e420c4aefd6ae9b8792e6a08d6\",\n      \"appId\": \"wx0fe97dc71af51a56\"\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-22T10:47:36.283] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::ffff:127.0.0.1
+request query:  {}
+response time: 7
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_s9-xtk34myaZAXFaLLG-Cg_IULz1TYx6V7drR7naOYl8YaeCAYS2JZ6tcJIrtANOPbaXXFLbP4k00N7d8Tj36BWDpAQkVMYGh3B7isT8IRDTpKVkD0CDU2eTa3IVOWbAIAFYG\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P550DWsKHucT_X3Ix7DO0FGLLfc0xBRPepbTmnpmzC-24g\",\n    \"jssdkSign\": {\n      \"jsapi_ticket\": null,\n      \"nonceStr\": \"dn9sbne34pg\",\n      \"timestamp\": \"1550803656\",\n      \"url\": \"localhost:3000/wechat/token\",\n      \"signature\": \"8e2a9fa6c9ddc0f235168f564b8e2120ae33e124\",\n      \"appId\": \"wx0fe97dc71af51a56\"\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-22T10:47:36.880] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::ffff:127.0.0.1
+request query:  {}
+response time: 4
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_s9-xtk34myaZAXFaLLG-Cg_IULz1TYx6V7drR7naOYl8YaeCAYS2JZ6tcJIrtANOPbaXXFLbP4k00N7d8Tj36BWDpAQkVMYGh3B7isT8IRDTpKVkD0CDU2eTa3IVOWbAIAFYG\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P550DWsKHucT_X3Ix7DO0FGLLfc0xBRPepbTmnpmzC-24g\",\n    \"jssdkSign\": {\n      \"jsapi_ticket\": null,\n      \"nonceStr\": \"s67iv7ca9cm\",\n      \"timestamp\": \"1550803656\",\n      \"url\": \"localhost:3000/wechat/token\",\n      \"signature\": \"e99ea9dd4107fa4ba92c5225d3ab885aac4ee474\",\n      \"appId\": \"wx0fe97dc71af51a56\"\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-22T10:47:37.102] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::ffff:127.0.0.1
+request query:  {}
+response time: 5
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_s9-xtk34myaZAXFaLLG-Cg_IULz1TYx6V7drR7naOYl8YaeCAYS2JZ6tcJIrtANOPbaXXFLbP4k00N7d8Tj36BWDpAQkVMYGh3B7isT8IRDTpKVkD0CDU2eTa3IVOWbAIAFYG\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P550DWsKHucT_X3Ix7DO0FGLLfc0xBRPepbTmnpmzC-24g\",\n    \"jssdkSign\": {\n      \"jsapi_ticket\": null,\n      \"nonceStr\": \"1sbey41ta1vj\",\n      \"timestamp\": \"1550803657\",\n      \"url\": \"localhost:3000/wechat/token\",\n      \"signature\": \"6c354c149ebd85fdc3f1a0c7d88d6b872c8aaec8\",\n      \"appId\": \"wx0fe97dc71af51a56\"\n    }\n  }\n}"
+*************** response log end ***************
+
+[2019-02-22T10:47:37.253] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /wechat/token
+request client ip:  ::ffff:127.0.0.1
+request query:  {}
+response time: 5
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"accessToken\": \"18_s9-xtk34myaZAXFaLLG-Cg_IULz1TYx6V7drR7naOYl8YaeCAYS2JZ6tcJIrtANOPbaXXFLbP4k00N7d8Tj36BWDpAQkVMYGh3B7isT8IRDTpKVkD0CDU2eTa3IVOWbAIAFYG\",\n    \"jsapiTicket\": \"HoagFKDcsGMVCIY2vOjf9iPG8wPzTJQ8zmIYHZL_P550DWsKHucT_X3Ix7DO0FGLLfc0xBRPepbTmnpmzC-24g\",\n    \"jssdkSign\": {\n      \"jsapi_ticket\": null,\n      \"nonceStr\": \"u0rjhvwi7p\",\n      \"timestamp\": \"1550803657\",\n      \"url\": \"localhost:3000/wechat/token\",\n      \"signature\": \"12750d9f59650745530d13909cced13390466bdd\",\n      \"appId\": \"wx0fe97dc71af51a56\"\n    }\n  }\n}"
+*************** response log end ***************
+

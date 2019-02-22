@@ -1,0 +1,34 @@
+[2019-02-22T10:42:57.961] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /
+request client ip:  ::ffff:127.0.0.1
+request query:  {}
+response time: 31
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-22T10:42:57.994] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /favicon.ico
+request client ip:  ::ffff:127.0.0.1
+request query:  {}
+response time: 1
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa_project\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa_project\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa_project\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa_project\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa_project\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
