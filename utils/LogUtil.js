@@ -78,10 +78,8 @@ let formatReqLog = function (req, resTime) {
     //请求参数
     if (method === 'GET') {
         logText += "request query:  " + JSON.stringify(req.query) + "\n";
-        // startTime = req.query.requestStartTime;
     } else {
         logText += "request body: " + "\n" + JSON.stringify(req.body) + "\n";
-        // startTime = req.body.requestStartTime;
     }
     //服务器响应时间
     logText += "response time: " + resTime + "\n";

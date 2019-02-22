@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import ImageModel from '../models/ImageModel'
 import BaseController from './BaseController'
-const logUtil = require('../utils/logUtil');
+const logUtil = require('../utils/LogUtil');
 
 /*
  * ImageController

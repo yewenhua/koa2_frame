@@ -5,7 +5,7 @@
 import xml2js from 'xml2js';
 import request from 'superagent';
 import Common from '../utils/common';
-const logUtil = require('../utils/logUtil');
+const logUtil = require('../utils/LogUtil');
 
 class WxpayService {
     static async prepay(params){

@@ -10,7 +10,7 @@ import redis from '../utils/redis';
 import CryptoJS from 'crypto-js';
 
 const _ = require("lodash");
-const logUtil = require('../utils/logUtil');
+const logUtil = require('../utils/LogUtil');
 
 class WechatService {
     static async checkSignature(timestamp, nonce, token) {

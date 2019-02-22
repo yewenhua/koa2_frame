@@ -4,7 +4,7 @@ import WechatService from '../services/WechatService';
 import WxpayService from '../services/WxpayService';
 import rawBody from 'raw-body';
 
-const logUtil = require('../utils/logUtil');
+const logUtil = require('../utils/LogUtil');
 
 class WxController extends BaseController{
     static async check(ctx) {
