@@ -17,7 +17,7 @@ import wechat from './router/wechat'
 
 import filter from './middlewares/filter'
 import response from './middlewares/response'
-import logUtil from './utils/logUtil';
+const logUtil = require('./utils/logUtil');
 
 //跨域
 app.use(convert(cors()));

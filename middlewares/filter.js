@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const secret = 'my_secret';
 const util = require('util');
 
-import logUtil from '../utils/logUtil';
+const logUtil = require('../utils/logUtil');
 
 /**
  * 判断token是否可用

@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import UserModel from '../models/UserModel'
 import BaseController from './BaseController'
-
+const logUtil = require('../utils/logUtil');
 /*
  * UserController
  * 静态方法并不需要实例化就可以访问 使用static，你不需要new，你可以减少内存的损耗
