@@ -8,9 +8,9 @@ import sha1 from 'sha1';
 import request from 'superagent';
 import redis from '../utils/redis';
 import CryptoJS from 'crypto-js';
+import logUtil from '../utils/logUtil';
 
 const _ = require("lodash");
-const logUtil = require('../utils/logUtil');
 
 class WechatService {
     static async checkSignature(timestamp, nonce, token) {
