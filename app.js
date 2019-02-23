@@ -1,6 +1,6 @@
 const Koa = require('koa');
 const koaRouter = require('koa-router');
-const cors = require('koa-cors');
+const cors = require('koa2-cors');
 const path = require('path');
 const koaStatic = require('koa-static');
 const koaJwt = require('koa-jwt');
@@ -20,7 +20,7 @@ import response from './middlewares/response'
 const logUtil = require('./utils/LogUtil');
 
 //跨域
-app.use(convert(cors()));
+app.use(cors());
 
 //统一处理响应请求 (成功/失败)
 app.use(response);
