@@ -21,7 +21,6 @@ class ImageController extends BaseController{
         console.log('=================');
         logUtil.logDebug('888888888888');
 
-
         // 上传单个文件
         const file = ctx.request.files.file; // 获取上传文件
         // 创建可读流
