@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/ImageController.js" afterPath="$PROJECT_DIR$/controllers/ImageController.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="580">
-              <caret line="31" column="30" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="31" selection-end-column="30" />
+              <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -312,12 +313,12 @@
       <workItem from="1550631154795" duration="32684000" />
       <workItem from="1550727594581" duration="8649000" />
       <workItem from="1550740707692" duration="13654000" />
-      <workItem from="1550890498287" duration="1145000" />
+      <workItem from="1550890498287" duration="1682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211722000" />
+    <option name="totallyTimeSpent" value="212259000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -598,6 +599,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="86" column="1" lean-forward="false" selection-start-line="86" selection-start-column="1" selection-end-line="86" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -696,16 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="23" />
-          <folding>
-            <element signature="e#377#405#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -716,10 +708,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="23" />
+          <folding>
+            <element signature="e#377#405#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
-          <caret line="31" column="30" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="31" selection-end-column="30" />
+          <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
           <folding />
         </state>
       </provider>
