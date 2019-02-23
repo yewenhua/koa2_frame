@@ -16,3 +16,51 @@ response body:
 
 [2019-02-23T09:12:58.516] [INFO] response - DEBUG=>888888888888
 [2019-02-23T09:13:34.317] [INFO] response - DEBUG=>888888888888
+[2019-02-23T13:05:32.063] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/transfer
+request client ip:  ::1
+request query:  {}
+response time: 1283
+response status: 200
+response body: 
+"{}"
+*************** response log end ***************
+
+[2019-02-23T13:06:44.641] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/transfer
+request client ip:  ::1
+request query:  {}
+response time: 853
+response status: 200
+response body: 
+"{}"
+*************** response log end ***************
+
+[2019-02-23T13:11:45.035] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/transfer
+request client ip:  ::1
+request query:  {}
+response time: 907
+response status: 200
+response body: 
+"{}"
+*************** response log end ***************
+
+[2019-02-23T13:14:07.449] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/transfer
+request client ip:  ::1
+request query:  {}
+response time: 953
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"转换成功\",\n  \"data\": {\n    \"prism_wnum\": 90,\n    \"prism_wordsInfo\": [\n      \"只\",\n      \"我\",\n      \"Zhao\",\n      \"蓝色圣火\",\n      \"人\",\n      \"不\",\n      \"一个逼格甚高，精神无“霾”\",\n      \"不\",\n      \"怕\",\n      \"作品牛逼的品牌，可以为你换\",\n      \"想\",\n      \"死\",\n      \"一种活法提供足够条件和理\",\n      \"由。\",\n      \"这\",\n      \"么\",\n      \"招\",\n      \"活\",\n      \"Xian\",\n      \"换种活法申请资格\",\n      \"自以为能在\",\n      \"文案\",\n      \"还而\",\n      \"贝\",\n      \"设计\",\n      \"想你\",\n      \"营销\",\n      \"那\",\n      \"9\",\n      \"Bang\",\n      \"插画\",\n      \"么\",\n      \"活\",\n      \"等方面， du ang一下屌爆的妙\",\n      \"吗\",\n      \"7\",\n      \"手，大神，奇咖，怪杰等人。\",\n      \"只你\",\n      \"只你\",\n      \"只你\",\n      \"换\",\n      \"穹\",\n      \"是不\",\n      \"是不\",\n      \"是不\",\n      \"不怕\",\n      \"不怕\",\n      \"不怕\",\n      \"种\",\n      \"顶\",\n      \"想创\",\n      \"想压\",\n      \"想失\",\n      \"毫意\",\n      \"无力\",\n      \"绝望\",\n      \"活\",\n      \"之\",\n      \"无\",\n      \"聊\",\n      \"无\",\n      \"新\",\n      \"到\",\n      \"希\",\n      \"法\",\n      \"下\",\n      \"意\",\n      \"死\",\n      \"望\",\n      \"口\",\n      \"口\",\n      \"你事\",\n      \"只你\",\n      \"是业\",\n      \"是不\",\n      \"否的\",\n      \"不怕\",\n      \"该\",\n      \"想挑\",\n      \"换穹\",\n      \"宽战\",\n      \"种顶\",\n      \"恕\",\n      \"活\",\n      \"自\",\n      \"法之\",\n      \"己\",\n      \"?下\",\n      \"●\",\n      \"图行天下photophoto.cnHo.20170727085325669151\"\n    ]\n  }\n}"
+*************** response log end ***************
+

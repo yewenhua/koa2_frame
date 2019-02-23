@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import ImageModel from '../models/ImageModel'
 import BaseController from './BaseController'
+import request from 'superagent';
 const logUtil = require('../utils/LogUtil');
 
 /*
@@ -10,27 +11,50 @@ const logUtil = require('../utils/LogUtil');
 
 class ImageController extends BaseController{
 
-    // 用户注册
-    static async delete(ctx) {
-        // await ……
-    }
+    // 转换
+    static async transfer(ctx) {
+        //ctx.request.body 用于获取post的参数
+        ctx.body = ctx.request.body;
+        let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
+        let appcode = "0172b53613af48ebbf0fd99fcda79342";
+        let auth = 'APPCODE ' + appcode;
+        let sendData = {
+            url: "http://pic44.photophoto.cn/20170727/0847085325669151_b.jpg",
+            prob: false
+        }
 
-    // 用户登录
-    static async upload(ctx) {
-        // await ……
-        console.log('=================');
-        logUtil.logDebug('888888888888');
+        let rtnData = await request.post(url)
+            .set('Authorization', auth)
+            .set('Content-Type', 'application/json')
+            .send(sendData);
 
-        // 上传单个文件
-        const file = ctx.request.files.file; // 获取上传文件
-        console.log('00000000000000');
-        console.log(file.path);
-
+        let format = {};
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
+                let back = [];
+                for(let i=0 ;i<rtn.prism_wordsInfo.length; i++){
+                    back.push(rtn.prism_wordsInfo[i].word);
+                }
+                format = {
+                    prism_wnum: rtn.prism_wnum,
+                    prism_wordsInfo: back
+                };
+            }
+        }
 
         return ctx.success({
-            msg:'登录成功',
+            msg:'转换成功',
+            data: format
+        });
+    }
+
+    // 上传文件
+    static async upload(ctx) {
+        const file = ctx.request.files.file; // 获取上传文件
+        return ctx.success({
+            msg:'上传成功',
             data: {
-                token: '9999999999',
                 path: file.path
             }
         });
