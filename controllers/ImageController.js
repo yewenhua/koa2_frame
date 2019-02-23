@@ -15,59 +15,51 @@ class ImageController extends BaseController{
     static async transfer(ctx) {
         //ctx.request.body 用于获取post的参数
         ctx.body = ctx.request.body;
-        let title = ctx.body.title;
-        let pics = ctx.body.pic;
-        let pic_arr = [];
-        for(let i=0; i<pics.length; i++){
-            pic_arr.push(process.env.DOMAIN + '/upload/' + pics[i].name);
-        }
-        console.log('=========================');
-        console.log(pic_arr);
-
+        let pic = "http://pic44.photophoto.cn/20170727/0847085325669151_b.jpg";
         let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
         let appcode = "0172b53613af48ebbf0fd99fcda79342";
         let auth = 'APPCODE ' + appcode;
-        let res = [];
-        for(let i=0; i<pic_arr.length; i++) {
-            let sendData = {
-                url: pic_arr[i],
-                prob: false
-            }
+        let sendData = {
+            url: pic,
+            prob: false
+        }
 
-            let rtnData = await request.post(url)
-                .set('Authorization', auth)
-                .set('Content-Type', 'application/json')
-                .send(sendData);
+        let rtnData = await request.post(url)
+            .set('Authorization', auth)
+            .set('Content-Type', 'application/json')
+            .send(sendData);
 
-            let format = {};
-            if (rtnData.status == 200 && rtnData.text) {
-                let rtn = JSON.parse(rtnData.text);
-                if (rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
-                    let back = [];
-                    for (let i = 0; i < rtn.prism_wordsInfo.length; i++) {
-                        back.push(rtn.prism_wordsInfo[i].word);
-                    }
-                    format = {
-                        prism_wnum: rtn.prism_wnum,
-                        prism_wordsInfo: back
-                    };
-
-                    res.push(format);
+        let format = {};
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
+                let back = [];
+                for(let i=0 ;i<rtn.prism_wordsInfo.length; i++){
+                    back.push(rtn.prism_wordsInfo[i].word);
                 }
+                format = {
+                    prism_wnum: rtn.prism_wnum,
+                    prism_wordsInfo: back
+                };
+
+                return ctx.success({
+                    msg:'转换成功',
+                    data: format
+                });
+            }
+            else{
+                return ctx.success({
+                    code: 10001,
+                    msg:'转换失败',
+                    data: format
+                });
             }
         }
-
-        if(res.length > 0){
+        else{
             return ctx.success({
-                msg: '转换成功',
-                data: res
-            });
-        }
-        else {
-            return ctx.success({
-                code: 10001,
-                msg: '转换失败',
-                data: res
+                code: 10002,
+                msg:'转换失败',
+                data: format
             });
         }
     }
