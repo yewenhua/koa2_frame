@@ -1,0 +1,18 @@
+[2019-02-23T09:09:23.794] [INFO] response - DEBUG=>888888888888
+[2019-02-23T09:11:09.498] [INFO] response - DEBUG=>888888888888
+[2019-02-23T09:11:27.699] [INFO] response - DEBUG=>888888888888
+[2019-02-23T09:12:15.524] [INFO] response - DEBUG=>888888888888
+[2019-02-23T09:12:15.529] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/upload
+request client ip:  ::1
+request query:  {}
+response time: 22
+response status: 200
+response body: 
+"{\n  \"code\": 200,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": \"9999999999\"\n  }\n}"
+*************** response log end ***************
+
+[2019-02-23T09:12:58.516] [INFO] response - DEBUG=>888888888888
+[2019-02-23T09:13:34.317] [INFO] response - DEBUG=>888888888888

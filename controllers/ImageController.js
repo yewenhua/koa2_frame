@@ -33,10 +33,9 @@ class ImageController extends BaseController{
         reader.pipe(upStream);
 
         return ctx.success({
-            msg:'登录成功' + row.userName,
+            msg:'登录成功',
             data: {
-                token,
-                payload
+                token: '9999999999'
             }
         });
     }

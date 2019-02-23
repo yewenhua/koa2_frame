@@ -13,7 +13,7 @@ api.get('/get', ctx => {
         ctx.response.body = 'this is api post page';
     })
     .get('/login', UserCtrl.login)
-    .get('/upload', ImageCtrl.upload)
+    .post('/upload', ImageCtrl.upload)
 
 
 export default api
