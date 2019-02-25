@@ -17,59 +17,68 @@ class ImageController extends BaseController{
         ctx.body = ctx.request.body;
         let title = ctx.body.title;
         let pics = ctx.body.pic;
-        console.log('===============');
-        console.log(ctx.body.title);
-        console.log(ctx.body.pic);
-        for(let i=0; i<pics.length; i++){
-            console.log(pics[i].name);
-        }
-        console.log('===============');
 
-        let pic = "http://pic44.photophoto.cn/20170727/0847085325669151_b.jpg";
-        let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
-        let appcode = "0172b53613af48ebbf0fd99fcda79342";
-        let auth = 'APPCODE ' + appcode;
-        let sendData = {
-            url: pic,
-            prob: false
-        }
-
-        let rtnData = await request.post(url)
-            .set('Authorization', auth)
-            .set('Content-Type', 'application/json')
-            .send(sendData);
-
-        let format = {};
-        if (rtnData.status == 200 && rtnData.text) {
-            let rtn = JSON.parse(rtnData.text);
-            if(rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
-                let back = [];
-                for(let i=0 ;i<rtn.prism_wordsInfo.length; i++){
-                    back.push(rtn.prism_wordsInfo[i].word);
+        if(pics && pics.length > 0) {
+            let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
+            let appcode = "0172b53613af48ebbf0fd99fcda79342";
+            let auth = 'APPCODE ' + appcode;
+            let rtn = [];
+            for (let i = 0; i < pics.length; i++) {
+                let pic = pics[i].url;
+                let sendData = {
+                    url: pic,
+                    prob: false
                 }
-                format = {
-                    prism_wnum: rtn.prism_wnum,
-                    prism_wordsInfo: back
-                };
 
-                return ctx.success({
-                    msg:'转换成功',
-                    data: format
-                });
+                let rtnData = await request.post(url)
+                    .set('Authorization', auth)
+                    .set('Content-Type', 'application/json')
+                    .send(sendData);
+
+                let format = {};
+                if (rtnData.status == 200 && rtnData.text) {
+                    let rtn = JSON.parse(rtnData.text);
+                    if(rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
+                        let back = [];
+                        for(let i=0 ;i<rtn.prism_wordsInfo.length; i++){
+                            back.push(rtn.prism_wordsInfo[i].word);
+                        }
+
+                        format = {
+                            status: 'success',
+                            data: {
+                                prism_wnum: rtn.prism_wnum,
+                                prism_wordsInfo: back
+                            }
+                        }
+                    }
+                    else{
+                        format = {
+                            status: 'fail',
+                            data: null
+                        }
+                    }
+                }
+                else{
+                    format = {
+                        status: 'fail',
+                        data: null
+                    }
+                }
+
+                rtn.push(format);
             }
-            else{
-                return ctx.success({
-                    code: 10001,
-                    msg:'转换失败',
-                    data: format
-                });
-            }
+
+            return ctx.success({
+                msg:'转换成功',
+                data: rtn
+            });
         }
         else{
             return ctx.success({
-                code: 10002,
-                msg:'转换失败',
-                data: format
+                code: 10009,
+                msg:'参数错误',
+                data: null
             });
         }
     }
