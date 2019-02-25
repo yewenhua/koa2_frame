@@ -15,11 +15,16 @@ class ImageController extends BaseController{
     static async transfer(ctx) {
         //ctx.request.body 用于获取post的参数
         ctx.body = ctx.request.body;
+        let title = ctx.body.title;
+        let pics = ctx.body.pic;
         console.log('===============');
         console.log(ctx.body.title);
         console.log(ctx.body.pic);
+        for(let i=0; i<pics.length; i++){
+            console.log(pics[i].name);
+        }
         console.log('===============');
-        
+
         let pic = "http://pic44.photophoto.cn/20170727/0847085325669151_b.jpg";
         let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
         let appcode = "0172b53613af48ebbf0fd99fcda79342";
