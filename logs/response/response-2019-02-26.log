@@ -1,0 +1,36 @@
+[2019-02-26T16:00:31.562] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 71
+response status: 200
+response body: 
+"{\n  \"code\": 0,\n  \"msg\": \"登录失败\",\n  \"data\": null\n}"
+*************** response log end ***************
+
+[2019-02-26T16:09:35.117] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 70
+response status: 200
+response body: 
+"{\n  \"code\": 0,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTA5NzAsImlhdCI6MTU1MTE2ODU3NSwiZXhwIjoxNTUxMTc1Nzc1fQ.TIkAqMQOwVbTrw8wjxxZxwdiu_XTKoBIaV4r49c6hIE\"\n  }\n}"
+*************** response log end ***************
+
+[2019-02-26T16:09:37.718] [INFO] response - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 22
+response status: 200
+response body: 
+"{\n  \"code\": 0,\n  \"msg\": \"登录成功\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTA5NzAsImlhdCI6MTU1MTE2ODU3NywiZXhwIjoxNTUxMTc1Nzc3fQ.LO-yb4hYBOk52d7GmJnqIxRrt09TG-IPjHuRZ9lHQVs\"\n  }\n}"
+*************** response log end ***************
+

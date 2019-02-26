@@ -1,0 +1,236 @@
+[2019-02-26T15:53:41.852] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 192
+err name: ReferenceError
+err message: CryptoJS is not defined
+err stack: ReferenceError: CryptoJS is not defined
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:28:50)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:139:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at D:\workspace\koa2_frame\node_modules\koa-body\index.js:125:14
+*************** error log end ***************
+
+[2019-02-26T15:53:41.908] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /favicon.ico
+request client ip:  ::1
+request query:  {}
+response time: 3
+err name: UnauthorizedError
+err message: Authentication Error
+err stack: UnauthorizedError: Authentication Error
+    at Object.throw (D:\workspace\koa2_frame\node_modules\koa\lib\context.js:97:11)
+    at jwt (D:\workspace\koa2_frame\node_modules\koa-jwt\lib\index.js:23:22)
+    at D:\workspace\koa2_frame\node_modules\koa-unless\index.js:29:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\workspace\koa2_frame\node_modules\koa-static\index.js:53:15)
+*************** error log end ***************
+
+[2019-02-26T15:54:06.570] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 21
+err name: ReferenceError
+err message: CryptoJS is not defined
+err stack: ReferenceError: CryptoJS is not defined
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:29:50)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:140:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at D:\workspace\koa2_frame\node_modules\koa-body\index.js:125:14
+*************** error log end ***************
+
+[2019-02-26T15:56:10.008] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 14
+err name: ReferenceError
+err message: CryptoJS is not defined
+err stack: ReferenceError: CryptoJS is not defined
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:27:13)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:151:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at D:\workspace\koa2_frame\node_modules\koa-body\index.js:125:14
+*************** error log end ***************
+
+[2019-02-26T15:57:05.445] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 18
+err name: ReferenceError
+err message: CryptoJS is not defined
+err stack: ReferenceError: CryptoJS is not defined
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:30:13)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:155:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at D:\workspace\koa2_frame\node_modules\koa-body\index.js:125:14
+*************** error log end ***************
+
+[2019-02-26T15:58:08.450] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 24
+err name: ReferenceError
+err message: CryptoJS is not defined
+err stack: ReferenceError: CryptoJS is not defined
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:30:13)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:156:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at D:\workspace\koa2_frame\node_modules\koa-body\index.js:125:14
+*************** error log end ***************
+
+[2019-02-26T15:59:33.752] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 26
+err name: ReferenceError
+err message: CryptoJs is not defined
+err stack: ReferenceError: CryptoJs is not defined
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:34:13)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:31:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:31:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:31:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:155:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at D:\workspace\koa2_frame\node_modules\koa-body\index.js:125:14
+*************** error log end ***************
+
+[2019-02-26T16:04:52.572] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 46
+err name: Error
+err message: Expected "payload" to be a plain object.
+err stack: Error: Expected "payload" to be a plain object.
+    at validate (D:\workspace\koa2_frame\node_modules\jsonwebtoken\sign.js:34:11)
+    at validatePayload (D:\workspace\koa2_frame\node_modules\jsonwebtoken\sign.js:56:10)
+    at Object.module.exports [as sign] (D:\workspace\koa2_frame\node_modules\jsonwebtoken\sign.js:108:7)
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:44:31)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:361
+*************** error log end ***************
+

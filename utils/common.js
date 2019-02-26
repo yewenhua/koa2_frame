@@ -15,10 +15,8 @@ module.exports = {
         return str;
     },
     md5: (str)=>{
-        var sign = 'maoxy';
-        var newstr = str + sign;
         var obj = crypto.createHash('md5');
-        obj.update(newstr);
+        obj.update(str);
         var res = obj.digest('hex');
         return res;
     }

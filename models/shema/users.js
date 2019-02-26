@@ -1,29 +1,27 @@
 import Sequelize from 'sequelize';
 import db from '../db'
 
-const User = db.define('user', {
-    userName: {
+const User = db.define('password', {
+    password: {
         type: Sequelize.STRING, // 指定值的类型
-        field: 'name', // 指定存储在表中的键名称
+        field: 'password', // 指定存储在表中的键名称
         set(val) {
-            this.setDataValue('userName', val.toUpperCase());
+            this.setDataValue('password', val.toUpperCase());
         },
         get() {
-            const name = this.getDataValue('userName');
-            // 'this' 允许你访问实例的属性
-            return 'HELLO: ' + ' (' + name + ')';
+            const password = this.getDataValue('password');
+            return password;
         }
     },
     // 没有指定 field，表中键名称则与对象键名相同，为 email
-    email: {
+    secret: {
         type: Sequelize.STRING,
         set(val) {
-            this.setDataValue('type', val.toUpperCase());
+            this.setDataValue('secret', val);
         },
         get() {
-            const type = this.getDataValue('type');
-            // 'this' 允许你访问实例的属性
-            return 'KITTY: ' + ' (' + type + ')';
+            const type = this.getDataValue('secret');
+            return secret;
         }
     },
     createdAt: {
@@ -40,7 +38,7 @@ const User = db.define('user', {
     // 如果为 true 则表的名称和 model 相同，即 user
     // 为 false MySQL创建的表名称会是复数 users
     // 如果指定的表名称本就是复数形式则不变
-    freezeTableName: false
+    freezeTableName: true
 });
 
 // 创建表
