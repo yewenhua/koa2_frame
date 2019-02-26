@@ -234,3 +234,281 @@ err stack: Error: Expected "payload" to be a plain object.
     at D:\workspace\koa2_frame\controllers\UserController.js:35:361
 *************** error log end ***************
 
+[2019-02-26T16:40:25.786] [ERROR] error - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /api/login
+request client ip:  ::1
+request query:  {}
+response time: 20
+err name: TypeError
+err message: Cannot read property 'username' of undefined
+err stack: TypeError: Cannot read property 'username' of undefined
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:24:33)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:152:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at D:\workspace\koa2_frame\node_modules\koa-body\index.js:125:14
+*************** error log end ***************
+
+[2019-02-26T16:42:26.164] [ERROR] error - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /api/login
+request client ip:  ::1
+request body: 
+{"username":"7ae0ccf4464f243d","password":"U2FsdGVkX19GWcY9XDdH6h/t9q3kdQevqWe SkzThcg="}
+response time: 57
+err name: TypeError
+err message: Cannot read property 'username' of undefined
+err stack: TypeError: Cannot read property 'username' of undefined
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:25:33)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:154:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at D:\workspace\koa2_frame\node_modules\koa-body\index.js:125:14
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-26T16:47:26.307] [ERROR] error - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /api/login
+request client ip:  ::1
+request body: 
+{"username":"7ae0ccf4464f243d","password":"U2FsdGVkX19GWcY9XDdH6h/t9q3kdQevqWe SkzThcg="}
+response time: 62
+err name: ReferenceError
+err message: that is not defined
+err stack: ReferenceError: that is not defined
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:36:39)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:172:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at D:\workspace\koa2_frame\node_modules\koa-body\index.js:125:14
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-26T16:47:52.817] [ERROR] error - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /api/login
+request client ip:  ::1
+request body: 
+{"username":"7ae0ccf4464f243d","password":"U2FsdGVkX19GWcY9XDdH6h/t9q3kdQevqWe SkzThcg="}
+response time: 38
+err name: ReferenceError
+err message: that is not defined
+err stack: ReferenceError: that is not defined
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:36:49)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:172:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at D:\workspace\koa2_frame\node_modules\koa-body\index.js:125:14
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+*************** error log end ***************
+
+[2019-02-26T16:54:07.660] [ERROR] error - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /api/login
+request client ip:  ::1
+request body: 
+{"username":"7ae0ccf4464f243d","password":"U2FsdGVkX1/NadH3yY0yjHql26UlkVOS ZC4/Hta7VQ="}
+response time: 14
+err name: Error
+err message: Malformed UTF-8 data
+err stack: Error: Malformed UTF-8 data
+    at Object.stringify (D:\workspace\koa2_frame\node_modules\crypto-js\core.js:478:24)
+    at WordArray.init.toString (D:\workspace\koa2_frame\node_modules\crypto-js\core.js:215:38)
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:41:41)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:172:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+*************** error log end ***************
+
+[2019-02-26T16:54:34.081] [ERROR] error - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /api/login
+request client ip:  ::1
+request body: 
+{"username":"7ae0ccf4464f243d","password":"U2FsdGVkX1/NadH3yY0yjHql26UlkVOS ZC4/Hta7VQ="}
+response time: 35
+err name: Error
+err message: Malformed UTF-8 data
+err stack: Error: Malformed UTF-8 data
+    at Object.stringify (D:\workspace\koa2_frame\node_modules\crypto-js\core.js:478:24)
+    at WordArray.init.toString (D:\workspace\koa2_frame\node_modules\crypto-js\core.js:215:38)
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:41:41)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:172:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+*************** error log end ***************
+
+[2019-02-26T16:55:40.315] [ERROR] error - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /api/login
+request client ip:  ::1
+request body: 
+{"username":"7ae0ccf4464f243d","password":"U2FsdGVkX1/NadH3yY0yjHql26UlkVOS ZC4/Hta7VQ="}
+response time: 14
+err name: Error
+err message: Malformed UTF-8 data
+err stack: Error: Malformed UTF-8 data
+    at Object.stringify (D:\workspace\koa2_frame\node_modules\crypto-js\core.js:478:24)
+    at WordArray.init.toString (D:\workspace\koa2_frame\node_modules\crypto-js\core.js:215:38)
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:41:41)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:172:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+*************** error log end ***************
+
+[2019-02-26T17:11:39.656] [ERROR] error - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /api/login
+request client ip:  ::1
+request body: 
+{"username":"7ae0ccf4464f243d","password":"9d3c61ba09a8b1c56231ebc32b0d7a8f"}
+response time: 33
+err name: TypeError [ERR_INVALID_ARG_TYPE]
+err message: The "password" argument must be one of type string, Buffer, TypedArray, or DataView. Received type undefined
+err stack: TypeError [ERR_INVALID_ARG_TYPE]: The "password" argument must be one of type string, Buffer, TypedArray, or DataView. Received type undefined
+    at invalidArrayBufferView (internal/crypto/cipher.js:87:10)
+    at Decipher.createCipher (internal/crypto/cipher.js:98:11)
+    at new Decipher (internal/crypto/cipher.js:242:16)
+    at Object.createDecipher (crypto.js:113:10)
+    at Object.decAse192 (D:/workspace/koa2_frame/utils/common.js:24:31)
+    at _callee2$ (D:/workspace/koa2_frame/controllers/UserController.js:29:32)
+    at tryCatch (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:62:40)
+    at Generator.invoke [as _invoke] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:296:22)
+    at Generator.prototype.(anonymous function) [as next] (D:\workspace\koa2_frame\node_modules\regenerator-runtime\runtime.js:114:21)
+    at step (D:\workspace\koa2_frame\controllers\UserController.js:35:191)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:437
+    at new Promise (<anonymous>)
+    at D:\workspace\koa2_frame\controllers\UserController.js:35:99
+    at login (D:\workspace\koa2_frame\controllers\UserController.js:158:30)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at D:\workspace\koa2_frame\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (D:\workspace\koa2_frame\node_modules\koa-compose\index.js:42:32)
+    at allowedMethods (D:\workspace\koa2_frame\node_modules\koa-router\lib\router.js:407:12)
+*************** error log end ***************
+
