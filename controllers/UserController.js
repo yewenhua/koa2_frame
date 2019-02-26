@@ -19,9 +19,13 @@ class UserController extends BaseController{
     // 用户登录
     static async login(ctx) {
         // await ……
+        console.log('00000000000');
         let secret = process.env.SECRET;
         let username = ctx.body.username;
         let password = ctx.body.password;
+        console.log('111111111');
+        console.log(username);
+        console.log(password);
         let decodeBytes = CryptoJs.AES.decrypt(password, secret);
         let decodePwdText = decodeBytes.toString(CryptoJs.enc.Utf8);
         let encodePwd = Common.md5(decodePwdText);
