@@ -15,7 +15,7 @@ module.exports = function () {
         let ms;
 
         try {
-            const token = ctx.header.authorization || ctx.request.body.token || ctx.request.query.token;  // 获取jwt
+            const token = ctx.header.authorization ? ctx.header.authorization : ctx.request.body.token ? ctx.request.body.token : ctx.request.query.token ? ctx.request.query.token : '';  // 获取jwt
             if(token) {
                 let payload;
                 payload = jwt.verify(token.split(' ')[1], secret);  // 解密payload，获取用户
