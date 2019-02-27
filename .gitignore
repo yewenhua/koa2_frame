@@ -1,5 +1,7 @@
 node_modules/
 .idea
 .idea/workspace.xml
+logs/error
+logs/response
 
 

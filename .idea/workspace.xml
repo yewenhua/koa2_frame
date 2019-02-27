@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/middlewares/filter.js" afterPath="$PROJECT_DIR$/middlewares/filter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,7 +15,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ImageController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ImageController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -28,21 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="filter.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="filter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/middlewares/filter.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
               <caret line="17" column="183" lean-forward="false" selection-start-line="17" selection-start-column="183" selection-end-line="17" selection-end-column="183" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -146,7 +136,6 @@
         <option value="$PROJECT_DIR$/logs/response/response-2019-02-23.log" />
         <option value="$PROJECT_DIR$/logs/error/error-2019-02-23.log" />
         <option value="$PROJECT_DIR$/middlewares/response.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/models/UserModel.js" />
         <option value="$PROJECT_DIR$/models/shema/users.js" />
         <option value="$PROJECT_DIR$/utils/common.js" />
@@ -155,8 +144,9 @@
         <option value="$PROJECT_DIR$/controllers/UserController.js" />
         <option value="$PROJECT_DIR$/router/api.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/middlewares/filter.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -225,6 +215,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="middlewares" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="koa2_frame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="koa2_frame" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logs" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -360,12 +364,12 @@
       <workItem from="1551081682768" duration="2061000" />
       <workItem from="1551084169367" duration="1211000" />
       <workItem from="1551164391322" duration="10009000" />
-      <workItem from="1551234825351" duration="6498000" />
+      <workItem from="1551234825351" duration="6600000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243126000" />
+    <option name="totallyTimeSpent" value="243228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -616,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/WxpayService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -776,21 +773,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#transfer#0;n#ImageController#0" expanded="false" />
-            <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="80">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -800,6 +794,17 @@
         <state relative-caret-position="340">
           <caret line="17" column="183" lean-forward="false" selection-start-line="17" selection-start-column="183" selection-end-line="17" selection-end-column="183" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#transfer#0;n#ImageController#0" expanded="false" />
+            <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
