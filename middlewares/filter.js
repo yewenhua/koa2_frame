@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const secret = 'my_secret';
+const secret = process.env.SECRET;
 const util = require('util');
 
 const logUtil = require('../utils/LogUtil');
@@ -18,7 +18,7 @@ module.exports = function () {
             const token = ctx.header.authorization;  // 获取jwt
             if(token) {
                 let payload;
-                payload = jwt.verify(token.split(' ')[1], secret.sign);  // 解密payload，获取用户
+                payload = jwt.verify(token.split(' ')[1], secret);  // 解密payload，获取用户
                 ctx.user = payload;
             }
 

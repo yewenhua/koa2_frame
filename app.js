@@ -33,7 +33,7 @@ app.use(staticFun);
 
 //token验证 失败的时候会抛出401错误，因此需要添加错误处理，而且要放在 app.use(koajwt()) 之前，否则不执行
 app.use(koaJwt({
-    secret: 'my_secret'
+    secret: process.env.SECRET
 }).unless({
     path: [
         /^\/api\/login/,

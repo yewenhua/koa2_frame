@@ -1,4 +1,3 @@
-import jwt from 'jsonwebtoken';
 import ImageModel from '../models/ImageModel'
 import BaseController from './BaseController'
 import request from 'superagent';
