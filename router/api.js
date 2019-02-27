@@ -17,6 +17,7 @@ api.get('/get', ctx => {
         ctx.response.body = 'this is api post page';
     })
     .post('/login', UserCtrl.login)
+    .post('/refresh', UserCtrl.refresh)
     .post('/upload', ImageCtrl.upload)
     .post('/transfer', ImageCtrl.transfer)
 

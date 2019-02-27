@@ -26,7 +26,7 @@ class UserController extends BaseController{
         if(row && row.password){
             let refresh_token = jwt.sign({
                 id: row.id
-            }, secret, { expiresIn: '48h' });
+            }, secret, { expiresIn: '4h' });
             let token = jwt.sign({
                 id: row.id,
                 uid: row.uid,
