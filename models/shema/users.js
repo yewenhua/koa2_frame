@@ -6,7 +6,7 @@ const User = db.define('password', {
         type: Sequelize.STRING, // 指定值的类型
         field: 'password', // 指定存储在表中的键名称
         set(val) {
-            this.setDataValue('password', val.toUpperCase());
+            this.setDataValue('password', val);
         },
         get() {
             const password = this.getDataValue('password');
@@ -20,8 +20,98 @@ const User = db.define('password', {
             this.setDataValue('secret', val);
         },
         get() {
-            const type = this.getDataValue('secret');
-            return secret;
+            const val = this.getDataValue('secret');
+            return val;
+        }
+    },
+    uid: {
+        type: Sequelize.INTEGER,
+        set(val) {
+            this.setDataValue('uid', val);
+        },
+        get() {
+            const val = this.getDataValue('uid');
+            return val;
+        }
+    },
+    combo_id: {
+        type: Sequelize.INTEGER,
+        set(val) {
+            this.setDataValue('combo_id', val);
+        },
+        get() {
+            const val = this.getDataValue('combo_id');
+            return val;
+        }
+    },
+    mobile: {
+        type: Sequelize.STRING,
+        set(val) {
+            this.setDataValue('mobile', val);
+        },
+        get() {
+            const val = this.getDataValue('mobile');
+            return val;
+        }
+    },
+    email: {
+        type: Sequelize.STRING,
+        set(val) {
+            this.setDataValue('email', val);
+        },
+        get() {
+            const val = this.getDataValue('email');
+            return val;
+        }
+    },
+    begin: {
+        type: Sequelize.DATE,
+        set(val) {
+            this.setDataValue('begin', val);
+        },
+        get() {
+            const val = this.getDataValue('begin');
+            return val;
+        }
+    },
+    end: {
+        type: Sequelize.DATE,
+        set(val) {
+            this.setDataValue('end', val);
+        },
+        get() {
+            const val = this.getDataValue('end');
+            return val;
+        }
+    },
+    count: {
+        type: Sequelize.INTEGER,
+        set(val) {
+            this.setDataValue('count', val);
+        },
+        get() {
+            const val = this.getDataValue('count');
+            return val;
+        }
+    },
+    point: {
+        type: Sequelize.INTEGER,
+        set(val) {
+            this.setDataValue('point', val);
+        },
+        get() {
+            const val = this.getDataValue('point');
+            return val;
+        }
+    },
+    isopen: {
+        type: Sequelize.INTEGER,
+        set(val) {
+            this.setDataValue('isopen', val);
+        },
+        get() {
+            const val = this.getDataValue('isopen');
+            return val;
         }
     },
     createdAt: {
