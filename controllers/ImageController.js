@@ -16,6 +16,7 @@ class ImageController extends BaseController{
         ctx.body = ctx.request.body;
         let title = ctx.body.title;
         let pics = ctx.body.pic;
+        let success = 0;
 
         if(pics && pics.length > 0) {
             let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
@@ -43,6 +44,7 @@ class ImageController extends BaseController{
                             back.push(rtn.prism_wordsInfo[i].word);
                         }
 
+                        success++;
                         format = {
                             status: 'success',
                             url: url,
