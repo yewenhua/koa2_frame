@@ -124,6 +124,16 @@ const User = db.define('password', {
             return val;
         }
     },
+    status: {
+        type: Sequelize.INTEGER,
+        set(val) {
+            this.setDataValue('status', val);
+        },
+        get() {
+            const val = this.getDataValue('status');
+            return val;
+        }
+    },
     createdAt: {
         type: Sequelize.DATE, // 指定值的类型
         field: 'created_at', // 指定存储在表中的键名称

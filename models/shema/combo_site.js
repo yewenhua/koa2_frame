@@ -45,7 +45,7 @@ const Table = db.define('combo_site', {
     deletedAt: {
         type: Sequelize.DATE, // 指定值的类型
         field: 'deleted_at', // 指定存储在表中的键名称
-        defaultValue: Sequelize.NOW
+        allowNull: true
     }
 }, {
     // 如果为 true 则表的名称和 model 相同，即 user
