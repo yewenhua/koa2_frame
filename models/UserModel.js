@@ -4,6 +4,7 @@ import Memcombo from  './shema/memcombo';
 import Charge from  './shema/charge';
 import Combo from  './shema/combo';
 import ComboSite from  './shema/combo_site';
+import Paylog from  './shema/paylog';
 import db from './db'
 import Common from '../utils/common';
 
@@ -33,6 +34,7 @@ class UserModel {
         return await User.findOne({where: {password: password, secret: secret}});
     };
 
+    //激活
     static async Activate (pwd_id, combo_id) {
         return await db.transaction(async (t)=>{
             //1 查询套餐所有的网站
@@ -93,6 +95,93 @@ class UserModel {
 
             return rtn;
         });
+    }
+
+    //次数卡扣费
+    static async payCountMoney(pwd_id, count){
+        return await db.transaction(async (t)=>{
+            //1 查询用户信息
+            let uInfo = await User.findOne({where: {id: pwd_id}});
+            let newCountVal = cInfo.count - count;
+
+            //2 更新卡密用户信息
+            await User.update(
+                {
+                    count: newCountVal
+                },
+                {
+                    transaction: t,
+                    where: {
+                        id: pwd_id,
+                        count: {
+                            [Op.gte]: count
+                        }
+                    }
+                }
+            );
+
+            //3 生成支付记录信息
+            let rtn = await Paylog.create({
+                pwd_id: pwd_id,
+                count: uInfo.password
+            }, {transaction: t});
+
+            return rtn;
+        });
+    }
+
+    //天卡扣费
+    static async payDayMoney(pwd_id, count, site_id){
+        return await db.transaction(async (t)=>{
+            //1 查询用户信息
+            let uInfo = await User.findOne({where: {id: pwd_id}});
+            let newCountVal = cInfo.count - count;
+
+            //2 更新卡密用户信息
+            await User.update(
+                {
+                    count: newCountVal
+                },
+                {
+                    transaction: t,
+                    where: {
+                        id: pwd_id,
+                        count: {
+                            [Op.gte]: count
+                        }
+                    }
+                }
+            );
+
+            //3 更新用户套餐信息
+            await Memcombo.update(
+                {
+                    count: newCountVal
+                },
+                {
+                    transaction: t,
+                    where: {
+                        id: pwd_id,
+                        count: {
+                            [Op.gte]: count
+                        }
+                    }
+                }
+            );
+
+            //4 生成支付记录信息
+            let rtn = await Paylog.create({
+                pwd_id: pwd_id,
+                count: uInfo.password
+            }, {transaction: t});
+
+            return rtn;
+        });
+    }
+
+    //积分扣费
+    static async payPoint(){
+
     }
 }
 
