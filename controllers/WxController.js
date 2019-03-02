@@ -157,6 +157,7 @@ class WxController extends BaseController{
         let accessToken = await WechatService.accessToken(APPID, APPSECRET);
         let jsapiTicket = await WechatService.jsapiTicket(APPID, APPSECRET);
         let jssdkSign = await WechatService.jssdkSign(url, APPID);
+
         return ctx.success({
             msg:'登录成功',
             data: {

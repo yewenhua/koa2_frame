@@ -84,6 +84,16 @@ const User = db.define('password', {
             return val;
         }
     },
+    active_time: {
+        type: Sequelize.DATE,
+        set(val) {
+            this.setDataValue('active_time', val);
+        },
+        get() {
+            const val = this.getDataValue('active_time');
+            return val;
+        }
+    },
     count: {
         type: Sequelize.INTEGER,
         set(val) {

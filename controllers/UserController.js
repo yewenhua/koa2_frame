@@ -70,11 +70,15 @@ class UserController extends BaseController{
         let decodePwd = Common.decAse192(password, secret);
         let encodePwd = Common.md5(decodePwd);
         let row = await UserModel.Login(username, encodePwd);
+
+        let refresh_token;
+        let token;
+        let flag = false;
         if(row && row.password){
-            let refresh_token = jwt.sign({
+            let payloadRefresh = {
                 id: row.id
-            }, secret, { expiresIn: '48h' });
-            let token = jwt.sign({
+            }
+            let payloadToken = {
                 id: row.id,
                 uid: row.uid,
                 combo_id: row.combo_id,
@@ -85,10 +89,29 @@ class UserController extends BaseController{
                 count: row.count,
                 point: row.point,
                 isopen: row.isopen
-            }, secret, { expiresIn: '2h' });
-            let key = Common.md5(refresh_token + secret);
-            redis.set(key, refresh_token, 2 * 24 * 3600);
+            };
+            if(row.active_time){
+                //已激活
+                refresh_token = jwt.sign(payloadRefresh, secret, { expiresIn: '48h' });
+                token = jwt.sign(payloadToken, secret, { expiresIn: '2h' });
+                let key = Common.md5(refresh_token + secret);
+                redis.set(key, refresh_token, 2 * 24 * 3600);
+                flag = true;
+            }
+            else{
+                //未激活，先激活
+                let res = await UserModel.Activate();
+                if(res.id){
+                    refresh_token = jwt.sign(payloadRefresh, secret, { expiresIn: '48h' });
+                    token = jwt.sign(payloadToken, secret, { expiresIn: '2h' });
+                    let key = Common.md5(refresh_token + secret);
+                    redis.set(key, refresh_token, 2 * 24 * 3600);
+                    flag = true;
+                }
+            }
+        }
 
+        if(flag){
             return ctx.success({
                 msg:'登录成功',
                 data: {
