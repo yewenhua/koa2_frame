@@ -67,6 +67,7 @@ app.on('error', function(err, ctx){
     //如果错误被try-catch捕获，就不触发error事件，这时必须调用ctx.app.emit(),手动释放error事件
     logUtil.logDebug('=========ERROR=========');
     logUtil.logDebug(JSON.stringify(err));
+    console.log(err);
 });
 
 
