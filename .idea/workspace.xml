@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/UserController.js" afterPath="$PROJECT_DIR$/controllers/UserController.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/UserController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="95" column="45" lean-forward="false" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="45" />
+            <state relative-caret-position="393">
+              <caret line="102" column="71" lean-forward="false" selection-start-line="102" selection-start-column="71" selection-end-line="102" selection-end-column="71" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
                 <element signature="n#!!block;n#refresh#0;n#UserController#0" expanded="false" />
@@ -36,19 +36,9 @@
                 <element signature="e#986#1336#0" expanded="false" />
                 <element signature="e#2372#2414#0" expanded="false" />
                 <element signature="e#2446#2796#0" expanded="false" />
-                <element signature="e#3912#4056#0" expanded="false" />
+                <element signature="e#3932#4076#0" expanded="false" />
                 <element signature="n#!!block;n#logout#0;n#UserController#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="69" column="19" lean-forward="false" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -159,9 +149,9 @@
         <option value="$PROJECT_DIR$/models/ComboModel.js" />
         <option value="$PROJECT_DIR$/models/UserModel.js" />
         <option value="$PROJECT_DIR$/controllers/WxController.js" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/controllers/UserController.js" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -412,12 +402,12 @@
       <workItem from="1551084169367" duration="1211000" />
       <workItem from="1551164391322" duration="10009000" />
       <workItem from="1551234825351" duration="8730000" />
-      <workItem from="1551340808533" duration="24032000" />
+      <workItem from="1551340808533" duration="24812000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269390000" />
+    <option name="totallyTimeSpent" value="270170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -859,26 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/UserModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding>
-            <element signature="n#!!block;n#addUser#0;n#UserModel#0" expanded="false" />
-            <element signature="n#!!block;n#findById#0;n#UserModel#0" expanded="false" />
-            <element signature="n#!!block;n#Login#0;n#UserModel#0" expanded="false" />
-            <element signature="n#!!block;n#Activate#0;n#UserModel#0" expanded="false" />
-            <element signature="e#1073#1207#0" expanded="false" />
-            <element signature="e#1098#1193#0" expanded="false" />
-            <element signature="e#1301#1493#0" expanded="false" />
-            <element signature="e#1688#1790#0" expanded="false" />
-            <element signature="e#1808#1916#0" expanded="false" />
-            <element signature="e#2079#2313#0" expanded="false" />
-            <element signature="e#2331#2472#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -887,10 +857,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="67" column="48" lean-forward="true" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/UserModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="35" column="43" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+            <element signature="n#!!block;n#addUser#0;n#UserModel#0" expanded="false" />
+            <element signature="n#!!block;n#findById#0;n#UserModel#0" expanded="false" />
+            <element signature="n#!!block;n#Login#0;n#UserModel#0" expanded="false" />
+            <element signature="n#!!block;n#Activate#0;n#UserModel#0" expanded="false" />
+            <element signature="e#1073#1207#0" expanded="false" />
+            <element signature="e#1098#1193#0" expanded="false" />
+            <element signature="e#1301#1493#0" expanded="false" />
+            <element signature="e#1808#1916#0" expanded="false" />
+            <element signature="e#2079#2313#0" expanded="false" />
+            <element signature="e#2331#2472#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/UserController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="95" column="45" lean-forward="false" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="45" />
+        <state relative-caret-position="393">
+          <caret line="102" column="71" lean-forward="false" selection-start-line="102" selection-start-column="71" selection-end-line="102" selection-end-column="71" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
             <element signature="n#!!block;n#refresh#0;n#UserController#0" expanded="false" />
@@ -898,17 +896,9 @@
             <element signature="e#986#1336#0" expanded="false" />
             <element signature="e#2372#2414#0" expanded="false" />
             <element signature="e#2446#2796#0" expanded="false" />
-            <element signature="e#3912#4056#0" expanded="false" />
+            <element signature="e#3932#4076#0" expanded="false" />
             <element signature="n#!!block;n#logout#0;n#UserController#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="69" column="19" lean-forward="false" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>

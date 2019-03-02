@@ -100,7 +100,7 @@ class UserController extends BaseController{
             }
             else{
                 //未激活，先激活
-                let res = await UserModel.Activate();
+                let res = await UserModel.Activate(row.id, row.combo_id);
                 if(res.id){
                     refresh_token = jwt.sign(payloadRefresh, secret, { expiresIn: '48h' });
                     token = jwt.sign(payloadToken, secret, { expiresIn: '2h' });
