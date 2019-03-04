@@ -80,7 +80,7 @@ class ImageController extends BaseController{
             let flag = false;
             if(success > 0){
                 let uid = ctx.user.id;
-                let payRes = await UserModel.payCountMoney(uid, success, format);
+                let payRes = await UserModel.payCountMoney(uid, success, rtn);
                 if(payRes && payRes.id){
                     flag = true;
                 }
