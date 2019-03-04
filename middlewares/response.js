@@ -13,7 +13,7 @@
 
 module.exports = async (ctx, next) => {
     ctx.error = ({ data, msg, status, error, code }) => {
-        ctx.status= status || 400;
+        ctx.status= status || 200;
         ctx.body = { code: code || -1, msg, data, error };
     }
     ctx.success = ({ data, msg }) => {
