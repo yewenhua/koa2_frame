@@ -21,7 +21,12 @@ class ImageController extends BaseController{
 
         if(pics && pics.length > 0) {
             let userInfo = UserModel.findById(ctx.user.id);
+            console.log('000000000000000000');
+            console.log(userInfo);
+            console.log(pics.length);
+
             if(userInfo && userInfo.count >= pics.length) {
+                console.log('11111111111');
                 let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
                 let appcode = "0172b53613af48ebbf0fd99fcda79342";
                 let auth = 'APPCODE ' + appcode;
