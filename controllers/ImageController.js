@@ -24,6 +24,7 @@ class ImageController extends BaseController{
             let appcode = "0172b53613af48ebbf0fd99fcda79342";
             let auth = 'APPCODE ' + appcode;
             let rtn = [];
+            let format = {};
             for (let i = 0; i < pics.length; i++) {
                 let pic = pics[i].url;
                 let sendData = {
@@ -36,7 +37,6 @@ class ImageController extends BaseController{
                     .set('Content-Type', 'application/json')
                     .send(sendData);
 
-                let format = {};
                 if (rtnData.status == 200 && rtnData.text) {
                     let rtn = JSON.parse(rtnData.text);
                     if(rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
@@ -47,6 +47,7 @@ class ImageController extends BaseController{
 
                         success++;
                         format = {
+                            label: title,
                             status: 'success',
                             url: url,
                             data: {
@@ -57,6 +58,7 @@ class ImageController extends BaseController{
                     }
                     else{
                         format = {
+                            label: title,
                             status: 'fail',
                             url: url,
                             data: null
@@ -65,6 +67,7 @@ class ImageController extends BaseController{
                 }
                 else{
                     format = {
+                        label: title,
                         status: 'fail',
                         url: url,
                         data: null
@@ -77,7 +80,7 @@ class ImageController extends BaseController{
             let flag = false;
             if(success > 0){
                 let uid = ctx.user.id;
-                let payRes = await UserModel.payCountMoney(uid, success);
+                let payRes = await UserModel.payCountMoney(uid, success, format);
                 if(payRes && payRes.id){
                     flag = true;
                 }

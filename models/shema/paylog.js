@@ -12,6 +12,17 @@ const Table = db.define('paylog', {
             return val;
         }
     },
+    type: {
+        type: Sequelize.ENUM,
+        values: ['image'],
+        set(val) {
+            this.setDataValue('type', val);
+        },
+        get() {
+            const val = this.getDataValue('type');
+            return val;
+        }
+    },
     point: {
         type: Sequelize.INTEGER,
         set(val) {

@@ -2,28 +2,55 @@ import Sequelize from 'sequelize';
 import db from '../db'
 
 const Image = db.define('image', {
-    name: {
-        type: Sequelize.STRING, // 指定值的类型
-        field: 'name', // 指定存储在表中的键名称
+    url: {
+        type: Sequelize.STRING,
         set(val) {
-            this.setDataValue('name', val);
+            this.setDataValue('url', val);
         },
         get() {
-            const name = this.getDataValue('name');
-            // 'this' 允许你访问实例的属性
-            return name;
+            const val = this.getDataValue('url');
+            return val;
         }
     },
-    // 没有指定 field，表中键名称则与对象键名相同，为 status
+    label: {
+        type: Sequelize.STRING,
+        set(val) {
+            this.setDataValue('label', val);
+        },
+        get() {
+            const val = this.getDataValue('label');
+            return val;
+        }
+    },
     status: {
         type: Sequelize.ENUM,
-        values: ['nouse', 'userd', 'deleted'],
+        values: ['notpay', 'payed'],
         set(val) {
             this.setDataValue('status', val);
         },
         get() {
-            const status = this.getDataValue('status');
-            return status;
+            const val = this.getDataValue('status');
+            return val;
+        }
+    },
+    result: {
+        type: Sequelize.TEXT,
+        set(val) {
+            this.setDataValue('result', val);
+        },
+        get() {
+            const val = this.getDataValue('result');
+            return val;
+        }
+    },
+    pay_id: {
+        type: Sequelize.INTEGER,
+        set(val) {
+            this.setDataValue('pay_id', val);
+        },
+        get() {
+            const val = this.getDataValue('pay_id');
+            return val;
         }
     },
     createdAt: {

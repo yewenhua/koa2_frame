@@ -5,6 +5,7 @@ import Charge from  './shema/charge';
 import Combo from  './shema/combo';
 import ComboSite from  './shema/combo_site';
 import Paylog from  './shema/paylog';
+import Images from  './shema/images';
 import db from './db'
 import Common from '../utils/common';
 
@@ -98,7 +99,7 @@ class UserModel {
     }
 
     //次数卡扣费
-    static async payCountMoney(pwd_id, count){
+    static async payCountMoney(pwd_id, count, result){
         return await db.transaction(async (t)=>{
             //1 更新卡密用户信息
             let res = await User.update(
@@ -119,8 +120,36 @@ class UserModel {
             //2 生成支付记录信息
             let rtn = await Paylog.create({
                 pwd_id: pwd_id,
+                type: 'image',
                 count: count
             }, {transaction: t});
+
+            //3 生成上传信息记录
+            let arr = [];
+            for(let i=0; i<result.length; i++){
+                if(result[i].status == 'success'){
+                    arr.push({
+                        url: result[i].url,
+                        label: result[i].label,
+                        result: result[i].data,
+                        pay_id: rtn ? rtn.id : '',
+                        status: 'payed'
+                    });
+                }
+                else{
+                    arr.push({
+                        url: result[i].url,
+                        label: result[i].label,
+                        result: result[i].data,
+                        pay_id: '',
+                        status: 'notpay'
+                    });
+                }
+            }
+            let resImg = await Images.bulkCreate(arr, {transaction: t});
+            console.log('33333333333333333');
+            console.log(resImg);
+
 
             if(!res[0] || !rtn){
                 //回滚
