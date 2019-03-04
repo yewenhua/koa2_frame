@@ -24,7 +24,7 @@ class ImageController extends BaseController{
             let appcode = "0172b53613af48ebbf0fd99fcda79342";
             let auth = 'APPCODE ' + appcode;
             let rtn = [];
-            let format = {};
+            let format = [];
             for (let i = 0; i < pics.length; i++) {
                 let pic = pics[i].url;
                 let sendData = {

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/UserModel.js" afterPath="$PROJECT_DIR$/models/UserModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/ImageController.js" afterPath="$PROJECT_DIR$/controllers/ImageController.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ImageController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="52" column="32" lean-forward="false" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="32" />
+            <state relative-caret-position="238">
+              <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
                 <element signature="e#2978#3113#0" expanded="false" />
@@ -41,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserModel.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserModel.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/UserModel.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="680">
@@ -172,8 +171,8 @@
         <option value="$PROJECT_DIR$/models/ImageModel.js" />
         <option value="$PROJECT_DIR$/models/shema/images.js" />
         <option value="$PROJECT_DIR$/models/shema/paylog.js" />
-        <option value="$PROJECT_DIR$/controllers/ImageController.js" />
         <option value="$PROJECT_DIR$/models/UserModel.js" />
+        <option value="$PROJECT_DIR$/controllers/ImageController.js" />
       </list>
     </option>
   </component>
@@ -416,12 +415,12 @@
       <workItem from="1551164391322" duration="10009000" />
       <workItem from="1551234825351" duration="8730000" />
       <workItem from="1551340808533" duration="25953000" />
-      <workItem from="1551513717425" duration="19980000" />
+      <workItem from="1551513717425" duration="20131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="291291000" />
+    <option name="totallyTimeSpent" value="291442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -878,20 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="52" column="32" lean-forward="false" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-            <element signature="e#2978#3113#0" expanded="false" />
-            <element signature="e#3130#3298#0" expanded="false" />
-            <element signature="e#3321#3465#0" expanded="false" />
-            <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/shema/images.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -924,6 +909,20 @@
             <element signature="e#2416#2557#0" expanded="false" />
             <element signature="n#!!block;n#payDayMoney#0;n#UserModel#0" expanded="false" />
             <element signature="n#!!block;n#payPoint#0;n#UserModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#2978#3113#0" expanded="false" />
+            <element signature="e#3130#3298#0" expanded="false" />
+            <element signature="e#3321#3465#0" expanded="false" />
+            <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
           </folding>
         </state>
       </provider>
