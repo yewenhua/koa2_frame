@@ -20,43 +20,54 @@ class ImageController extends BaseController{
         let success = 0;
 
         if(pics && pics.length > 0) {
-            let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
-            let appcode = "0172b53613af48ebbf0fd99fcda79342";
-            let auth = 'APPCODE ' + appcode;
-            let rtn = [];
-            let format = [];
-            for (let i = 0; i < pics.length; i++) {
-                let pic = pics[i].url;
-                let sendData = {
-                    url: pic,
-                    prob: false
-                }
+            let userInfo = UserModel.findById(ctx.user.id);
+            if(userInfo && userInfo.count >= pics.length) {
+                let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
+                let appcode = "0172b53613af48ebbf0fd99fcda79342";
+                let auth = 'APPCODE ' + appcode;
+                let rtn = [];
+                let format = [];
+                for (let i = 0; i < pics.length; i++) {
+                    let pic = pics[i].url;
+                    let sendData = {
+                        url: pic,
+                        prob: false
+                    }
 
-                let rtnData = await request.post(url)
-                    .set('Authorization', auth)
-                    .set('Content-Type', 'application/json')
-                    .send(sendData);
+                    let rtnData = await request.post(url)
+                        .set('Authorization', auth)
+                        .set('Content-Type', 'application/json')
+                        .send(sendData);
 
-                if (rtnData.status == 200 && rtnData.text) {
-                    let rtn = JSON.parse(rtnData.text);
-                    if(rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
-                        let back = [];
-                        for(let i=0 ;i<rtn.prism_wordsInfo.length; i++){
-                            back.push(rtn.prism_wordsInfo[i].word);
+                    if (rtnData.status == 200 && rtnData.text) {
+                        let rtn = JSON.parse(rtnData.text);
+                        if (rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
+                            let back = [];
+                            for (let i = 0; i < rtn.prism_wordsInfo.length; i++) {
+                                back.push(rtn.prism_wordsInfo[i].word);
+                            }
+
+                            success++;
+                            format = {
+                                label: title,
+                                status: 'success',
+                                url: pics[i].url,
+                                data: {
+                                    prism_wnum: rtn.prism_wnum,
+                                    prism_wordsInfo: back
+                                }
+                            }
                         }
-
-                        success++;
-                        format = {
-                            label: title,
-                            status: 'success',
-                            url: pics[i].url,
-                            data: {
-                                prism_wnum: rtn.prism_wnum,
-                                prism_wordsInfo: back
+                        else {
+                            format = {
+                                label: title,
+                                status: 'fail',
+                                url: pics[i].url,
+                                data: null
                             }
                         }
                     }
-                    else{
+                    else {
                         format = {
                             label: title,
                             status: 'fail',
@@ -64,38 +75,37 @@ class ImageController extends BaseController{
                             data: null
                         }
                     }
+
+                    rtn.push(format);
                 }
-                else{
-                    format = {
-                        label: title,
-                        status: 'fail',
-                        url: pics[i].url,
-                        data: null
+
+                let flag = false;
+                if (success > 0) {
+                    let uid = ctx.user.id;
+                    let payRes = await UserModel.payCountMoney(uid, success, rtn);
+                    if (payRes && payRes.id) {
+                        flag = true;
                     }
                 }
 
-                rtn.push(format);
-            }
-
-            let flag = false;
-            if(success > 0){
-                let uid = ctx.user.id;
-                let payRes = await UserModel.payCountMoney(uid, success, rtn);
-                if(payRes && payRes.id){
-                    flag = true;
+                if (flag) {
+                    return ctx.success({
+                        msg: '转换成功',
+                        data: rtn
+                    });
                 }
-            }
-
-            if(flag) {
-                return ctx.success({
-                    msg: '转换成功',
-                    data: rtn
-                });
+                else {
+                    return ctx.success({
+                        code: 10001,
+                        msg: '转换失败',
+                        data: null
+                    });
+                }
             }
             else{
                 return ctx.success({
-                    code: 10001,
-                    msg:'转换失败',
+                    code: 10008,
+                    msg:'余额不足',
                     data: null
                 });
             }
