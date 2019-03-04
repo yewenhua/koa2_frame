@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/ImageController.js" afterPath="$PROJECT_DIR$/controllers/ImageController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/ImageModel.js" afterPath="$PROJECT_DIR$/models/ImageModel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/UserModel.js" afterPath="$PROJECT_DIR$/models/UserModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/shema/images.js" afterPath="$PROJECT_DIR$/models/shema/images.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/shema/paylog.js" afterPath="$PROJECT_DIR$/models/shema/paylog.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,8 +44,8 @@
       <file leaf-file-name="UserModel.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/UserModel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="142" column="46" lean-forward="false" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="46" />
+            <state relative-caret-position="680">
+              <caret line="151" column="38" lean-forward="false" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
                 <element signature="n#!!block;n#addUser#0;n#UserModel#0" expanded="false" />
@@ -420,12 +416,12 @@
       <workItem from="1551164391322" duration="10009000" />
       <workItem from="1551234825351" duration="8730000" />
       <workItem from="1551340808533" duration="25953000" />
-      <workItem from="1551513717425" duration="19394000" />
+      <workItem from="1551513717425" duration="19980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="290705000" />
+    <option name="totallyTimeSpent" value="291291000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -860,20 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/shema/images.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="34" column="6" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="34" selection-end-column="6" />
-          <folding>
-            <element signature="e#103#315#0" expanded="false" />
-            <element signature="e#328#544#0" expanded="false" />
-            <element signature="e#558#811#0" expanded="false" />
-            <element signature="e#825#1041#0" expanded="false" />
-            <element signature="e#1055#1274#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/shema/paylog.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -910,10 +892,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/shema/images.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="34" column="6" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="34" selection-end-column="6" />
+          <folding>
+            <element signature="e#103#315#0" expanded="false" />
+            <element signature="e#328#544#0" expanded="false" />
+            <element signature="e#558#811#0" expanded="false" />
+            <element signature="e#825#1041#0" expanded="false" />
+            <element signature="e#1055#1274#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/UserModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="142" column="46" lean-forward="false" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="46" />
+        <state relative-caret-position="680">
+          <caret line="151" column="38" lean-forward="false" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
             <element signature="n#!!block;n#addUser#0;n#UserModel#0" expanded="false" />

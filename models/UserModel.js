@@ -126,6 +126,8 @@ class UserModel {
 
             //3 生成上传信息记录
             let arr = [];
+            console.log('111111111');
+            console.log(result);
             for(let i=0; i<result.length; i++){
                 if(result[i].status == 'success'){
                     arr.push({
@@ -146,6 +148,10 @@ class UserModel {
                     });
                 }
             }
+
+            console.log('222222222222222');
+            console.log(arr);
+
             let resImg = await Images.bulkCreate(arr, {transaction: t});
             console.log('33333333333333333');
             console.log(resImg);
