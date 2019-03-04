@@ -122,6 +122,11 @@ class UserModel {
                 count: count
             }, {transaction: t});
 
+            console.log('0000000000000');
+            console.log(res);
+            console.log('1111111111111');
+            console.log(rtn);
+
             if(!res[0] || rtn){
                 //回滚
                 throw new Error();
