@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/ImageController.js" afterPath="$PROJECT_DIR$/controllers/ImageController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/UserModel.js" afterPath="$PROJECT_DIR$/models/UserModel.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,13 +28,13 @@
       <file leaf-file-name="ImageController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="82" column="76" lean-forward="false" selection-start-line="82" selection-start-column="76" selection-end-line="82" selection-end-column="76" />
+            <state relative-caret-position="-8">
+              <caret line="60" column="41" lean-forward="true" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
-                <element signature="e#2975#3110#0" expanded="false" />
-                <element signature="e#3127#3295#0" expanded="false" />
-                <element signature="e#3318#3462#0" expanded="false" />
+                <element signature="e#2999#3134#0" expanded="false" />
+                <element signature="e#3151#3319#0" expanded="false" />
+                <element signature="e#3342#3486#0" expanded="false" />
                 <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
               </folding>
             </state>
@@ -43,8 +44,8 @@
       <file leaf-file-name="UserModel.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/UserModel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="151" column="38" lean-forward="false" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
+            <state relative-caret-position="460">
+              <caret line="137" column="39" lean-forward="true" selection-start-line="137" selection-start-column="39" selection-end-line="137" selection-end-column="39" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
                 <element signature="n#!!block;n#addUser#0;n#UserModel#0" expanded="false" />
@@ -415,12 +416,12 @@
       <workItem from="1551164391322" duration="10009000" />
       <workItem from="1551234825351" duration="8730000" />
       <workItem from="1551340808533" duration="25953000" />
-      <workItem from="1551513717425" duration="20246000" />
+      <workItem from="1551513717425" duration="20499000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="291557000" />
+    <option name="totallyTimeSpent" value="291810000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -893,13 +894,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="82" column="76" lean-forward="false" selection-start-line="82" selection-start-column="76" selection-end-line="82" selection-end-column="76" />
+        <state relative-caret-position="-8">
+          <caret line="60" column="41" lean-forward="true" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
-            <element signature="e#2975#3110#0" expanded="false" />
-            <element signature="e#3127#3295#0" expanded="false" />
-            <element signature="e#3318#3462#0" expanded="false" />
+            <element signature="e#2999#3134#0" expanded="false" />
+            <element signature="e#3151#3319#0" expanded="false" />
+            <element signature="e#3342#3486#0" expanded="false" />
             <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
           </folding>
         </state>
@@ -907,8 +908,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/UserModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="151" column="38" lean-forward="false" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
+        <state relative-caret-position="460">
+          <caret line="137" column="39" lean-forward="true" selection-start-line="137" selection-start-column="39" selection-end-line="137" selection-end-column="39" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
             <element signature="n#!!block;n#addUser#0;n#UserModel#0" expanded="false" />

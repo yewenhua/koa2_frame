@@ -133,7 +133,7 @@ class UserModel {
                     arr.push({
                         url: result[i].url,
                         label: result[i].label,
-                        result: result[i].data,
+                        result: JSON.stringify(result[i].data),
                         pay_id: rtn ? rtn.id : '',
                         status: 'payed'
                     });
@@ -142,7 +142,7 @@ class UserModel {
                     arr.push({
                         url: result[i].url,
                         label: result[i].label,
-                        result: result[i].data,
+                        result: '',
                         pay_id: '',
                         status: 'notpay'
                     });

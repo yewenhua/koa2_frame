@@ -49,7 +49,7 @@ class ImageController extends BaseController{
                         format = {
                             label: title,
                             status: 'success',
-                            url: url,
+                            url: pics[i].url,
                             data: {
                                 prism_wnum: rtn.prism_wnum,
                                 prism_wordsInfo: back
@@ -60,7 +60,7 @@ class ImageController extends BaseController{
                         format = {
                             label: title,
                             status: 'fail',
-                            url: url,
+                            url: pics[i].url,
                             data: null
                         }
                     }
@@ -69,7 +69,7 @@ class ImageController extends BaseController{
                     format = {
                         label: title,
                         status: 'fail',
-                        url: url,
+                        url: pics[i].url,
                         data: null
                     }
                 }
