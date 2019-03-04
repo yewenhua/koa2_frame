@@ -27,17 +27,17 @@
       <file leaf-file-name="ImageController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+            <state relative-caret-position="280">
+              <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
-                <element signature="e#1196#3194#0" expanded="false" />
-                <element signature="e#1651#2856#0" expanded="false" />
-                <element signature="e#2882#3137#0" expanded="false" />
-                <element signature="e#3263#3514#0" expanded="false" />
-                <element signature="e#3542#3697#0" expanded="false" />
-                <element signature="e#3719#3912#0" expanded="false" />
-                <element signature="e#4134#4278#0" expanded="false" />
+                <element signature="e#1202#3200#0" expanded="false" />
+                <element signature="e#1657#2862#0" expanded="false" />
+                <element signature="e#2888#3143#0" expanded="false" />
+                <element signature="e#3269#3520#0" expanded="false" />
+                <element signature="e#3548#3703#0" expanded="false" />
+                <element signature="e#3725#3918#0" expanded="false" />
+                <element signature="e#4140#4284#0" expanded="false" />
                 <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
               </folding>
             </state>
@@ -377,12 +377,12 @@
       <workItem from="1551164391322" duration="10009000" />
       <workItem from="1551234825351" duration="8730000" />
       <workItem from="1551340808533" duration="25953000" />
-      <workItem from="1551513717425" duration="21942000" />
+      <workItem from="1551513717425" duration="22052000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293253000" />
+    <option name="totallyTimeSpent" value="293363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -877,17 +877,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        <state relative-caret-position="280">
+          <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
-            <element signature="e#1196#3194#0" expanded="false" />
-            <element signature="e#1651#2856#0" expanded="false" />
-            <element signature="e#2882#3137#0" expanded="false" />
-            <element signature="e#3263#3514#0" expanded="false" />
-            <element signature="e#3542#3697#0" expanded="false" />
-            <element signature="e#3719#3912#0" expanded="false" />
-            <element signature="e#4134#4278#0" expanded="false" />
+            <element signature="e#1202#3200#0" expanded="false" />
+            <element signature="e#1657#2862#0" expanded="false" />
+            <element signature="e#2888#3143#0" expanded="false" />
+            <element signature="e#3269#3520#0" expanded="false" />
+            <element signature="e#3548#3703#0" expanded="false" />
+            <element signature="e#3725#3918#0" expanded="false" />
+            <element signature="e#4140#4284#0" expanded="false" />
             <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
           </folding>
         </state>

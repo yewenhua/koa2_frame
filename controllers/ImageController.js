@@ -20,7 +20,7 @@ class ImageController extends BaseController{
         let success = 0;
 
         if(pics && pics.length > 0) {
-            let userInfo = UserModel.findById(ctx.user.id);
+            let userInfo = await UserModel.findById(ctx.user.id);
             console.log('000000000000000000');
             console.log(userInfo);
             console.log(pics.length);
