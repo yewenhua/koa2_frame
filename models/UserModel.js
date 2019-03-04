@@ -100,19 +100,65 @@ class UserModel {
     //次数卡扣费
     static async payCountMoney(pwd_id, count){
         return await db.transaction(async (t)=>{
-            //1 查询用户信息
-            let uInfo = await User.findOne({where: {id: pwd_id}});
-            let newCountVal = cInfo.count - count;
-
-            //2 更新卡密用户信息
-            await User.update(
+            //1 更新卡密用户信息
+            let res = await User.update(
                 {
-                    count: newCountVal
+                    count: Sequelize.literal('count - ' + count)
                 },
                 {
                     transaction: t,
                     where: {
                         id: pwd_id,
+                        count: {
+                            [Op.gte]: count
+                        }
+                    }
+                }
+            );
+
+            //2 生成支付记录信息
+            let rtn = await Paylog.create({
+                pwd_id: pwd_id,
+                count: count
+            }, {transaction: t});
+
+            if(!res[0] || rtn){
+                //回滚
+                throw new Error();
+            }
+            return rtn;
+        });
+    }
+
+    //天卡扣费
+    static async payDayMoney(pwd_id, count, site_id){
+        return await db.transaction(async (t)=>{
+            //1 更新卡密用户信息
+            let resFirst = await User.update(
+                {
+                    count: Sequelize.literal('count - ' + count)
+                },
+                {
+                    transaction: t,
+                    where: {
+                        id: pwd_id,
+                        count: {
+                            [Op.gte]: count
+                        }
+                    }
+                }
+            );
+
+            //2 更新用户套餐信息
+            let resSecond = await Memcombo.update(
+                {
+                    count: Sequelize.literal('count - ' + count)
+                },
+                {
+                    transaction: t,
+                    where: {
+                        pwd_id: pwd_id,
+                        site_id: site_id,
                         count: {
                             [Op.gte]: count
                         }
@@ -123,65 +169,48 @@ class UserModel {
             //3 生成支付记录信息
             let rtn = await Paylog.create({
                 pwd_id: pwd_id,
-                count: uInfo.password
+                count: count
             }, {transaction: t});
 
-            return rtn;
-        });
-    }
-
-    //天卡扣费
-    static async payDayMoney(pwd_id, count, site_id){
-        return await db.transaction(async (t)=>{
-            //1 查询用户信息
-            let uInfo = await User.findOne({where: {id: pwd_id}});
-            let newCountVal = cInfo.count - count;
-
-            //2 更新卡密用户信息
-            await User.update(
-                {
-                    count: newCountVal
-                },
-                {
-                    transaction: t,
-                    where: {
-                        id: pwd_id,
-                        count: {
-                            [Op.gte]: count
-                        }
-                    }
-                }
-            );
-
-            //3 更新用户套餐信息
-            await Memcombo.update(
-                {
-                    count: newCountVal
-                },
-                {
-                    transaction: t,
-                    where: {
-                        id: pwd_id,
-                        count: {
-                            [Op.gte]: count
-                        }
-                    }
-                }
-            );
-
-            //4 生成支付记录信息
-            let rtn = await Paylog.create({
-                pwd_id: pwd_id,
-                count: uInfo.password
-            }, {transaction: t});
-
+            if(!resFirst[0] || !resSecond[0] || rtn){
+                //回滚
+                throw new Error();
+            }
             return rtn;
         });
     }
 
     //积分扣费
-    static async payPoint(){
+    static async payPoint(pwd_id, point){
+        return await db.transaction(async (t)=>{
+            //1 更新卡密用户信息
+            let res = await User.update(
+                {
+                    point: Sequelize.literal('point - ' + point)
+                },
+                {
+                    transaction: t,
+                    where: {
+                        id: pwd_id,
+                        point: {
+                            [Op.gte]: point
+                        }
+                    }
+                }
+            );
 
+            //2 生成支付记录信息
+            let rtn = await Paylog.create({
+                pwd_id: pwd_id,
+                point: point
+            }, {transaction: t});
+
+            if(!res[0] || rtn){
+                //回滚
+                throw new Error();
+            }
+            return rtn;
+        });
     }
 }
 

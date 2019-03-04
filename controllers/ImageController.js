@@ -1,5 +1,6 @@
-import ImageModel from '../models/ImageModel'
-import BaseController from './BaseController'
+import ImageModel from '../models/ImageModel';
+import UserModel from '../models/UserModel';
+import BaseController from './BaseController';
 import request from 'superagent';
 const logUtil = require('../utils/LogUtil');
 
@@ -73,10 +74,28 @@ class ImageController extends BaseController{
                 rtn.push(format);
             }
 
-            return ctx.success({
-                msg:'转换成功',
-                data: rtn
-            });
+            let flag = false;
+            if(success > 0){
+                let uid = ctx.user.id;
+                let payRes = await UserModel.payCountMoney(uid, success);
+                if(payRes && payRes.id){
+                    flag = true;
+                }
+            }
+
+            if(flag) {
+                return ctx.success({
+                    msg: '转换成功',
+                    data: rtn
+                });
+            }
+            else{
+                return ctx.success({
+                    code: 10001,
+                    msg:'转换失败',
+                    data: null
+                });
+            }
         }
         else{
             return ctx.success({
