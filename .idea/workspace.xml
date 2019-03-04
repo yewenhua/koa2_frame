@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/ImageController.js" afterPath="$PROJECT_DIR$/controllers/ImageController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/middlewares/response.js" afterPath="$PROJECT_DIR$/middlewares/response.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,32 +15,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
               <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageController.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-                <element signature="e#1202#3200#0" expanded="false" />
-                <element signature="e#1657#2862#0" expanded="false" />
-                <element signature="e#2888#3143#0" expanded="false" />
-                <element signature="e#3269#3520#0" expanded="false" />
-                <element signature="e#3548#3703#0" expanded="false" />
-                <element signature="e#3725#3918#0" expanded="false" />
-                <element signature="e#4140#4284#0" expanded="false" />
-                <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -122,7 +103,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/logs/response/response-2019-02-23.log" />
         <option value="$PROJECT_DIR$/logs/error/error-2019-02-23.log" />
-        <option value="$PROJECT_DIR$/middlewares/response.js" />
         <option value="$PROJECT_DIR$/utils/common.js" />
         <option value="$PROJECT_DIR$/utils/jwt.js" />
         <option value="$PROJECT_DIR$/router/api.js" />
@@ -152,6 +132,7 @@
         <option value="$PROJECT_DIR$/models/shema/images.js" />
         <option value="$PROJECT_DIR$/models/shema/paylog.js" />
         <option value="$PROJECT_DIR$/models/UserModel.js" />
+        <option value="$PROJECT_DIR$/middlewares/response.js" />
         <option value="$PROJECT_DIR$/controllers/ImageController.js" />
       </list>
     </option>
@@ -377,12 +358,12 @@
       <workItem from="1551164391322" duration="10009000" />
       <workItem from="1551234825351" duration="8730000" />
       <workItem from="1551340808533" duration="25953000" />
-      <workItem from="1551513717425" duration="22052000" />
+      <workItem from="1551513717425" duration="22541000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293363000" />
+    <option name="totallyTimeSpent" value="293852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -494,14 +475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middlewares/response.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -867,29 +840,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/middlewares/response.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/ImageController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        <state relative-caret-position="701">
+          <caret line="113" column="12" lean-forward="false" selection-start-line="113" selection-start-column="12" selection-end-line="113" selection-end-column="12" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
-            <element signature="e#1202#3200#0" expanded="false" />
-            <element signature="e#1657#2862#0" expanded="false" />
-            <element signature="e#2888#3143#0" expanded="false" />
-            <element signature="e#3269#3520#0" expanded="false" />
-            <element signature="e#3548#3703#0" expanded="false" />
-            <element signature="e#3725#3918#0" expanded="false" />
-            <element signature="e#4140#4284#0" expanded="false" />
+            <element signature="e#1081#3079#0" expanded="false" />
+            <element signature="e#1536#2741#0" expanded="false" />
+            <element signature="e#2767#3022#0" expanded="false" />
+            <element signature="e#3148#3399#0" expanded="false" />
+            <element signature="e#3427#3582#0" expanded="false" />
+            <element signature="e#3826#3992#0" expanded="false" />
+            <element signature="e#4015#4157#0" expanded="false" />
             <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

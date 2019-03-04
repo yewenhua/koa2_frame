@@ -21,10 +21,6 @@ class ImageController extends BaseController{
 
         if(pics && pics.length > 0) {
             let userInfo = await UserModel.findById(ctx.user.id);
-            console.log('000000000000000000');
-            console.log(userInfo);
-            console.log(pics.length);
-
             if(userInfo && userInfo.count >= pics.length) {
                 console.log('11111111111');
                 let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
@@ -100,7 +96,7 @@ class ImageController extends BaseController{
                     });
                 }
                 else {
-                    return ctx.success({
+                    return ctx.error({
                         code: 10001,
                         msg: '转换失败',
                         data: null
@@ -108,7 +104,7 @@ class ImageController extends BaseController{
                 }
             }
             else{
-                return ctx.success({
+                return ctx.error({
                     code: 10008,
                     msg:'余额不足',
                     data: null
@@ -116,7 +112,7 @@ class ImageController extends BaseController{
             }
         }
         else{
-            return ctx.success({
+            return ctx.error({
                 code: 10009,
                 msg:'参数错误',
                 data: null
