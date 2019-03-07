@@ -4,6 +4,7 @@ import WechatService from '../services/WechatService';
 import WxpayService from '../services/WxpayService';
 import rawBody from 'raw-body';
 import UserModel from '../models/UserModel';
+import ImageModel from '../models/ImageModel';
 const logUtil = require('../utils/LogUtil');
 
 class WxController extends BaseController{
@@ -157,7 +158,7 @@ class WxController extends BaseController{
         let accessToken = await WechatService.accessToken(APPID, APPSECRET);
         let jsapiTicket = await WechatService.jsapiTicket(APPID, APPSECRET);
         let jssdkSign = await WechatService.jssdkSign(url, APPID);
-        let payRes = await UserModel.payPoint(10970, 200);
+
 
         return ctx.success({
             msg:'登录成功',

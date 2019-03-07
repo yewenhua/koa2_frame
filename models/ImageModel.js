@@ -1,12 +1,20 @@
-import Image from  './shema/images'
+import Image from  './shema/images';
+import Sequelize from 'sequelize';
 
+const Op = Sequelize.Op;
 class ImageModel {
     // 添加
-    static async addImage (url, status) {
+    static async findByPage (offset, num, label) {
         // 向 image 表中插入数据
-        return await Image.create({
-            url: url,
-            status: status
+        let like = '%' + label +'%';
+        return await Image.findAndCountAll({
+            where: {
+                label: {
+                    [Op.like]: like
+                }
+            },
+            offset: offset,
+            limit: num
         });
     };
 

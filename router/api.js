@@ -20,6 +20,7 @@ api.get('/get', ctx => {
     .post('/refresh', UserCtrl.refresh)
     .post('/upload', ImageCtrl.upload)
     .post('/transfer', ImageCtrl.transfer)
+    .post('/querylist', ImageCtrl.querylist)
 
 
 export default api

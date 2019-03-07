@@ -130,6 +130,18 @@ class ImageController extends BaseController{
             }
         });
     }
+
+    //历史结果
+    static async querylist(ctx){
+        ctx.body = ctx.request.body;
+        let {label, page, num} = ctx.body;
+        let offset = (page - 1) * num;
+        let datalist = await ImageModel.findByPage(offset, num, label);
+        return ctx.success({
+            msg: '操作成功',
+            data: datalist
+        });
+    }
 }
 
 export default ImageController;
