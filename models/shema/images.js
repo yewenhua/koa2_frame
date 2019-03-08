@@ -2,6 +2,16 @@ import Sequelize from 'sequelize';
 import db from '../db'
 
 const Image = db.define('image', {
+    pwd_id: {
+        type: Sequelize.INTEGER,
+        set(val) {
+            this.setDataValue('pwd_id', val);
+        },
+        get() {
+            const val = this.getDataValue('pwd_id');
+            return val;
+        }
+    },
     url: {
         type: Sequelize.STRING,
         set(val) {

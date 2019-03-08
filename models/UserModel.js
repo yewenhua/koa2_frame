@@ -129,6 +129,7 @@ class UserModel {
             for(let i=0; i<result.length; i++){
                 if(result[i].status == 'success'){
                     arr.push({
+                        pwd_id: pwd_id,
                         url: result[i].url,
                         label: result[i].label,
                         result: JSON.stringify(result[i].data),
@@ -138,6 +139,7 @@ class UserModel {
                 }
                 else{
                     arr.push({
+                        pwd_id: pwd_id,
                         url: result[i].url,
                         label: result[i].label,
                         result: '',

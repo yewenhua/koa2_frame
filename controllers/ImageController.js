@@ -22,7 +22,6 @@ class ImageController extends BaseController{
         if(pics && pics.length > 0) {
             let userInfo = await UserModel.findById(ctx.user.id);
             if(userInfo && userInfo.count >= pics.length) {
-                console.log('11111111111');
                 let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
                 let appcode = "0172b53613af48ebbf0fd99fcda79342";
                 let auth = 'APPCODE ' + appcode;
@@ -55,7 +54,8 @@ class ImageController extends BaseController{
                                 url: pics[i].url,
                                 data: {
                                     prism_wnum: rtn.prism_wnum,
-                                    prism_wordsInfo: back
+                                    prism_wordsInfo: back,
+                                    original_wordInfo: rtn.prism_wordsInfo
                                 }
                             }
                         }
