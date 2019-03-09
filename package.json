@@ -30,6 +30,7 @@
     "log4js": "^3.0.6",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.4",
+    "officegen": "^0.4.7",
     "path": "^0.12.7",
     "puppeteer-core": "^1.12.2",
     "raw-body": "^2.3.3",

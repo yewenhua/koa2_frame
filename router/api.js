@@ -21,6 +21,8 @@ api.get('/get', ctx => {
     .post('/upload', ImageCtrl.upload)
     .post('/transfer', ImageCtrl.transfer)
     .post('/querylist', ImageCtrl.querylist)
+    .get('/word', UserCtrl.word)
+    .post('/wxtrans', ImageCtrl.wxtrans)
 
 
 export default api

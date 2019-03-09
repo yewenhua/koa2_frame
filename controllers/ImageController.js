@@ -142,6 +142,116 @@ class ImageController extends BaseController{
             data: datalist
         });
     }
+
+
+    // wx转换
+    static async wxtrans(ctx) {
+        //ctx.request.body 用于获取post的参数
+        ctx.body = ctx.request.body;
+        let title = 'wechat';
+        let pics = ctx.body.pic;
+        let success = 0;
+        let uid = 10970;
+
+        if(pics && pics.length > 0) {
+            let userInfo = await UserModel.findById(uid);
+            if(userInfo && userInfo.count >= pics.length) {
+                let url = "https://ocrapi-ecommerce.taobao.com/ocrservice/ecommerce";
+                let appcode = "0172b53613af48ebbf0fd99fcda79342";
+                let auth = 'APPCODE ' + appcode;
+                let rtn = [];
+                let format = [];
+                for (let i = 0; i < pics.length; i++) {
+                    let pic = pics[i].url;
+                    let sendData = {
+                        url: pic,
+                        prob: false
+                    }
+
+                    let rtnData = await request.post(url)
+                        .set('Authorization', auth)
+                        .set('Content-Type', 'application/json')
+                        .send(sendData);
+
+                    if (rtnData.status == 200 && rtnData.text) {
+                        let rtn = JSON.parse(rtnData.text);
+                        if (rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
+                            let back = [];
+                            for (let i = 0; i < rtn.prism_wordsInfo.length; i++) {
+                                back.push(rtn.prism_wordsInfo[i].word);
+                            }
+
+                            success++;
+                            format = {
+                                label: title,
+                                status: 'success',
+                                url: pics[i].url,
+                                data: {
+                                    prism_wnum: rtn.prism_wnum,
+                                    prism_wordsInfo: back,
+                                    original_wordInfo: rtn.prism_wordsInfo
+                                }
+                            }
+                        }
+                        else {
+                            format = {
+                                label: title,
+                                status: 'fail',
+                                url: pics[i].url,
+                                data: null
+                            }
+                        }
+                    }
+                    else {
+                        format = {
+                            label: title,
+                            status: 'fail',
+                            url: pics[i].url,
+                            data: null
+                        }
+                    }
+
+                    rtn.push(format);
+                }
+
+                let flag = false;
+                if (success > 0) {
+                    let payRes = await UserModel.payCountMoney(uid, success, rtn);
+                    if (payRes && payRes.id) {
+                        flag = true;
+                    }
+                }
+
+                if (flag) {
+                    return ctx.success({
+                        msg: '转换成功',
+                        data: rtn
+                    });
+                }
+                else {
+                    return ctx.error({
+                        code: 10001,
+                        msg: '转换失败',
+                        data: null
+                    });
+                }
+            }
+            else{
+                return ctx.error({
+                    code: 10008,
+                    msg:'余额不足',
+                    data: null
+                });
+            }
+        }
+        else{
+            return ctx.error({
+                code: 10009,
+                msg:'参数错误',
+                data: null
+            });
+        }
+    }
 }
 
 export default ImageController;

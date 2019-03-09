@@ -1,5 +1,8 @@
 import jwt from 'jsonwebtoken';
 import CryptoJs from 'crypto-js';
+import officegen from 'officegen';
+import fs from 'fs';
+import path from 'path';
 import UserModel from '../models/UserModel'
 import BaseController from './BaseController';
 import Common from '../utils/common';
@@ -135,19 +138,42 @@ class UserController extends BaseController{
         const user = ctx.user;  //通过中间件filter获取用户信息
     }
 
-    // 更新用户资料
-    static async put(ctx) {
-        // await ……
-    }
+    // 导出word
+    static async word(ctx) {
+        let docx = officegen ('docx');
+        let outDir = path.join(__dirname, '../tmp/');
+        docx.on ( 'finalize', function ( written ) {
+            console.log ( '11111111111111111' );
+            console.log ( 'Finish to create Word file.\nTotal bytes created: ' + written + '\n' );
+        });
 
-    // 删除用户
-    static async deluser(ctx) {
-        // await ……
-    }
+        docx.on ( 'error', function ( err ) {
+            console.log ( '22222222222222222' );
+            console.log ( err );
+        });
 
-    // 重置密码
-    static async resetpwd(ctx) {
-        // await ……
+        var pObj = docx.createP();
+
+        pObj.addText('Simple');
+        pObj.addText(' with color', { color: '000088' });
+        pObj.addText(' and back color.', { color: '00ffff', back: '000088' });
+
+        var out = fs.createWriteStream(path.join(outDir, 'example.docx'));
+        out.on('error', function (err) {
+            console.log ( '333333333333333333' );
+            console.log(err)
+        });
+
+        out.on('close', function () {
+            console.log ( '444444444444444444' );
+            console.log('Finished to create the PPTX file!');
+        });
+
+        ctx.set('Content-Type', 'application/vnd.openxmlformats-officedocument.processingml.document');
+        ctx.set('Content-disposition', 'attachment; filename=example.docx');
+
+        let res = docx.generate(out);
+        ctx.body = res;
     }
 }
 
