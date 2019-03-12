@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/WxpayService.js" afterPath="$PROJECT_DIR$/services/WxpayService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WxpayService.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WxpayService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/WxpayService.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="640">
-              <caret line="270" column="14" lean-forward="true" selection-start-line="270" selection-start-column="14" selection-end-line="270" selection-end-column="14" />
+              <caret line="270" column="14" lean-forward="false" selection-start-line="270" selection-start-column="14" selection-end-line="270" selection-end-column="14" />
               <folding>
                 <element signature="n#!!block;n#notify#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#parseXML2Json#0;n#WxpayService#0" expanded="false" />
@@ -50,11 +50,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="WxController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/WxController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="174" column="24" lean-forward="false" selection-start-line="174" selection-start-column="17" selection-end-line="174" selection-end-column="24" />
+            <state relative-caret-position="440">
+              <caret line="232" column="22" lean-forward="false" selection-start-line="232" selection-start-column="17" selection-end-line="232" selection-end-column="22" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
                 <element signature="n#!!block;n#check#0;n#WxController#0" expanded="false" />
@@ -62,6 +72,7 @@
                 <element signature="e#1492#6025#0" expanded="false" />
                 <element signature="n#!!block;n#token#0;n#WxController#0" expanded="false" />
                 <element signature="n#!!block;n#outhurl#0;n#WxController#0" expanded="false" />
+                <element signature="n#!!block;n#outhinfo#0;n#WxController#0" expanded="false" />
                 <element signature="n#!!block;n#wxpay#0;n#WxController#0" expanded="false" />
               </folding>
             </state>
@@ -209,7 +220,6 @@
         <option value="$PROJECT_DIR$/models/shema/users.js" />
         <option value="$PROJECT_DIR$/config/mini.js" />
         <option value="$PROJECT_DIR$/services/MiniService.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/controllers/MiniController.js" />
         <option value="$PROJECT_DIR$/config/wechat.js" />
         <option value="$PROJECT_DIR$/router/api.js" />
@@ -218,6 +228,7 @@
         <option value="$PROJECT_DIR$/controllers/WxController.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/services/WxpayService.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -430,12 +441,12 @@
       <workItem from="1551340808533" duration="25953000" />
       <workItem from="1551513717425" duration="23083000" />
       <workItem from="1551924697103" duration="3997000" />
-      <workItem from="1551937927951" duration="47352000" />
+      <workItem from="1551937927951" duration="47595000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="345743000" />
+    <option name="totallyTimeSpent" value="345986000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -773,14 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="45" column="26" lean-forward="false" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/MiniService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -889,16 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/wechat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -907,26 +900,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/WxController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="174" column="24" lean-forward="false" selection-start-line="174" selection-start-column="17" selection-end-line="174" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-            <element signature="n#!!block;n#check#0;n#WxController#0" expanded="false" />
-            <element signature="n#!!block;n#run#0;n#WxController#0" expanded="false" />
-            <element signature="e#1492#6025#0" expanded="false" />
-            <element signature="n#!!block;n#token#0;n#WxController#0" expanded="false" />
-            <element signature="n#!!block;n#outhurl#0;n#WxController#0" expanded="false" />
-            <element signature="n#!!block;n#wxpay#0;n#WxController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/WxpayService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="640">
-          <caret line="270" column="14" lean-forward="true" selection-start-line="270" selection-start-column="14" selection-end-line="270" selection-end-column="14" />
+          <caret line="270" column="14" lean-forward="false" selection-start-line="270" selection-start-column="14" selection-end-line="270" selection-end-column="14" />
           <folding>
             <element signature="n#!!block;n#notify#0;n#WxpayService#0" expanded="false" />
             <element signature="n#!!block;n#parseXML2Json#0;n#WxpayService#0" expanded="false" />
@@ -944,6 +921,41 @@
             <element signature="e#9363#9505#0" expanded="false" />
             <element signature="e#9528#9651#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/WxController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="232" column="22" lean-forward="false" selection-start-line="232" selection-start-column="17" selection-end-line="232" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+            <element signature="n#!!block;n#check#0;n#WxController#0" expanded="false" />
+            <element signature="n#!!block;n#run#0;n#WxController#0" expanded="false" />
+            <element signature="e#1492#6025#0" expanded="false" />
+            <element signature="n#!!block;n#token#0;n#WxController#0" expanded="false" />
+            <element signature="n#!!block;n#outhurl#0;n#WxController#0" expanded="false" />
+            <element signature="n#!!block;n#outhinfo#0;n#WxController#0" expanded="false" />
+            <element signature="n#!!block;n#wxpay#0;n#WxController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/wechat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
