@@ -1,6 +1,7 @@
 import Router from 'koa-router'
 import UserCtrl from '../controllers/UserController';
 import ImageCtrl from '../controllers/ImageController';
+import MiniController from '../controllers/MiniController';
 
 const api = new Router({
     prefix: '/api'
@@ -23,6 +24,7 @@ api.get('/get', ctx => {
     .post('/querylist', ImageCtrl.querylist)
     .get('/word', UserCtrl.word)
     .post('/wxtrans', ImageCtrl.wxtrans)
+    .post('/minilogin', MiniController.minilogin)
 
 
 export default api

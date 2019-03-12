@@ -24,6 +24,7 @@ class WxpayService {
         // 生成商家内部自定义的订单号, 商家内部的系统用的, 不用 attach 加入也是可以的
         const tradeId = params.tradeId;
         // 生成签名
+        let ip = params.ip || '';
 
         let productIntro = params.productIntro || 'pay for goods';
         let notifyUrl = params.notifyUrl;
@@ -42,8 +43,6 @@ class WxpayService {
             trade_type: 'JSAPI'
         };
         const sign = await WxpayService.sign(signParams, PAY_API_KEY);
-        let ip = params.ip || '';
-        ip = ip.match(/\d+\.\d+\.\d+\.\d+/)[0];
 
         //将微信需要的数据拼成 xml 发送出去
         const sendData = await WxpayService.prePaySendData(appId, attach, productIntro, mchId, nonceStr, notifyUrl, openId, tradeId, ip, price, sign);
@@ -52,8 +51,16 @@ class WxpayService {
             .set('Content-Type', 'application/xml')
             .send(sendData);
 
+        console.log('00000000000');
+        console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
-
+            let rtn = JSON.parse(rtnData.text);
+            console.log('1111111111111');
+            console.log(rtn);
+            return rtn;
+        }
+        else{
+            return null;
         }
     }
 
@@ -93,6 +100,14 @@ class WxpayService {
                 resolve(result.xml)
             })
         })
+    }
+
+    static async parseJson2XML(json) {
+        return new Promise((resolve, reject) => {
+            var builder = new xml2js.Builder();
+            var xml = builder.buildObject(json);
+            resolve(xml);
+        });
     }
 
     static async nonceStr() {
@@ -196,6 +211,92 @@ class WxpayService {
         string = string + 'key=' + PAY_API_KEY;
         const localSign = Common.md5(string).toUpperCase();
         return localSign === xmlObj.sgin;
+    }
+
+    static async createPayQrcodeUrl(params){
+        const appId = params.appId;
+        const mchId = params.mchId;
+        const nonceStr = await WxpayService.nonceStr();
+        const timeStamp = parseInt(new Date().getTime() / 1000) + '';
+        const product_id = params.product_id;
+        const PAY_API_KEY = params.payApiKey;
+
+        let signParams = {
+            appid: appId,
+            mch_id: mchId,
+            nonce_str: nonceStr,
+            time_stamp: timeStamp,
+            product_id: product_id
+        };
+        const sign = await WxpayService.sign(signParams, PAY_API_KEY);
+        signParams['sign'] = sign;
+        let stringA = await WechatService.raw(signParams);
+        let long_url = "weixin://wxpay/bizpayurl?" + stringA;
+        return long_url;
+    }
+
+    static async createShortUrl(params){
+        const appId = params.appId;
+        const mchId = params.mchId;
+        const nonceStr = await WxpayService.nonceStr();
+        const long_url = params.long_url;
+        const PAY_API_KEY = params.payApiKey;
+        const url = "https://api.mch.weixin.qq.com/tools/shorturl";
+
+        let signParams = {
+            appid: appId,
+            mch_id: mchId,
+            nonce_str: nonceStr,
+            long_url: long_url
+        };
+        const sign = await WxpayService.sign(signParams, PAY_API_KEY);
+        signParams['sign'] = sign;
+
+    }
+
+    static async scanPayCb(cbData, parameters){
+        let payApiKey = parameters.payApiKey;
+        let rtn = null;
+        await check = await WxpayService.checkSign(cbData, payApiKey);
+        if(!check){
+            let openid = cbData.openid;
+            let product_id = cbData.product_id;
+            let type = 'NATIVE';
+            let params = {
+                openid: openid,
+                appId: parameters.appId,
+                mchId: parameters.mchId,
+                type: type
+                //...
+            };
+            let prepayInfo = await WxpayService.prepay(params);
+            if(prepayInfo && prepayInfo.prepay_id){
+                rtn = {
+                    return_code: 'SUCCESS',
+                    result_code: 'SUCCESS',
+                    prepay_id: prepayInfo.prepay_id,
+                    appid: parameters.appId,
+                    mch_id: parameters.mchId,
+                    nonce_str: cbData.nonce_str,
+                    sign: cbData.sign
+                };
+            }
+            else{
+                rtn = {
+                    return_code: 'FAIL',
+                    return_msg: 'PAY FAIL'
+                };
+            }
+        }
+        else{
+            rtn = {
+                return_code: 'FAIL',
+                return_msg: 'SIGN FAIL'
+            };
+        }
+
+        let res = await WxpayService.parseJson2XML(rtn);
+        return res;
     }
 }
 

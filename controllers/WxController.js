@@ -5,6 +5,8 @@ import WxpayService from '../services/WxpayService';
 import rawBody from 'raw-body';
 import UserModel from '../models/UserModel';
 import ImageModel from '../models/ImageModel';
+import Common from '../utils/common';
+import redis from '../utils/redis';
 const logUtil = require('../utils/LogUtil');
 
 class WxController extends BaseController{
@@ -170,13 +172,77 @@ class WxController extends BaseController{
         });
     }
 
+    static async outhurl(ctx){
+        ctx.body = ctx.request.body;
+        let { type, state, redirect_uri } = ctx.body;
+        let appId = wxconf.appID;
+        let url;
+        if(type == 'base'){
+            url = await WechatService.oauthBase(appId, redirect_uri, state);
+        }
+        else{
+            url = await WechatService.oauthUserinfo(appId, redirect_uri, state);
+        }
+
+        return ctx.success({
+            msg:'操作成功',
+            data: {
+                url
+            }
+        });
+    }
+
+    static async outhinfo(ctx){
+        ctx.body = ctx.request.body;
+        let { code, type } = ctx.body;
+        let appId = wxconf.appID;
+        let appSecret = wxconf.appSecret;
+        let secret = process.env.SECRET;
+        let tokenInfo = await WechatService.authInfoByCode(code, appId, appSecret);
+        let rtn = {};
+        if(tokenInfo && !tokenInfo.errcode) {
+            let key = Common.md5(tokenInfo.openid + secret);
+            redis.set(key, tokenInfo.openid, 2 * 3600);
+            rtn.openkey = key;
+            if (type != 'base') {
+                let info = await WechatService.userInfoByOauth(tokenInfo.openid, tokenInfo.access_token);
+                if(info && !info.errcode) {
+                    rtn.nickname = nickname;
+                    rtn.sex = sex;
+                    rtn.province = province;
+                    rtn.city = city;
+                    rtn.country = country;
+                    rtn.headimgurl = headimgurl;
+                }
+            }
+
+            return ctx.success({
+                msg:'操作成功',
+                data: rtn
+            });
+        }
+        else{
+            return ctx.error({
+                code: 10001,
+                msg: '操作失败',
+                data: null
+            });
+        }
+    }
+
     static async wxpay(ctx){
+        ctx.body = ctx.request.body;
+        let { openkey, price } = ctx.body;
+        let openid = await redis.get(openkey);
+        let ip = ctx.request.ip;
         let appId = wxconf.appID;
         let appSecret = wxconf.appSecret;
         let mchId = wxconf.mchId;
         let payApiKey = wxconf.payApiKey;
         let attach = 'maoxy';
         let tradeId = await WxpayService.tradeId(attach);
+        let ontify_url = process.env.DOMAIN + '/wechat/notify';
+        let fee = price * 100;
 
         let params = {
             appId: appId,
@@ -184,20 +250,31 @@ class WxController extends BaseController{
             mchId: mchId,
             payApiKey: payApiKey,
             tradeId: tradeId,
-            openId: '',
+            openId: openid,
             attach: attach,
-            productIntro: '',
-            notifyUrl: '',
-            price: '',
-            ip: ''
+            productIntro: 'pay goods',
+            notifyUrl: ontify_url,
+            price: fee,
+            ip: ip
         };
         let prepayInfo = await WxpayService.prepay(params);
-        if(prepayInfo && prepayInfo.code == 0){
+        console.log('2222222222');
+        console.log(prepayInfo);
+
+        if(prepayInfo && prepayInfo.data.prepay_id){
             let payInfo = await WxpayService.payParams(appId, prepayInfo.data.prepayId, tradeId, payApiKey);
         }
         else{
 
         }
+    }
+
+    static async notify(ctx){
+
+    }
+
+    static async scanpay(ctx){
+
     }
 }
 

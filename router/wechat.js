@@ -9,7 +9,11 @@ wechat
     .get('/entry', WxCtrl.check)
     .post('/entry', WxCtrl.run)
     .get('/token', WxCtrl.token)
-    .get('/pay', WxCtrl.wxpay)
+    .post('/wxpay', WxCtrl.wxpay)
+    .get('/notify', WxCtrl.notify)
+    .get('/scanpay', WxCtrl.scanpay)
+    .post('/outhurl', WxCtrl.outhurl)
+    .post('/outhinfo', WxCtrl.outhinfo)
 
 
 export default wechat

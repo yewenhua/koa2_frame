@@ -64,6 +64,16 @@ const User = db.define('password', {
             return val;
         }
     },
+    openid: {
+        type: Sequelize.STRING,
+        set(val) {
+            this.setDataValue('openid', val);
+        },
+        get() {
+            const val = this.getDataValue('openid');
+            return val;
+        }
+    },
     begin: {
         type: Sequelize.DATE,
         set(val) {
