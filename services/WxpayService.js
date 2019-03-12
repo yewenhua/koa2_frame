@@ -257,7 +257,7 @@ class WxpayService {
     static async scanPayCb(cbData, parameters){
         let payApiKey = parameters.payApiKey;
         let rtn = null;
-        await check = await WxpayService.checkSign(cbData, payApiKey);
+        let check = await WxpayService.checkSign(cbData, payApiKey);
         if(!check){
             let openid = cbData.openid;
             let product_id = cbData.product_id;
