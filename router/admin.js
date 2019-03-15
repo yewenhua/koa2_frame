@@ -12,4 +12,4 @@ admin.get('/get', ctx => {
     })
 
 
-export default admin
+export default admin;

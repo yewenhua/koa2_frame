@@ -16,6 +16,12 @@ async function startById(id) {
             type: 'qq',
             account: '2574522520',
             password: '624500929wenhua'
+        },
+        site: {
+            slug: '58pic'
+        },
+        material: {
+
         }
     };
     const crawler = new Site58pic(task);

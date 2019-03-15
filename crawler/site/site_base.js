@@ -5,7 +5,7 @@
 const lodash = require("lodash");
 const puppeteer = require("puppeteer");
 const site = require("../../config/site");
-const {CaptchaQQ} = require("../../services/CaptchaQQ");
+//const { CaptchaQQ } = require("../../services/CaptchaQQ");
 
 class SiteBase {
     constructor(task) {
@@ -27,7 +27,6 @@ class SiteBase {
     }
 
     set cookies(cookies) {
-        this.task.siteAccount.cookie = cookies;
         this._cookies = cookies;
     }
 
@@ -44,7 +43,9 @@ class SiteBase {
     }
 
     async init() {
-        this._browser = await puppeteer.launch();
+        this._browser = await puppeteer.launch({
+            headless: false
+        });
         this._page = (await this.browser.pages())[0];
 
         this._page.on('dialog', async (dialog) => {
@@ -113,10 +114,12 @@ class SiteBase {
         if (/^https?:\/\/localhost\.ptlogin2\.qq\.com:\d+\/pt_get_uins\?/.test(req.url())) {
             console.log('禁止qq快速登陆，加快登陆时间');
             req.abort().catch(() => {
+
             });
         }
         else {
             req.continue().catch(() => {
+
             });
         }
     }
@@ -241,7 +244,7 @@ class SiteBase {
             captcha[1] = resp[1].url().startsWith('https://hy.captcha.qq.com/hycdn_1') ? resp[0] : resp[1];
             return captcha;
         }).catch(e => {
-            if (lodash_1.toString(e).toLowerCase().indexOf('timeout') < 0) {
+            if (lodash.toString(e).toLowerCase().indexOf('timeout') < 0) {
                 console.log('QQ 验证码获取错误。', e);
             }
         });
@@ -269,7 +272,8 @@ class SiteBase {
         console.log('获取到验证码图片，长度：', captchaResponse.length);
         if (captchaResponse.length === 2) {
             console.log('开始获取验证码坐标');
-            const target = CaptchaQQ.analyze(await captchaResponse[0].buffer(), await captchaResponse[1].buffer(), true);
+            const target = 0;
+            //const target = CaptchaQQ.analyze(await captchaResponse[0].buffer(), await captchaResponse[1].buffer(), true);
             console.log('获取到坐标: ', target);
             console.log('准备移动滑块');
             await new Promise(r => {
@@ -456,8 +460,8 @@ class SiteBase {
                 default:
                     console.log(`暂时不支持这个账号类型 "${this.task.account.type}"`);
             }
-
             if (await this.isLogin()) {
+                console.log(`66666666666`);
                 console.log(`登陆成功`);
                 this.cookies = await this.getAllCookies();
                 return;

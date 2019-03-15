@@ -1,5 +1,6 @@
 import Router from 'koa-router'
-import WxCtrl from '../controllers/WxController'
+import WxCtrl from '../controllers/WxController';
+import MiniController from '../controllers/MiniController';
 
 const wechat = new Router({
     prefix: '/wechat'
@@ -14,6 +15,7 @@ wechat
     .get('/scanpay', WxCtrl.scanpay)
     .post('/outhurl', WxCtrl.outhurl)
     .post('/outhinfo', WxCtrl.outhinfo)
+    .post('/minilogin', MiniController.minilogin)
 
 
-export default wechat
+export default wechat;

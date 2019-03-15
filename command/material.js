@@ -45,6 +45,7 @@ exports.handler = function (argv) {
     const id = argv.id;
     const slug = argv.site;
     if (slug) {
+        //循环执行站点爬虫
         (async () => {
             const workip = '127.0.0.1';
             const queueKey = `material:${slug}:${workip}`;
@@ -56,6 +57,8 @@ exports.handler = function (argv) {
                     if (!isWaiting) {
                         console.log(`wait...`);
                     }
+
+                    //没有任务，暂停一秒
                     await new Promise(resolve => {
                         setTimeout(() => {
                             resolve();
@@ -71,19 +74,7 @@ exports.handler = function (argv) {
                 console.log('============');
                 console.log(cmd);
 
-                setTimeout(() => {
-                    console.log('任务超时，强制退出');
-                    redisObj
-                        .sadd(queueKey, id)
-                        .then(() => {
-                            console.log('error code 2');
-                            process.exit(2);
-                        })
-                        .catch(() => {
-                            console.log('error code 3');
-                            process.exit(3);
-                        });
-                }, 10 * 60 * 1000);
+                //开启子进程执行具体任务ID
                 child_process.execSync(cmd, {
                     cwd: cwd,
                     env: process.env,
@@ -94,13 +85,12 @@ exports.handler = function (argv) {
         })();
     }
     else if (id) {
-        console.log('1111111111');
+        //执行站点下具体的某个人物id
         task.startById(id).then(() => {
             process.exit(0);
         });
     }
     else {
-        console.log('2222222222');
         process.exit(1);
     }
 }

@@ -316,6 +316,87 @@ class WechatService {
         }
         return output;
     }
+
+    static async qrcode(access_token, type, scene_str) {
+        let url = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=" + access_token;
+        let params;
+        let qrcode_img_url = null;
+        if(type == 'limit') {
+            //临时二维码
+            params = {
+                expire_seconds: 2592000,
+                action_name: "QR_STR_SCENE",
+                action_info:{
+                    scene: {
+                        scene_str: scene_str
+                    }
+                }
+            };
+        }
+        else{
+            params = {
+                action_name: "QR_LIMIT_STR_SCENE",
+                action_info:{
+                    scene: {
+                        scene_str: scene_str
+                    }
+                }
+            };
+        }
+
+        let rtnData = await request.post(url)
+            .set('Content-Type', 'application/json')
+            .send(params);
+
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.errcode && rtn.errcode != 0){
+                let encode_ticket = await WechatService.urlencode(rtn.ticket);
+                qrcode_img_url = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + encode_ticket;
+            }
+        }
+
+        return qrcode_img_url;
+    }
+
+    static async menu(access_token, menu_body){
+        let url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token=' + access_token;
+        let rtnData = await request.post(url)
+            .set('Content-Type', 'application/json')
+            .send(menu_body);
+
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.errcode && rtn.errcode != 0){
+
+            }
+        }
+    }
+
+    static async addressParameters(prams){
+        let noncestr = Math.random().toString(36).substr(2, 15);
+        let timestamp = parseInt(new Date().getTime() / 1000) + '';
+        let args = {
+            appid: prams.appid,
+            url: prams.url,
+            timestamp: timestamp,
+            noncestr: noncestr,
+            accesstoken: prams.access_token
+        };
+
+        let stringA = await WechatService.raw(args);
+        let signature = sha1(stringA);
+        let rtn = {
+            addrSign: signature,
+            signType: 'sha1',
+            scope: 'jsapi_address',
+            appId: args.appid,
+            timeStamp: args.timestamp,
+            nonceStr: args.noncestr
+        };
+
+        return rtn;
+    }
 }
 
 export default WechatService
