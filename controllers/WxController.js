@@ -17,7 +17,7 @@ class WxController extends BaseController{
             return ctx.body = echostr;
         }
         else{
-            ctx.status = 401
+            ctx.status = 401;
             ctx.body = 'Invalid signature';
         }
     }
@@ -230,51 +230,118 @@ class WxController extends BaseController{
         }
     }
 
+    /*
+     * jsapi支付
+     */
     static async wxpay(ctx){
         ctx.body = ctx.request.body;
         let { openkey, price } = ctx.body;
         let openid = await redis.get(openkey);
         let ip = ctx.request.ip;
         let appId = wxconf.appID;
-        let appSecret = wxconf.appSecret;
         let mchId = wxconf.mchId;
         let payApiKey = wxconf.payApiKey;
-        let attach = 'maoxy';
+        let attach = 'jsapi_maoxy';
         let tradeId = await WxpayService.tradeId(attach);
-        let ontify_url = process.env.DOMAIN + '/wechat/notify';
+        let notify_url = process.env.DOMAIN + '/ai/wechat/notify';
         let fee = price * 100;
 
         let params = {
             appId: appId,
-            appSecret: appSecret,
             mchId: mchId,
             payApiKey: payApiKey,
             tradeId: tradeId,
             openId: openid,
             attach: attach,
-            productIntro: 'pay goods',
-            notifyUrl: ontify_url,
+            body: 'jsapi pay goods',
+            notifyUrl: notify_url,
+            type: 'JSAPI',
             price: fee,
             ip: ip
         };
         let prepayInfo = await WxpayService.prepay(params);
-        console.log('2222222222');
-        console.log(prepayInfo);
-
         if(prepayInfo && prepayInfo.data.prepay_id){
             let payInfo = await WxpayService.payParams(appId, prepayInfo.data.prepayId, tradeId, payApiKey);
+            //传到前端进行支付
         }
         else{
 
         }
     }
 
+    /*
+     * jsapi支付结果通知
+     */
     static async notify(ctx){
+        let ret = {};
+        let payApiKey = wxconf.payApiKey;
+        let xml = await rawBody(ctx.req, {
+            length: ctx.request.length,
+            limit: '1mb',
+            encoding: ctx.request.charset || 'utf-8'
+        });
+        let cbJsonData = await WechatService.parseXML2Json(xml);
+        let check = await WechatService.notify(cbJsonData, payApiKey);
+        if(check){
+            let total_fee = cbJsonData.total_fee;
+            let out_trade_no = cbJsonData.out_trade_no;
+            ret.return_code = 'SUCCESS';
+            ret.return_msg = 'OK';
+        }
+        else{
+            ret.return_code = 'FAIL';
+            ret.return_msg = 'ERROR';
+        }
 
+
+        let replayXml = await WxpayService.parseJson2XML(ret);
+        ctx.body = replayXml;
     }
 
-    static async scanpay(ctx){
+    /*
+     * 生成扫码支付二维码
+     */
+    static async scanpayurl(ctx){
+        let appId = wxconf.appID;
+        let payApiKey = wxconf.payApiKey;
+        let mchId = wxconf.mchId;
+        let product_id = '514176213';
+        let params = {
+            appId,
+            payApiKey,
+            mchId,
+            product_id
+        };
 
+        let url = await WxpayService.createPayQrcodeUrl(params);
+        let qrcode_url = await WxpayService.generateQrcode(url);
+        return qrcode_url;
+    }
+
+    /*
+     * 扫码支付回调
+     */
+    static async scanpaycb(ctx){
+        let payApiKey = wxconf.payApiKey;
+        let xml = await rawBody(ctx.req, {
+            length: ctx.request.length,
+            limit: '1mb',
+            encoding: ctx.request.charset || 'utf-8'
+        });
+
+        let cbJsonData = await WechatService.parseXML2Json(xml);
+        let ip = ctx.request.ip;;
+        let notify_url = process.env.DOMAIN + '/ai/wechat/notify';
+        let price = 1;
+        let params = {
+            payApiKey: payApiKey,
+            notify_url: notify_url,
+            price: price,
+            ip: ip
+        };
+
+        let replayXml = await WechatService.scanPayCb(cbJsonData, params);
+        ctx.body = replayXml;
     }
 }
 
