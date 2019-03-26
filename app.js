@@ -43,6 +43,8 @@ app.use(koaJwt({
         /^\/wechat\/outhurl/,
         /^\/wechat\/outhinfo/,
         /^\/wechat\/notify/,
+        /^\/wechat\/scanpayurl/,
+        /^\/wechat\/scanpaycb/,
         /^\/api\/word/,
         /^\/api\/wxtrans/,
         /^\/api\/upload/,

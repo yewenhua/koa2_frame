@@ -6,6 +6,7 @@ import QRCode from 'qrcode';
 import xml2js from 'xml2js';
 import request from 'superagent';
 import Common from '../utils/common';
+import WechatService from './WechatService';
 const logUtil = require('../utils/LogUtil');
 
 class WxpayService {
@@ -227,10 +228,28 @@ class WxpayService {
         };
         const sign = await WxpayService.sign(signParams, PAY_API_KEY);
         signParams['sign'] = sign;
+        let sendData = await WxpayService.parseJson2XML(signParams);
+        let rtnData = await request.post(url)
+            .set('Content-Type', 'application/xml')
+            .send(sendData);
 
+        let res = null;
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.return_code && rtn.return_code == 'SUCCESS' && rtn.result_code && rtn.result_code == 'SUCCESS') {
+                let check = await WxpayService.checkSign(rtn, PAY_API_KEY);
+                if(check){
+                    res = rtn.short_url;
+                }
+            }
+        }
+
+        return res;
     }
 
     static async scanPayCb(cbData, params){
+        console.log('3333333333');
+        console.log(params);
         let replyParams = {
             appid: cbData.appid,
             mch_id: cbData.mch_id,
@@ -239,6 +258,7 @@ class WxpayService {
         };
         let check = await WechatService.checkSign(cbData, params.payApiKey);
         if(check){
+            console.log('555555555');
             let product_id = cbData.product_id;
             let attach = 'scan_' + product_id;
             let tradeId = await WxpayService.tradeId(attach);
@@ -281,10 +301,10 @@ class WxpayService {
     }
 
     static async generateQrcode(url){
-        let url = await QRCode.toDataURL(url, {
+        let img_src = await QRCode.toDataURL(url, {
             margin: 0
         });
-        return url;
+        return img_src;
     }
 }
 
