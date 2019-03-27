@@ -273,11 +273,12 @@ class WxpayService {
             };
             let prepayInfo = await WxpayService.prepay(prepayParams);
             console.log('AAAAAAAAAAAAAAA');
-            console.log(prepayInfo);
+            //console.log(prepayInfo);
             if(prepayInfo && prepayInfo.prepay_id){
+                console.log('WWWWWWWWWWW');
                 replyParams.return_code = 'SUCCESS';
                 replyParams.result_code = 'SUCCESS';
-                replyParams.prepay_id = prepayInfo.data.prepay_id;
+                replyParams.prepay_id = prepayInfo.prepay_id;
             }
             else{
                 console.log('1111111111111');
@@ -296,6 +297,8 @@ class WxpayService {
         let sign = await WxpayService.sign(replyParams, params.payApiKey);
         replyParams.sign = sign;
         let replayXml = await WxpayService.parseJson2XML(replyParams);
+        console.log('TTTTTTTTTTTTT');
+        console.log(replayXml);
         return replayXml;
     }
 
