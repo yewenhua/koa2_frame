@@ -187,8 +187,9 @@ class WxpayService {
         string = string + 'key=' + PAY_API_KEY;
         const localSign = Common.md5(string).toUpperCase();
         console.log('777777777777');
-        console.log(string);
+        console.log(xmlObj.sgin);
         console.log(localSign);
+        console.log(localSign === xmlObj.sgin);
         return localSign === xmlObj.sgin;
     }
 
@@ -260,6 +261,8 @@ class WxpayService {
             prepay_id: ''
         };
         let check = await WxpayService.checkSign(cbData, params.payApiKey);
+        console.log('88888888888888');
+        console.log(check);
         if(check){
             console.log('5555555555');
             let product_id = cbData.product_id;
