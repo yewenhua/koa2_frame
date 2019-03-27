@@ -328,6 +328,7 @@ class WxController extends BaseController{
      * 扫码支付回调
      */
     static async scanpaycb(ctx){
+        console.log('1111111111111');
         let payApiKey = wxconf.payApiKey;
         let xml = await rawBody(ctx.req, {
             length: ctx.request.length,
@@ -336,6 +337,8 @@ class WxController extends BaseController{
         });
 
         let cbJsonData = await WechatService.parseXML2Json(xml);
+        console.log('22222222222222');
+        console.log(cbJsonData);
         let ip = ctx.request.ip;;
         let notify_url = process.env.DOMAIN + '/wechat/notify';
         let price = 1;

@@ -58,6 +58,8 @@ class WxpayService {
             .send(sendData);
 
         let res = null;
+        console.log('BBBBBBBBBBBBB');
+        console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.return_code && rtn.return_code == 'SUCCESS' && rtn.result_code && rtn.result_code == 'SUCCESS') {
@@ -186,6 +188,10 @@ class WxpayService {
         })
         string = string + 'key=' + PAY_API_KEY;
         const localSign = Common.md5(string).toUpperCase();
+        console.log('777777777777');
+        console.log(xmlObj.sign);
+        console.log(localSign);
+        console.log(localSign === xmlObj.sign);
         return localSign === xmlObj.sign;
     }
 
@@ -247,6 +253,9 @@ class WxpayService {
     }
 
     static async scanPayCb(cbData, params){
+        console.log('3333333333');
+        console.log(cbData);
+        console.log(params);
         let replyParams = {
             appid: cbData.appid,
             mch_id: cbData.mch_id,
@@ -254,7 +263,10 @@ class WxpayService {
             prepay_id: ''
         };
         let check = await WxpayService.checkSign(cbData, params.payApiKey);
+        console.log('88888888888888');
+        console.log(check);
         if(check){
+            console.log('5555555555');
             let product_id = cbData.product_id;
             let attach = 'scan_' + product_id;
             let tradeId = await WxpayService.tradeId(attach);
@@ -273,6 +285,8 @@ class WxpayService {
                 ip: params.ip
             };
             let prepayInfo = await WxpayService.prepay(prepayParams);
+            console.log('AAAAAAAAAAAAAAA');
+            console.log(prepayInfo);
             if(prepayInfo && prepayInfo.data.prepay_id){
                 replyParams.return_code = 'SUCCESS';
                 replyParams.result_code = 'SUCCESS';
@@ -285,6 +299,7 @@ class WxpayService {
             }
         }
         else{
+            console.log('66666666666');
             replyParams.return_code = 'FAIL';
             replyParams.result_code = 'FAIL';
             replyParams.err_code_des = '签名错误';
