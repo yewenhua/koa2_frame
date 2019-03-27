@@ -53,17 +53,17 @@ class WxpayService {
         signParams.sign = sign;
         let sendData = await WxpayService.parseJson2XML(signParams);
         let url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
-        let rtnXml = await request.post(url)
+        let rtnData = await request.post(url)
             .set('Content-Type', 'application/xml')
             .send(sendData);
 
         let res = null;
         console.log('BBBBBBBBBBBBB');
         //console.log(rtnData);
-        let rtnData = await WxpayService.parseXML2Json(rtnXml);
         if (rtnData.status == 200 && rtnData.text) {
             console.log('DDDDDDDDDDDDDD');
-            let rtn = JSON.parse(rtnData.text);
+            let rtn = await WxpayService.parseXML2Json(rtnData.text);
+            //let rtn = JSON.parse(rtnData.text);
             if(rtn.return_code && rtn.return_code == 'SUCCESS' && rtn.result_code && rtn.result_code == 'SUCCESS') {
                 console.log('EEEEEEEEEEEEEE');
                 let check = await WxpayService.checkSign(rtn, PAY_API_KEY);
