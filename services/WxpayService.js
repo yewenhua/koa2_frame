@@ -270,7 +270,8 @@ class WxpayService {
             let product_id = cbData.product_id;
             let attach = 'scan';
             let tradeId = await WxpayService.tradeId(attach);
-
+            console.log('CCCCCCCCCCCCCCCCC');
+            console.log(tradeId);
             let prepayParams = {
                 appId: cbData.appid,
                 mchId: cbData.mch_id,
@@ -286,7 +287,7 @@ class WxpayService {
             };
             let prepayInfo = await WxpayService.prepay(prepayParams);
             console.log('AAAAAAAAAAAAAAA');
-            console.log(prepayInfo);
+            //console.log(prepayInfo);
             if(prepayInfo && prepayInfo.data.prepay_id){
                 replyParams.return_code = 'SUCCESS';
                 replyParams.result_code = 'SUCCESS';
