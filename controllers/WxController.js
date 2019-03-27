@@ -281,7 +281,7 @@ class WxController extends BaseController{
             encoding: ctx.request.charset || 'utf-8'
         });
         let cbJsonData = await WechatService.parseXML2Json(xml);
-        let check = await WechatService.notify(cbJsonData, payApiKey);
+        let check = await WxpayService.notify(cbJsonData, payApiKey);
         if(check){
             let total_fee = cbJsonData.total_fee;
             let out_trade_no = cbJsonData.out_trade_no;
@@ -349,7 +349,7 @@ class WxController extends BaseController{
             ip: ip
         };
 
-        let replayXml = await WechatService.scanPayCb(cbJsonData, params);
+        let replayXml = await WxpayService.scanPayCb(cbJsonData, params);
         console.log('99999999999999999');
         console.log(replayXml);
         ctx.body = replayXml;
