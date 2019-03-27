@@ -186,11 +186,7 @@ class WxpayService {
         })
         string = string + 'key=' + PAY_API_KEY;
         const localSign = Common.md5(string).toUpperCase();
-        console.log('777777777777');
-        console.log(xmlObj.sgin);
-        console.log(localSign);
-        console.log(localSign === xmlObj.sgin);
-        return localSign === xmlObj.sgin;
+        return localSign === xmlObj.sign;
     }
 
     static async createPayQrcodeUrl(params){
@@ -251,9 +247,6 @@ class WxpayService {
     }
 
     static async scanPayCb(cbData, params){
-        console.log('3333333333');
-        console.log(cbData);
-        console.log(params);
         let replyParams = {
             appid: cbData.appid,
             mch_id: cbData.mch_id,
@@ -261,10 +254,7 @@ class WxpayService {
             prepay_id: ''
         };
         let check = await WxpayService.checkSign(cbData, params.payApiKey);
-        console.log('88888888888888');
-        console.log(check);
         if(check){
-            console.log('5555555555');
             let product_id = cbData.product_id;
             let attach = 'scan_' + product_id;
             let tradeId = await WxpayService.tradeId(attach);
@@ -295,7 +285,6 @@ class WxpayService {
             }
         }
         else{
-            console.log('66666666666');
             replyParams.return_code = 'FAIL';
             replyParams.result_code = 'FAIL';
             replyParams.err_code_des = '签名错误';
