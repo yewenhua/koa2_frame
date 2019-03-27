@@ -268,7 +268,7 @@ class WxpayService {
         if(check){
             console.log('5555555555');
             let product_id = cbData.product_id;
-            let attach = 'scan_' + product_id;
+            let attach = 'scan';
             let tradeId = await WxpayService.tradeId(attach);
 
             let prepayParams = {

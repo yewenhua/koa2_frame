@@ -241,7 +241,7 @@ class WxController extends BaseController{
         let appId = wxconf.appID;
         let mchId = wxconf.mchId;
         let payApiKey = wxconf.payApiKey;
-        let attach = 'jsapi_maoxy';
+        let attach = 'jsapi';
         let tradeId = await WxpayService.tradeId(attach);
         let notify_url = process.env.DOMAIN + '/wechat/notify';
         let fee = price * 100;
