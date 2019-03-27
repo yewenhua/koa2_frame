@@ -17,10 +17,11 @@
       <file leaf-file-name="WxpayService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/WxpayService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
-              <caret line="64" column="19" lean-forward="false" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="19" />
+            <state relative-caret-position="324">
+              <caret line="289" column="12" lean-forward="false" selection-start-line="289" selection-start-column="12" selection-end-line="289" selection-end-column="12" />
               <folding>
                 <element signature="e#51#79#0" expanded="true" />
+                <element signature="n#!!block;n#prepay#0;n#WxpayService#0" expanded="false" />
                 <element signature="e#894#1213#0" expanded="false" />
                 <element signature="n#!!block;n#notify#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#parseXML2Json#0;n#WxpayService#0" expanded="false" />
@@ -31,9 +32,10 @@
                 <element signature="n#!!block;n#sign#0;n#WxpayService#0" expanded="false" />
                 <element signature="e#4886#4916#0" expanded="false" />
                 <element signature="n#!!block;n#payParams#0;n#WxpayService#0" expanded="false" />
+                <element signature="n#!!block;n#checkSign#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#createPayQrcodeUrl#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#createShortUrl#0;n#WxpayService#0" expanded="false" />
-                <element signature="e#9997#10167#0" expanded="false" />
+                <element signature="e#9838#10008#0" expanded="false" />
                 <element signature="n#!!block;n#generateQrcode#0;n#WxpayService#0" expanded="false" />
               </folding>
             </state>
@@ -399,12 +401,12 @@
       <workItem from="1553234743829" duration="2077000" />
       <workItem from="1553240596578" duration="10404000" />
       <workItem from="1553474751340" duration="15716000" />
-      <workItem from="1553576369434" duration="13540000" />
+      <workItem from="1553576369434" duration="13693000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="412921000" />
+    <option name="totallyTimeSpent" value="413074000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -841,10 +843,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/WxpayService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="64" column="19" lean-forward="false" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="19" />
+        <state relative-caret-position="324">
+          <caret line="289" column="12" lean-forward="false" selection-start-line="289" selection-start-column="12" selection-end-line="289" selection-end-column="12" />
           <folding>
             <element signature="e#51#79#0" expanded="true" />
+            <element signature="n#!!block;n#prepay#0;n#WxpayService#0" expanded="false" />
             <element signature="e#894#1213#0" expanded="false" />
             <element signature="n#!!block;n#notify#0;n#WxpayService#0" expanded="false" />
             <element signature="n#!!block;n#parseXML2Json#0;n#WxpayService#0" expanded="false" />
@@ -855,9 +858,10 @@
             <element signature="n#!!block;n#sign#0;n#WxpayService#0" expanded="false" />
             <element signature="e#4886#4916#0" expanded="false" />
             <element signature="n#!!block;n#payParams#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#checkSign#0;n#WxpayService#0" expanded="false" />
             <element signature="n#!!block;n#createPayQrcodeUrl#0;n#WxpayService#0" expanded="false" />
             <element signature="n#!!block;n#createShortUrl#0;n#WxpayService#0" expanded="false" />
-            <element signature="e#9997#10167#0" expanded="false" />
+            <element signature="e#9838#10008#0" expanded="false" />
             <element signature="n#!!block;n#generateQrcode#0;n#WxpayService#0" expanded="false" />
           </folding>
         </state>
