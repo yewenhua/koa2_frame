@@ -104,7 +104,7 @@ class WxpayService {
         let middle = '';
         return new Promise((resolve, reject) => {
             for(let key in json){
-                middle += `<${key}>` + json.key + `</${key}>`;
+                middle += `<${key}>` + json[key] + `</${key}>`;
             }
             let xml = "<xml>" + middle + "</xml>";
             resolve(xml);
