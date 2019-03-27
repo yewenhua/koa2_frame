@@ -282,13 +282,17 @@ class WxController extends BaseController{
         });
         let cbJsonData = await WechatService.parseXML2Json(xml);
         let check = await WxpayService.notify(cbJsonData, payApiKey);
+        console.log('00000000000');
+        console.log(cbJsonData);
         if(check){
+            console.log('111111');
             let total_fee = cbJsonData.total_fee;
             let out_trade_no = cbJsonData.out_trade_no;
             ret.return_code = 'SUCCESS';
             ret.return_msg = 'OK';
         }
         else{
+            console.log('22222222');
             ret.return_code = 'FAIL';
             ret.return_msg = 'ERROR';
         }
@@ -336,20 +340,18 @@ class WxController extends BaseController{
         });
 
         let cbJsonData = await WechatService.parseXML2Json(xml);
-        //let ip = ctx.request.ip;
         let ip = '120.25.205.187';
-            let notify_url = process.env.DOMAIN + '/wechat/notify';
+        let notify_url = process.env.DOMAIN + '/wechat/notify';
         let price = 1;
         let params = {
             payApiKey: payApiKey,
             notify_url: notify_url,
             price: price,
-            ip: ip
+            ip: ip,
+            body: '扫码支付'
         };
 
         let replayXml = await WxpayService.scanPayCb(cbJsonData, params);
-        console.log('99999999999999999');
-        console.log(replayXml);
         ctx.body = replayXml;
     }
 }

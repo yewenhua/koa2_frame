@@ -47,8 +47,6 @@ class WxpayService {
             signParams.product_id = params.product_id;
         }
 
-        console.log('3333333333');
-        console.log(signParams);
         const sign = await WxpayService.sign(signParams, PAY_API_KEY);
 
         //将微信需要的数据拼成 xml 发送出去
@@ -62,8 +60,6 @@ class WxpayService {
         let res = null;
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = await WxpayService.parseXML2Json(rtnData.text);
-            console.log('55555555');
-            console.log(rtn);
             if(rtn.return_code && rtn.return_code == 'SUCCESS' && rtn.result_code && rtn.result_code == 'SUCCESS') {
                 let check = await WxpayService.checkSign(rtn, PAY_API_KEY);
                 if(check){
@@ -78,9 +74,12 @@ class WxpayService {
     static async notify(params, PAY_API_KEY){
         let flag = false;
         if(params.return_code && params.return_code == 'SUCCESS') {
+            console.log('333333');
             let check = await WxpayService.checkSign(params, PAY_API_KEY);
             if (check) {
+                console.log('555555555');
                 if (params['result_code'] && params['result_code'] == 'SUCCESS') {
+                    console.log('6666666666666');
                     flag = true;
                 }
             }
@@ -272,7 +271,7 @@ class WxpayService {
                 tradeId: tradeId,
                 product_id: cbData.product_id,
                 attach: attach,
-                body: 'native pay goods',
+                body: params.body,
                 notifyUrl: params.notify_url,
                 type: 'NATIVE',
                 price: params.price,
@@ -280,7 +279,6 @@ class WxpayService {
             };
             let prepayInfo = await WxpayService.prepay(prepayParams);
             if(prepayInfo && prepayInfo.prepay_id){
-                console.log('222222222');
                 replyParams.return_code = 'SUCCESS';
                 replyParams.result_code = 'SUCCESS';
                 replyParams.prepay_id = prepayInfo.prepay_id;
@@ -299,8 +297,6 @@ class WxpayService {
 
         let sign = await WxpayService.sign(replyParams, params.payApiKey);
         replyParams.sign = sign;
-        console.log('1111111');
-        console.log(replyParams);
         let replayXml = await WxpayService.parseJson2XML(replyParams);
         return replayXml;
     }
