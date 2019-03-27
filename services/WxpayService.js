@@ -6,7 +6,6 @@ import QRCode from 'qrcode';
 import xml2js from 'xml2js';
 import request from 'superagent';
 import Common from '../utils/common';
-import WechatService from './WechatService';
 const logUtil = require('../utils/LogUtil');
 
 class WxpayService {
@@ -142,7 +141,7 @@ class WxpayService {
     }
 
     static async sign(params, PAY_API_KEY) {
-        let stringA = await WechatService.raw(params);
+        let stringA = await WxpayService.raw(params);
         let stringSignTemp = stringA + '&key=' + PAY_API_KEY;
         let sign = Common.md5(stringSignTemp).toUpperCase();
         return sign;
@@ -207,7 +206,7 @@ class WxpayService {
         };
         const sign = await WxpayService.sign(signParams, PAY_API_KEY);
         signParams['sign'] = sign;
-        let stringA = await WechatService.raw(signParams);
+        let stringA = await WxpayService.raw(signParams);
         let long_url = "weixin://wxpay/bizpayurl?" + stringA;
         return long_url;
     }
@@ -256,7 +255,7 @@ class WxpayService {
             nonce_str: cbData.nonce_str,
             prepay_id: ''
         };
-        let check = await WechatService.checkSign(cbData, params.payApiKey);
+        let check = await WxpayService.checkSign(cbData, params.payApiKey);
         if(check){
             console.log('5555555555');
             let product_id = cbData.product_id;
