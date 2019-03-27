@@ -188,9 +188,9 @@ class WxpayService {
         })
         string = string + 'key=' + PAY_API_KEY;
         const localSign = Common.md5(string).toUpperCase();
-        console.log('777777777777');
-        console.log(xmlObj.sign);
-        console.log(localSign);
+        //console.log('777777777777');
+        //console.log(xmlObj.sign);
+        //console.log(localSign);
         console.log(localSign === xmlObj.sign);
         return localSign === xmlObj.sign;
     }
@@ -254,8 +254,8 @@ class WxpayService {
 
     static async scanPayCb(cbData, params){
         console.log('3333333333');
-        console.log(cbData);
-        console.log(params);
+        //console.log(cbData);
+        //console.log(params);
         let replyParams = {
             appid: cbData.appid,
             mch_id: cbData.mch_id,

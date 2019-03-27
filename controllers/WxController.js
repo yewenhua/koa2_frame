@@ -338,7 +338,7 @@ class WxController extends BaseController{
 
         let cbJsonData = await WechatService.parseXML2Json(xml);
         console.log('22222222222222');
-        console.log(cbJsonData);
+        //console.log(cbJsonData);
         let ip = ctx.request.ip;;
         let notify_url = process.env.DOMAIN + '/wechat/notify';
         let price = 1;
@@ -351,7 +351,7 @@ class WxController extends BaseController{
 
         let replayXml = await WxpayService.scanPayCb(cbJsonData, params);
         console.log('99999999999999999');
-        console.log(replayXml);
+        //console.log(replayXml);
         ctx.body = replayXml;
     }
 }
