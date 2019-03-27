@@ -258,7 +258,7 @@ class WxpayService {
         };
         let check = await WechatService.checkSign(cbData, params.payApiKey);
         if(check){
-            console.log('555555555');
+            console.log('5555555555');
             let product_id = cbData.product_id;
             let attach = 'scan_' + product_id;
             let tradeId = await WxpayService.tradeId(attach);

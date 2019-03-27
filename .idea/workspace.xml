@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="" />
+    <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/WxpayService.js" afterPath="$PROJECT_DIR$/services/WxpayService.js" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WxpayService.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WxpayService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/WxpayService.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="512">
-              <caret line="260" column="34" lean-forward="false" selection-start-line="260" selection-start-column="34" selection-end-line="260" selection-end-column="34" />
+              <caret line="260" column="35" lean-forward="false" selection-start-line="260" selection-start-column="35" selection-end-line="260" selection-end-column="35" />
               <folding>
                 <element signature="e#51#79#0" expanded="true" />
                 <element signature="n#!!block;n#prepay#0;n#WxpayService#0" expanded="false" />
@@ -55,8 +57,8 @@
                 <element signature="n#!!block;n#checkSign#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#createPayQrcodeUrl#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#createShortUrl#0;n#WxpayService#0" expanded="false" />
-                <element signature="e#8591#9026#0" expanded="false" />
-                <element signature="e#9551#9701#0" expanded="false" />
+                <element signature="e#8592#9027#0" expanded="false" />
+                <element signature="e#9552#9702#0" expanded="false" />
                 <element signature="n#!!block;n#generateQrcode#0;n#WxpayService#0" expanded="false" />
               </folding>
             </state>
@@ -68,26 +70,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="34" column="4" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -198,10 +180,10 @@
         <option value="$PROJECT_DIR$/logs/response/response-2019-03-26.log" />
         <option value="$PROJECT_DIR$/logs/error/error-2019-03-26.log" />
         <option value="$PROJECT_DIR$/router/wechat.js" />
-        <option value="$PROJECT_DIR$/services/WxpayService.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/controllers/WxController.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/services/WxpayService.js" />
       </list>
     </option>
   </component>
@@ -419,12 +401,12 @@
       <workItem from="1553234743829" duration="2077000" />
       <workItem from="1553240596578" duration="10404000" />
       <workItem from="1553474751340" duration="15716000" />
-      <workItem from="1553576369434" duration="8653000" />
+      <workItem from="1553576369434" duration="8825000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="408034000" />
+    <option name="totallyTimeSpent" value="408206000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -835,10 +817,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="34" column="14" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/services/WxpayService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="512">
-          <caret line="260" column="34" lean-forward="false" selection-start-line="260" selection-start-column="34" selection-end-line="260" selection-end-column="34" />
+          <caret line="260" column="35" lean-forward="false" selection-start-line="260" selection-start-column="35" selection-end-line="260" selection-end-column="35" />
           <folding>
             <element signature="e#51#79#0" expanded="true" />
             <element signature="n#!!block;n#prepay#0;n#WxpayService#0" expanded="false" />
@@ -854,34 +860,10 @@
             <element signature="n#!!block;n#checkSign#0;n#WxpayService#0" expanded="false" />
             <element signature="n#!!block;n#createPayQrcodeUrl#0;n#WxpayService#0" expanded="false" />
             <element signature="n#!!block;n#createShortUrl#0;n#WxpayService#0" expanded="false" />
-            <element signature="e#8591#9026#0" expanded="false" />
-            <element signature="e#9551#9701#0" expanded="false" />
+            <element signature="e#8592#9027#0" expanded="false" />
+            <element signature="e#9552#9702#0" expanded="false" />
             <element signature="n#!!block;n#generateQrcode#0;n#WxpayService#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="34" column="4" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
