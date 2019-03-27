@@ -73,6 +73,9 @@ class WxpayService {
 
     static async notify(params, PAY_API_KEY){
         let flag = false;
+        console.log('00000000000');
+        console.log(params);
+        console.log(PAY_API_KEY);
         if(params.return_code && params.return_code == 'SUCCESS') {
             console.log('333333');
             let check = await WxpayService.checkSign(params, PAY_API_KEY);
