@@ -350,6 +350,8 @@ class WxController extends BaseController{
         };
 
         let replayXml = await WechatService.scanPayCb(cbJsonData, params);
+        console.log('99999999999999999');
+        console.log(replayXml);
         ctx.body = replayXml;
     }
 }
