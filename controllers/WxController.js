@@ -260,7 +260,7 @@ class WxController extends BaseController{
             ip: ip
         };
         let prepayInfo = await WxpayService.prepay(params);
-        if(prepayInfo && prepayInfo.data.prepay_id){
+        if(prepayInfo && prepayInfo.prepay_id){
             let payInfo = await WxpayService.payParams(appId, prepayInfo.data.prepayId, tradeId, payApiKey);
             //传到前端进行支付
         }
@@ -328,7 +328,6 @@ class WxController extends BaseController{
      * 扫码支付回调
      */
     static async scanpaycb(ctx){
-        console.log('1111111111111');
         let payApiKey = wxconf.payApiKey;
         let xml = await rawBody(ctx.req, {
             length: ctx.request.length,
@@ -337,9 +336,9 @@ class WxController extends BaseController{
         });
 
         let cbJsonData = await WechatService.parseXML2Json(xml);
-        console.log('22222222222222');
-        //console.log(cbJsonData);
-        let ip = ctx.request.ip;;
+        console.log('888888888');
+        console.log(ctx.request.ip);
+        let ip = ctx.request.ip;
         let notify_url = process.env.DOMAIN + '/wechat/notify';
         let price = 1;
         let params = {
@@ -351,7 +350,7 @@ class WxController extends BaseController{
 
         let replayXml = await WxpayService.scanPayCb(cbJsonData, params);
         console.log('99999999999999999');
-        //console.log(replayXml);
+        console.log(replayXml);
         ctx.body = replayXml;
     }
 }

@@ -58,17 +58,11 @@ class WxpayService {
             .send(sendData);
 
         let res = null;
-        console.log('BBBBBBBBBBBBB');
-        //console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
-            console.log('DDDDDDDDDDDDDD');
             let rtn = await WxpayService.parseXML2Json(rtnData.text);
-            //let rtn = JSON.parse(rtnData.text);
             if(rtn.return_code && rtn.return_code == 'SUCCESS' && rtn.result_code && rtn.result_code == 'SUCCESS') {
-                console.log('EEEEEEEEEEEEEE');
                 let check = await WxpayService.checkSign(rtn, PAY_API_KEY);
                 if(check){
-                    console.log('FFFFFFFFFFFF');
                     res = rtn;
                 }
             }
@@ -253,9 +247,6 @@ class WxpayService {
     }
 
     static async scanPayCb(cbData, params){
-        console.log('3333333333');
-        //console.log(cbData);
-        //console.log(params);
         let replyParams = {
             appid: cbData.appid,
             mch_id: cbData.mch_id,
@@ -263,15 +254,10 @@ class WxpayService {
             prepay_id: ''
         };
         let check = await WxpayService.checkSign(cbData, params.payApiKey);
-        console.log('88888888888888');
-        console.log(check);
         if(check){
-            console.log('5555555555');
             let product_id = cbData.product_id;
             let attach = 'scan';
             let tradeId = await WxpayService.tradeId(attach);
-            console.log('CCCCCCCCCCCCCCCCC');
-            console.log(tradeId);
             let prepayParams = {
                 appId: cbData.appid,
                 mchId: cbData.mch_id,
@@ -288,12 +274,13 @@ class WxpayService {
             let prepayInfo = await WxpayService.prepay(prepayParams);
             console.log('AAAAAAAAAAAAAAA');
             console.log(prepayInfo);
-            if(prepayInfo && prepayInfo.data.prepay_id){
+            if(prepayInfo && prepayInfo.prepay_id){
                 replyParams.return_code = 'SUCCESS';
                 replyParams.result_code = 'SUCCESS';
                 replyParams.prepay_id = prepayInfo.data.prepay_id;
             }
             else{
+                console.log('1111111111111');
                 replyParams.return_code = 'FAIL';
                 replyParams.result_code = 'FAIL';
                 replyParams.err_code_des = '生成统一订单错误';
@@ -306,7 +293,7 @@ class WxpayService {
             replyParams.err_code_des = '签名错误';
         }
 
-        let sign = await WxpayService.prepay(replyParams);
+        let sign = await WxpayService.sign(replyParams, params.payApiKey);
         replyParams.sign = sign;
         let replayXml = await WxpayService.parseJson2XML(replyParams);
         return replayXml;
