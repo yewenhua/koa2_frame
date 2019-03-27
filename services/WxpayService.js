@@ -47,6 +47,8 @@ class WxpayService {
             signParams.product_id = params.product_id;
         }
 
+        console.log('3333333333');
+        console.log(signParams);
         const sign = await WxpayService.sign(signParams, PAY_API_KEY);
 
         //将微信需要的数据拼成 xml 发送出去
@@ -60,6 +62,8 @@ class WxpayService {
         let res = null;
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = await WxpayService.parseXML2Json(rtnData.text);
+            console.log('55555555');
+            console.log(rtn);
             if(rtn.return_code && rtn.return_code == 'SUCCESS' && rtn.result_code && rtn.result_code == 'SUCCESS') {
                 let check = await WxpayService.checkSign(rtn, PAY_API_KEY);
                 if(check){
@@ -100,7 +104,7 @@ class WxpayService {
         let middle = '';
         return new Promise((resolve, reject) => {
             for(let key in json){
-                middle = `<${key}>` + json.key + `</${key}>`;
+                middle += `<${key}>` + json.key + `</${key}>`;
             }
             let xml = "<xml>" + middle + "</xml>";
             resolve(xml);
@@ -276,6 +280,7 @@ class WxpayService {
             };
             let prepayInfo = await WxpayService.prepay(prepayParams);
             if(prepayInfo && prepayInfo.prepay_id){
+                console.log('222222222');
                 replyParams.return_code = 'SUCCESS';
                 replyParams.result_code = 'SUCCESS';
                 replyParams.prepay_id = prepayInfo.prepay_id;
