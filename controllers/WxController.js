@@ -243,7 +243,7 @@ class WxController extends BaseController{
         let payApiKey = wxconf.payApiKey;
         let attach = 'jsapi_maoxy';
         let tradeId = await WxpayService.tradeId(attach);
-        let notify_url = process.env.DOMAIN + '/ai/wechat/notify';
+        let notify_url = process.env.DOMAIN + '/wechat/notify';
         let fee = price * 100;
 
         let params = {
@@ -340,7 +340,7 @@ class WxController extends BaseController{
         console.log('22222222222222');
         console.log(cbJsonData);
         let ip = ctx.request.ip;;
-        let notify_url = process.env.DOMAIN + '/ai/wechat/notify';
+        let notify_url = process.env.DOMAIN + '/wechat/notify';
         let price = 1;
         let params = {
             payApiKey: payApiKey,

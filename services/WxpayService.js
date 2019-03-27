@@ -248,6 +248,7 @@ class WxpayService {
 
     static async scanPayCb(cbData, params){
         console.log('3333333333');
+        console.log(cbData);
         console.log(params);
         let replyParams = {
             appid: cbData.appid,
@@ -288,6 +289,7 @@ class WxpayService {
             }
         }
         else{
+            console.log('66666666666');
             replyParams.return_code = 'FAIL';
             replyParams.result_code = 'FAIL';
             replyParams.err_code_des = '签名错误';
