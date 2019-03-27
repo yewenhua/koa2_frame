@@ -294,6 +294,8 @@ class WxpayService {
 
         let sign = await WxpayService.sign(replyParams, params.payApiKey);
         replyParams.sign = sign;
+        console.log('1111111');
+        console.log(replyParams);
         let replayXml = await WxpayService.parseJson2XML(replyParams);
         return replayXml;
     }

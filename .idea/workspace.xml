@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/WxController.js" afterPath="$PROJECT_DIR$/controllers/WxController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/WxpayService.js" afterPath="$PROJECT_DIR$/services/WxpayService.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,17 +14,18 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WxpayService.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WxpayService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/WxpayService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="104" column="50" lean-forward="false" selection-start-line="104" selection-start-column="50" selection-end-line="104" selection-end-column="50" />
+            <state relative-caret-position="712">
+              <caret line="294" column="54" lean-forward="false" selection-start-line="294" selection-start-column="43" selection-end-line="294" selection-end-column="54" />
               <folding>
                 <element signature="e#51#79#0" expanded="true" />
                 <element signature="n#!!block;n#prepay#0;n#WxpayService#0" expanded="false" />
                 <element signature="e#894#1213#0" expanded="false" />
                 <element signature="n#!!block;n#notify#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#parseXML2Json#0;n#WxpayService#0" expanded="false" />
+                <element signature="n#!!block;n#parseJson2XML#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#nonceStr#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#tradeId#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#raw#0;n#WxpayService#0" expanded="false" />
@@ -37,7 +35,6 @@
                 <element signature="n#!!block;n#checkSign#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#createPayQrcodeUrl#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#createShortUrl#0;n#WxpayService#0" expanded="false" />
-                <element signature="n#!!block;n#scanPayCb#0;n#WxpayService#0" expanded="false" />
                 <element signature="n#!!block;n#generateQrcode#0;n#WxpayService#0" expanded="false" />
               </folding>
             </state>
@@ -54,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WxController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WxController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/WxController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="688">
-              <caret line="332" column="39" lean-forward="false" selection-start-line="332" selection-start-column="39" selection-end-line="332" selection-end-column="39" />
+            <state relative-caret-position="741">
+              <caret line="352" column="31" lean-forward="true" selection-start-line="351" selection-start-column="8" selection-end-line="352" selection-end-column="31" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
                 <element signature="n#!!block;n#check#0;n#WxController#0" expanded="false" />
@@ -375,12 +372,12 @@
       <workItem from="1553234743829" duration="2077000" />
       <workItem from="1553240596578" duration="10404000" />
       <workItem from="1553474751340" duration="15716000" />
-      <workItem from="1553576369434" duration="15275000" />
+      <workItem from="1553576369434" duration="15573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="414656000" />
+    <option name="totallyTimeSpent" value="414954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -802,35 +799,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/WxpayService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="104" column="50" lean-forward="false" selection-start-line="104" selection-start-column="50" selection-end-line="104" selection-end-column="50" />
-          <folding>
-            <element signature="e#51#79#0" expanded="true" />
-            <element signature="n#!!block;n#prepay#0;n#WxpayService#0" expanded="false" />
-            <element signature="e#894#1213#0" expanded="false" />
-            <element signature="n#!!block;n#notify#0;n#WxpayService#0" expanded="false" />
-            <element signature="n#!!block;n#parseXML2Json#0;n#WxpayService#0" expanded="false" />
-            <element signature="n#!!block;n#nonceStr#0;n#WxpayService#0" expanded="false" />
-            <element signature="n#!!block;n#tradeId#0;n#WxpayService#0" expanded="false" />
-            <element signature="n#!!block;n#raw#0;n#WxpayService#0" expanded="false" />
-            <element signature="n#!!block;n#sign#0;n#WxpayService#0" expanded="false" />
-            <element signature="e#4716#4746#0" expanded="false" />
-            <element signature="n#!!block;n#payParams#0;n#WxpayService#0" expanded="false" />
-            <element signature="n#!!block;n#checkSign#0;n#WxpayService#0" expanded="false" />
-            <element signature="n#!!block;n#createPayQrcodeUrl#0;n#WxpayService#0" expanded="false" />
-            <element signature="n#!!block;n#createShortUrl#0;n#WxpayService#0" expanded="false" />
-            <element signature="n#!!block;n#scanPayCb#0;n#WxpayService#0" expanded="false" />
-            <element signature="n#!!block;n#generateQrcode#0;n#WxpayService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/WxController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="332" column="39" lean-forward="false" selection-start-line="332" selection-start-column="39" selection-end-line="332" selection-end-column="39" />
+        <state relative-caret-position="741">
+          <caret line="352" column="31" lean-forward="true" selection-start-line="351" selection-start-column="8" selection-end-line="352" selection-end-column="31" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
             <element signature="n#!!block;n#check#0;n#WxController#0" expanded="false" />
@@ -844,6 +816,31 @@
             <element signature="n#!!block;n#notify#0;n#WxController#0" expanded="false" />
             <element signature="e#10591#10618#0" expanded="false" />
             <element signature="n#!!block;n#scanpayurl#0;n#WxController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/WxpayService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="712">
+          <caret line="294" column="54" lean-forward="false" selection-start-line="294" selection-start-column="43" selection-end-line="294" selection-end-column="54" />
+          <folding>
+            <element signature="e#51#79#0" expanded="true" />
+            <element signature="n#!!block;n#prepay#0;n#WxpayService#0" expanded="false" />
+            <element signature="e#894#1213#0" expanded="false" />
+            <element signature="n#!!block;n#notify#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#parseXML2Json#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#parseJson2XML#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#nonceStr#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#tradeId#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#raw#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#sign#0;n#WxpayService#0" expanded="false" />
+            <element signature="e#4716#4746#0" expanded="false" />
+            <element signature="n#!!block;n#payParams#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#checkSign#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#createPayQrcodeUrl#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#createShortUrl#0;n#WxpayService#0" expanded="false" />
+            <element signature="n#!!block;n#generateQrcode#0;n#WxpayService#0" expanded="false" />
           </folding>
         </state>
       </provider>
