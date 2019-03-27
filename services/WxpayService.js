@@ -97,9 +97,12 @@ class WxpayService {
     }
 
     static async parseJson2XML(json) {
+        let middle = '';
         return new Promise((resolve, reject) => {
-            var builder = new xml2js.Builder();
-            var xml = builder.buildObject(json);
+            for(let key in json){
+                middle = `<${key}>` + json.key + `</${key}>`;
+            }
+            let xml = "<xml>" + middle + "</xml>";
             resolve(xml);
         });
     }
@@ -272,23 +275,18 @@ class WxpayService {
                 ip: params.ip
             };
             let prepayInfo = await WxpayService.prepay(prepayParams);
-            console.log('AAAAAAAAAAAAAAA');
-            //console.log(prepayInfo);
             if(prepayInfo && prepayInfo.prepay_id){
-                console.log('WWWWWWWWWWW');
                 replyParams.return_code = 'SUCCESS';
                 replyParams.result_code = 'SUCCESS';
                 replyParams.prepay_id = prepayInfo.prepay_id;
             }
             else{
-                console.log('1111111111111');
                 replyParams.return_code = 'FAIL';
                 replyParams.result_code = 'FAIL';
                 replyParams.err_code_des = '生成统一订单错误';
             }
         }
         else{
-            console.log('66666666666');
             replyParams.return_code = 'FAIL';
             replyParams.result_code = 'FAIL';
             replyParams.err_code_des = '签名错误';
@@ -297,8 +295,6 @@ class WxpayService {
         let sign = await WxpayService.sign(replyParams, params.payApiKey);
         replyParams.sign = sign;
         let replayXml = await WxpayService.parseJson2XML(replyParams);
-        console.log('TTTTTTTTTTTTT');
-        console.log(replayXml);
         return replayXml;
     }
 

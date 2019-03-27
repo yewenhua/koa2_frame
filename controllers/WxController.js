@@ -350,7 +350,7 @@ class WxController extends BaseController{
 
         let replayXml = await WxpayService.scanPayCb(cbJsonData, params);
         console.log('99999999999999999');
-        //console.log(replayXml);
+        console.log(replayXml);
         ctx.body = replayXml;
     }
 }
