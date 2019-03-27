@@ -283,14 +283,12 @@ class WxController extends BaseController{
         let cbJsonData = await WechatService.parseXML2Json(xml);
         let check = await WxpayService.notify(cbJsonData, payApiKey);
         if(check){
-            console.log('111111');
             let total_fee = cbJsonData.total_fee;
             let out_trade_no = cbJsonData.out_trade_no;
             ret.return_code = 'SUCCESS';
             ret.return_msg = 'OK';
         }
         else{
-            console.log('22222222');
             ret.return_code = 'FAIL';
             ret.return_msg = 'ERROR';
         }
