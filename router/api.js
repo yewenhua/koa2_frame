@@ -9,6 +9,10 @@ const api = new Router({
 api.get('/get', ctx => {
         //crx.query 是用于获取get请求的参数
         ctx.body = ctx.query;
+        ws.io.emit('message', {
+            name: '123'
+        });
+
         ctx.response.body = 'this is api get page';
     })
     .post('/post', ctx => {

@@ -1,4 +1,6 @@
 const Koa = require('koa');
+const http = require('http');
+const socketIo = require('socket.io');
 const koaRouter = require('koa-router');
 const cors = require('koa2-cors');
 const path = require('path');
@@ -17,7 +19,21 @@ import wechat from './router/wechat'
 
 import filter from './middlewares/filter'
 import response from './middlewares/response'
+import SocketService from './services/SocketService';
 const logUtil = require('./utils/LogUtil');
+
+//如果原来是用app.listen(3000);来启动服务，现在要改成用http来启动server
+const server = http.createServer(app.callback());
+
+//挂载socket
+global.ws = {
+    io: socketIo(server),
+    count: 0,
+    onlineUsers: {},
+    onlineSockets: {}
+};
+SocketService(ws);
+
 
 //跨域
 app.use(cors());
@@ -36,6 +52,7 @@ app.use(koaJwt({
     secret: process.env.SECRET
 }).unless({
     path: [
+        /^\/api\/get/,
         /^\/api\/login/,
         /^\/api\/forget/,
         /^\/wechat\/token/,
@@ -81,4 +98,4 @@ app.on('error', function(err, ctx){
 
 
 
-app.listen(3000);
+server.listen(3000);
