@@ -13,11 +13,11 @@ const _ = require("lodash");
 const logUtil = require('../utils/LogUtil');
 
 class WechatService {
-    static async checkSignature(timestamp, nonce, token) {
+    static async checkSignature(signature, timestamp, nonce, token) {
         let hash = crypto.createHash('sha1');
         const arr = [token, timestamp, nonce].sort();
         hash.update(arr.join(''));
-        return hash.digest('hex');
+        return hash.digest('hex') === signature;
     }
 
     static async parseXML2Json(xml) {
@@ -100,6 +100,20 @@ class WechatService {
         info.toUsername = toUsername;
         info.fromUsername = fromUsername;
         return compiled(info);
+    }
+
+    /*
+     * 消息转发到客服
+     */
+    static async transfer_customer_service(){
+        let xml = `
+            <xml> 
+              <ToUserName><![CDATA[touser]]></ToUserName>  
+              <FromUserName><![CDATA[fromuser]]></FromUserName>  
+              <CreateTime>1399197672</CreateTime>  
+              <MsgType><![CDATA[transfer_customer_service]]></MsgType> 
+            </xml>
+        `;
     }
 
     static async accessToken(apppId, appSecret) {

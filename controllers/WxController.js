@@ -10,10 +10,14 @@ import redis from '../utils/redis';
 const logUtil = require('../utils/LogUtil');
 
 class WxController extends BaseController{
+    /*
+     * GET
+     * 验证消息的确来自微信服务器
+     */
     static async check(ctx) {
         const { signature, timestamp, nonce, echostr } = ctx.query;
         const TOKEN = wxconf.token;
-        if (signature === Wechat.checkSignature(timestamp, nonce, TOKEN)) {
+        if (WechatService.checkSignature(signature, timestamp, nonce, TOKEN)) {
             return ctx.body = echostr;
         }
         else{
@@ -22,10 +26,14 @@ class WxController extends BaseController{
         }
     }
 
+    /*
+     * POST
+     * 依据接口实现业务逻辑
+     */
     static async run(ctx) {
-        const { signature, timestamp, nonce, echostr } = ctx.query;
+        const { signature, timestamp, nonce } = ctx.query;
         const TOKEN = wxconf.token;
-        if (signature !== WechatService.checkSignature(timestamp, nonce, TOKEN)) {
+        if (WechatService.checkSignature(signature, timestamp, nonce, TOKEN)) {
             ctx.status = 401;
             ctx.body = 'Invalid signature';
         }
@@ -147,6 +155,7 @@ class WxController extends BaseController{
                     break;
             }
 
+            //发什么返回什么
             replyMessageXml = WechatService.reply(content, jsonData.ToUserName, jsonData.FromUserName);
             ctx.type = 'application/xml';
             ctx.body = replyMessageXml;
