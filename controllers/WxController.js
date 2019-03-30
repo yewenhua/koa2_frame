@@ -5,6 +5,7 @@ import WxpayService from '../services/WxpayService';
 import rawBody from 'raw-body';
 import UserModel from '../models/UserModel';
 import ImageModel from '../models/ImageModel';
+import CustomServiceModel from '../models/CustomServiceModel';
 import Common from '../utils/common';
 import redis from '../utils/redis';
 const logUtil = require('../utils/LogUtil');
@@ -33,6 +34,8 @@ class WxController extends BaseController{
     static async run(ctx) {
         const { signature, timestamp, nonce } = ctx.query;
         const TOKEN = wxconf.token;
+        const APPID = wxconf.appID;
+        const APPSECRET = wxconf.appSecret;
         if (WechatService.checkSignature(signature, timestamp, nonce, TOKEN)) {
             ctx.status = 401;
             ctx.body = 'Invalid signature';
@@ -49,15 +52,25 @@ class WxController extends BaseController{
             switch (jsonData.MsgType){
                 case 'event':
                     let eventName = (jsonData.Event).toLowerCase();
+                    let eventKey = (jsonData.EventKey).toLowerCase();
                     if(eventName == 'subscribe'){
                         //关注事件
+                        if(eventKey.indexOf('qrscene_') !== false){
+                            //带参数二维码，绑定专属客服
+                            let param_str = eventKey.substring(8);
+                            await WxController.serviceqrcode(jsonData, param_str);
+                        }
                     }
                     else if(eventName == 'unsubscribe'){
                         //取消关注事件
-                        content = '你好，欢迎光临';
                     }
                     else if(eventName == 'scan'){
                         //用户已关注时的扫码事件推送
+                        if(eventKey.indexOf('bind') !== false && jsonData.Ticket){
+                            //带参数二维码，绑定专属客服
+                            let param_str = eventKey;
+                            await WxController.serviceqrcode(jsonData, param_str);
+                        }
                     }
                     else if(eventName == 'location'){
                         //上报地理位置事件，每次进入公众号会话时
@@ -77,6 +90,9 @@ class WxController extends BaseController{
                                     picurl:  'https://share.voc.so/app/images/t77_thumb@2x.png',
                                     url: 'http://maoxy.com'
                                 }];
+                                replyMessageXml = await WechatService.reply(content, jsonData.ToUserName, jsonData.FromUserName);
+                                ctx.type = 'application/xml';
+                                ctx.body = replyMessageXml;
                                 break;
                             case 'V1002_SECOND':
                                 //多图文消息
@@ -95,10 +111,16 @@ class WxController extends BaseController{
                                         url: url
                                     }
                                 ];
+                                replyMessageXml = await WechatService.reply(content, jsonData.ToUserName, jsonData.FromUserName);
+                                ctx.type = 'application/xml';
+                                ctx.body = replyMessageXml;
                                 break;
                             case 'V2001_FIRST':
                                 //文本消息
                                 content = '你好';
+                                replyMessageXml = await WechatService.reply(content, jsonData.ToUserName, jsonData.FromUserName);
+                                ctx.type = 'application/xml';
+                                ctx.body = replyMessageXml;
                                 break;
                             case 'V2002_SECOND':
                                 //图片消息
@@ -113,8 +135,17 @@ class WxController extends BaseController{
                                         musicUrl: 'http://mp3.com/xx.mp3'
                                     },
                                 }
+                                replyMessageXml = await WechatService.reply(content, jsonData.ToUserName, jsonData.FromUserName);
+                                ctx.type = 'application/xml';
+                                ctx.body = replyMessageXml;
                                 break;
                             case 'V3002_SECOND':
+                                break;
+                            case 'V3003_SERVICE':
+                                //用户点击专属客服按钮
+                                replyMessageXml = await WxController.servicebtn(jsonData, APPID, APPSECRET);
+                                ctx.type = 'application/xml';
+                                ctx.body = replyMessageXml;
                                 break;
                             default:
                                 break;
@@ -127,38 +158,31 @@ class WxController extends BaseController{
                 case 'transfer_customer_service':
                     break;
                 case 'image':
-                    content = {
-                        type: 'image',
-                        content: {
-                            mediaId: jsonData.MediaId
-                        }
-                    }
+                    await WxController.servicetrans(jsonData, APPID, APPSECRET);
                     break;
                 case 'link':
                     break;
                 case 'voice':
-                    content = {
-                        type: 'voice',
-                        content: {
-                            mediaId: jsonData.MediaId
-                        }
-                    }
+                    await WxController.servicetrans(jsonData, APPID, APPSECRET);
                     break;
                 case 'video':
+                    await WxController.servicetrans(jsonData, APPID, APPSECRET);
                     break;
                 case 'text':
                     content = jsonData.Content;
+                    if(content == '专属客服绑定' || content == '专属客服解绑'){
+                        //生成专属客服二维码（带参数）参数 openid的16位MD5值
+                        await WxController.servicebind(jsonData, APPID, APPSECRET);
+                    }
+                    else{
+                        await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                    }
                     break;
                 case 'location':
                     break;
                 default:
                     break;
             }
-
-            //发什么返回什么
-            replyMessageXml = WechatService.reply(content, jsonData.ToUserName, jsonData.FromUserName);
-            ctx.type = 'application/xml';
-            ctx.body = replyMessageXml;
         }
     }
 
@@ -358,6 +382,120 @@ class WxController extends BaseController{
 
         let replayXml = await WxpayService.scanPayCb(cbJsonData, params);
         ctx.body = replayXml;
+    }
+
+    static async servicetrans(wxData, APPID, APPSECRET){
+        //判断当前用户身份
+        let serviceInfo = await CustomServiceModel.findByCustomOpenid(wxData.FromUserName);
+        let customInfo = await CustomServiceModel.findByServiceOpenid(wxData.FromUserName);
+        if(serviceInfo && serviceInfo.service_openid && serviceInfo.status == 'bind'){
+            //当前身份是用户，已绑定专属客服，收到的是自己发送的消息,转到专属客服
+            let params = {
+                touser: serviceInfo.service_openid,
+                msgtype: wxData.MsgType
+            };
+
+            if(wxData.MsgType == 'text'){
+                params.content = jsonData.Content;
+            }
+            else if(wxData.MsgType == 'video' || wxData.MsgType == 'voice' || wxData.MsgType == 'image'){
+                params.mediaId = wxData.MediaId;
+            }
+            else{
+
+            }
+            let access_token = await WechatService.accessToken(APPID, APPSECRET);
+            await WechatService.sendCustomMessage(access_token, params);
+        }
+        else if(customInfo && customInfo.custom_openid && customInfo.status == 'bind'){
+            //当前身份是客服，收到的是自己发送的消息，转到客户
+            let params = {
+                touser: customInfo.custom_openid,
+                msgtype: wxData.MsgType
+            };
+
+            if(wxData.MsgType == 'text'){
+                params.content = jsonData.Content;
+            }
+            else if(wxData.MsgType == 'video' || wxData.MsgType == 'voice' || wxData.MsgType == 'image'){
+                params.mediaId = wxData.MediaId;
+            }
+            else{
+
+            }
+            let access_token = await WechatService.accessToken(APPID, APPSECRET);
+            await WechatService.sendCustomMessage(access_token, params);
+        }
+        else{
+            //转到客服系统
+            await WechatService.transfer_customer_service(wxData.ToUserName, wxData.FromUserName);
+        }
+    }
+
+    static async servicebind(wxData, APPID, APPSECRET){
+        let param_str;
+        if(jsonData.Content == '专属客服绑定') {
+            param_str = 'bind_' + wxData.FromUserName;
+        }
+        else{
+            param_str = 'unbind_' + wxData.FromUserName;
+        }
+
+        //生成二维码
+        let access_token = await WechatService.accessToken(APPID, APPSECRET);
+        let qrcode_img_url = await WechatService.qrcode(access_token, 'forever', param_str);
+
+        //上传图片获取media_id，发送图片消息给客服
+        let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url);
+        let params = {
+            touser: wxData.FromUserName,
+            msgtype: 'image',
+            media_id: resUp.media_id
+        }
+        await WechatService.sendCustomMessage(access_token, params);
+    }
+
+    static async servicebtn(wxData, APPID, APPSECRET){
+        let content;
+        let info = await CustomServiceModel.findByCustomOpenid(wxData.FromUserName);
+        if(info && info.service_openid && info.status == 'bind'){
+            //已绑定客服，消息转发到专属客服微信
+            //发送信息给专属客服
+            let access_token = await WechatService.accessToken(APPID, APPSECRET);
+            let params = {
+                touser: info.service_openid,
+                msgtype: 'text',
+                content: '顾客XXX申请在线客服'
+            }
+            await WechatService.sendCustomMessage(access_token, params);
+
+            //发给用户
+            content = "您的专属客服是九指神丐，请在下方文本框输入您要咨询的消息";
+        }
+        else if(info && info.service_openid && info.status == 'unbind'){
+            //专属客服已解绑（可随机分配等其他逻辑，看需求）
+            content = "您的专属客服已离职，请在下方文本框输入您要咨询的消息到大众客服";
+        }
+        else{
+            //消息转发到默认客服系统（可随机分配等其他逻辑，看需求）
+            content = "请在下方文本框输入您要咨询的消息到大众客服";
+        }
+        let xml = await WechatService.reply(content, wxData.ToUserName, wxData.FromUserName);
+
+        return xml;
+    }
+
+    static async serviceqrcode(wxData, param_str){
+        if(param_str.indexOf('unbind') !== false){
+            //解绑二维码，用于交接
+            let original_openid = param_str.substring(6);
+            await CustomServiceModel.updateCustomService(wxData.FromUserName, original_openid);
+        }
+        else{
+            //绑定二维码
+            let service_openid = param_str.substring(4);
+            await CustomServiceModel.bindCustomService(wxData.FromUserName, service_openid);
+        }
     }
 }
 

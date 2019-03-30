@@ -20,6 +20,13 @@ class UserModel {
         });
     };
 
+    static async addByOpenid (openid, password, secret, combo_id, num, uid, isopen, type, mark, money) {
+        return await User.create({
+            password: password,
+            secret: secret
+        });
+    };
+
     // 通过卡密查找用户
     static async findByPwd (pwd) {
         return await User.findOne({where: {password: pwd}});

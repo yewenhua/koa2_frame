@@ -105,15 +105,23 @@ class WechatService {
     /*
      * 消息转发到客服
      */
-    static async transfer_customer_service(){
-        let xml = `
-            <xml> 
-              <ToUserName><![CDATA[touser]]></ToUserName>  
-              <FromUserName><![CDATA[fromuser]]></FromUserName>  
-              <CreateTime>1399197672</CreateTime>  
-              <MsgType><![CDATA[transfer_customer_service]]></MsgType> 
+    static async transfer_customer_service(fromUsername, toUsername){
+        let tpl = `
+             <xml>
+                 <ToUserName><![CDATA[<%-toUsername%>]]></ToUserName>
+                 <FromUserName><![CDATA[<%-fromUsername%>]]></FromUserName>
+                 <CreateTime><%=createTime%></CreateTime>
+                 <MsgType><![CDATA[<%=msgType%>]]></MsgType>          
             </xml>
         `;
+        const compiled = ejs.compile(tpl);
+
+        let info = {};
+        info.msgType = 'transfer_customer_service';
+        info.createTime = new Date().getTime();
+        info.toUsername = toUsername;
+        info.fromUsername = fromUsername;
+        return compiled(info);
     }
 
     static async accessToken(apppId, appSecret) {
@@ -379,12 +387,15 @@ class WechatService {
             .set('Content-Type', 'application/json')
             .send(menu_body);
 
+        let res = null;
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
-
+                res = rtn;
             }
         }
+
+        return res;
     }
 
     static async addressParameters(prams){
@@ -410,6 +421,64 @@ class WechatService {
         };
 
         return rtn;
+    }
+
+    static  async uploadMediaFile(access_token, media_path){
+        let url = 'https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=' + access_token + '&type=image';
+        let rtnData = await request.post(url)
+            .set('Content-Type', 'application/json')
+            .attach('media', media_path);
+
+        let res = null;
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.errcode && rtn.errcode != 0){
+                res = rtn;
+            }
+        }
+
+        return res;
+    }
+
+    static async sendCustomMessage(access_token, params){
+        let url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=' + access_token;
+        let obj = {};
+        obj.touser = params.touser;
+        obj.msgtype = params.msgtype;
+        if(params.msgtype == 'text'){
+            obj.text = {
+                content: params.content
+            }
+        }
+        else if(params.msgtype == 'image'){
+            obj.image = {
+                media_id: params.media_id
+            }
+        }
+        else if(params.msgtype == 'video'){
+            obj.video = {
+                media_id: params.media_id
+            }
+        }
+        else if(params.msgtype == 'voice'){
+            obj.voice = {
+                media_id: params.media_id
+            }
+        }
+
+        let rtnData = await request.post(url)
+            .set('Content-Type', 'application/json')
+            .send(obj);
+
+        let res = null;
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.errcode && rtn.errcode != 0){
+                res = rtn;
+            }
+        }
+
+        return res;
     }
 }
 
