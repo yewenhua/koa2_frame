@@ -39,7 +39,8 @@ class WxController extends BaseController{
         const APPID = 'wx184c063cea04b3d4';
         const APPSECRET = '4fd028f45d13e4a6a8cc40dcd07010de';
         if (WechatService.checkSignature(signature, timestamp, nonce, TOKEN)) {
-            console.log('00000000000')
+            console.log('00000000000');
+            console.log(ctx.query)
             ctx.status = 401;
             ctx.body = 'Invalid signature';
         }
