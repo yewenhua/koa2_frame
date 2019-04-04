@@ -38,9 +38,8 @@ class WxController extends BaseController{
         //const APPSECRET = wxconf.appSecret;
         const APPID = 'wx184c063cea04b3d4';
         const APPSECRET = '4fd028f45d13e4a6a8cc40dcd07010de';
-        if (WechatService.checkSignature(signature, timestamp, nonce, TOKEN)) {
+        if (!WechatService.checkSignature(signature, timestamp, nonce, TOKEN)) {
             console.log('00000000000');
-            console.log(ctx.query)
             ctx.status = 401;
             ctx.body = 'Invalid signature';
         }
@@ -54,6 +53,7 @@ class WxController extends BaseController{
                 encoding: ctx.request.charset || 'utf-8'
             });
             const jsonData = await WechatService.parseXML2Json(xml);
+            console.log(jsonData)
             switch (jsonData.MsgType){
                 case 'event':
                     let eventName = (jsonData.Event).toLowerCase();
