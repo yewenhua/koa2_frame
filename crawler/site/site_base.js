@@ -3,7 +3,7 @@
  */
 
 const lodash = require("lodash");
-const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer-core");
 const site = require("../../config/site");
 //const { CaptchaQQ } = require("../../services/CaptchaQQ");
 
