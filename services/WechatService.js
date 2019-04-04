@@ -11,6 +11,7 @@ import CryptoJS from 'crypto-js';
 
 const _ = require("lodash");
 const logUtil = require('../utils/LogUtil');
+const ejs = require('ejs')
 
 class WechatService {
     static async checkSignature(signature, timestamp, nonce, token) {
@@ -29,6 +30,14 @@ class WechatService {
                 resolve(result.xml)
             })
         })
+    }
+
+    /*
+     * {xml: {a: 111, b: 222}}
+     */
+    static async parseJson2XML(obj){
+        const builder = new xml2js.Builder()
+        return builder.buildObject(obj);
     }
 
     static async reply (content, fromUsername, toUsername) {
@@ -106,7 +115,7 @@ class WechatService {
      * 消息转发到客服
      */
     static async transfer_customer_service(fromUsername, toUsername){
-        console.log('666666666666')
+        console.log('666666666666BBBBBBB')
         let tpl = `
              <xml>
                  <ToUserName><![CDATA[<%-toUsername%>]]></ToUserName>
