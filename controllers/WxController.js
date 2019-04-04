@@ -436,8 +436,8 @@ class WxController extends BaseController{
             console.log('4444444444444')
             //转到客服系统
             let xml = await WechatService.transfer_customer_service(wxData.ToUserName, wxData.FromUserName);
-            return xml;
             console.log(xml)
+            return xml;
         }
     }
 
