@@ -161,19 +161,19 @@ class WxController extends BaseController{
                 case 'transfer_customer_service':
                     break;
                 case 'image':
-                    replyMessageXml = await this.servicetrans(jsonData, APPID, APPSECRET);
+                    replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
                     ctx.type = 'application/xml';
                     ctx.body = replyMessageXml;
                     break;
                 case 'link':
                     break;
                 case 'voice':
-                    replyMessageXml = await this.servicetrans(jsonData, APPID, APPSECRET);
+                    replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
                     ctx.type = 'application/xml';
                     ctx.body = replyMessageXml;
                     break;
                 case 'video':
-                    replyMessageXml = await this.servicetrans(jsonData, APPID, APPSECRET);
+                    replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
                     ctx.type = 'application/xml';
                     ctx.body = replyMessageXml;
                     break;
@@ -184,7 +184,7 @@ class WxController extends BaseController{
                         await WxController.servicebind(jsonData, APPID, APPSECRET);
                     }
                     else{
-                        replyMessageXml = await this.servicetrans(jsonData, APPID, APPSECRET);
+                        replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
                         ctx.type = 'application/xml';
                         ctx.body = replyMessageXml;
                     }
