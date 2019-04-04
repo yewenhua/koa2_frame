@@ -106,6 +106,7 @@ class WechatService {
      * 消息转发到客服
      */
     static async transfer_customer_service(fromUsername, toUsername){
+        console.log('666666666666')
         let tpl = `
              <xml>
                  <ToUserName><![CDATA[<%-toUsername%>]]></ToUserName>

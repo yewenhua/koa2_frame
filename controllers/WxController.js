@@ -390,6 +390,7 @@ class WxController extends BaseController{
     }
 
     static async servicetrans(wxData, APPID, APPSECRET){
+        console.log('3333333333')
         //判断当前用户身份
         let serviceInfo = await CustomServiceModel.findByCustomOpenid(wxData.FromUserName);
         let customInfo = await CustomServiceModel.findByServiceOpenid(wxData.FromUserName);
@@ -432,8 +433,10 @@ class WxController extends BaseController{
             await WechatService.sendCustomMessage(access_token, params);
         }
         else{
+            console.log('4444444444444')
             //转到客服系统
-            await WechatService.transfer_customer_service(wxData.ToUserName, wxData.FromUserName);
+            let xml = await WechatService.transfer_customer_service(wxData.ToUserName, wxData.FromUserName);
+            console.log(xml)
         }
     }
 
