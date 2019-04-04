@@ -39,12 +39,10 @@ class WxController extends BaseController{
         const APPID = 'wx184c063cea04b3d4';
         const APPSECRET = '4fd028f45d13e4a6a8cc40dcd07010de';
         if (!WechatService.checkSignature(signature, timestamp, nonce, TOKEN)) {
-            console.log('00000000000');
             ctx.status = 401;
             ctx.body = 'Invalid signature';
         }
         else{
-            console.log('111111111111111')
             let content;
             let replyMessageXml;
             const xml = await rawBody(ctx.req, {
@@ -163,15 +161,21 @@ class WxController extends BaseController{
                 case 'transfer_customer_service':
                     break;
                 case 'image':
-                    await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                    replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                    ctx.type = 'application/xml';
+                    ctx.body = replyMessageXml;
                     break;
                 case 'link':
                     break;
                 case 'voice':
-                    await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                    replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                    ctx.type = 'application/xml';
+                    ctx.body = replyMessageXml;
                     break;
                 case 'video':
-                    await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                    replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                    ctx.type = 'application/xml';
+                    ctx.body = replyMessageXml;
                     break;
                 case 'text':
                     content = jsonData.Content;
@@ -180,7 +184,9 @@ class WxController extends BaseController{
                         await WxController.servicebind(jsonData, APPID, APPSECRET);
                     }
                     else{
-                        await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                        replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                        ctx.type = 'application/xml';
+                        ctx.body = replyMessageXml;
                     }
                     break;
                 case 'location':

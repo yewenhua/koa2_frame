@@ -115,7 +115,6 @@ class WechatService {
      * 消息转发到客服
      */
     static async transfer_customer_service(fromUsername, toUsername){
-        console.log('666666666666BBBBBBB')
         let tpl = `
              <xml>
                  <ToUserName><![CDATA[<%-toUsername%>]]></ToUserName>
@@ -125,15 +124,11 @@ class WechatService {
             </xml>
         `;
         const compiled = ejs.compile(tpl);
-        console.log('7777777777')
         let info = {};
         info.msgType = 'transfer_customer_service';
         info.createTime = new Date().getTime();
         info.toUsername = toUsername;
         info.fromUsername = fromUsername;
-        console.log(toUsername)
-        console.log(fromUsername)
-        console.log(compiled(info))
         return compiled(info);
     }
 
