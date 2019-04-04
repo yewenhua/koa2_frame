@@ -161,19 +161,19 @@ class WxController extends BaseController{
                 case 'transfer_customer_service':
                     break;
                 case 'image':
-                    replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                    replyMessageXml = await this.servicetrans(jsonData, APPID, APPSECRET);
                     ctx.type = 'application/xml';
                     ctx.body = replyMessageXml;
                     break;
                 case 'link':
                     break;
                 case 'voice':
-                    replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                    replyMessageXml = await this.servicetrans(jsonData, APPID, APPSECRET);
                     ctx.type = 'application/xml';
                     ctx.body = replyMessageXml;
                     break;
                 case 'video':
-                    replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                    replyMessageXml = await this.servicetrans(jsonData, APPID, APPSECRET);
                     ctx.type = 'application/xml';
                     ctx.body = replyMessageXml;
                     break;
@@ -184,7 +184,7 @@ class WxController extends BaseController{
                         await WxController.servicebind(jsonData, APPID, APPSECRET);
                     }
                     else{
-                        replyMessageXml = await WxController.servicetrans(jsonData, APPID, APPSECRET);
+                        replyMessageXml = await this.servicetrans(jsonData, APPID, APPSECRET);
                         ctx.type = 'application/xml';
                         ctx.body = replyMessageXml;
                     }
@@ -396,7 +396,6 @@ class WxController extends BaseController{
     }
 
     static async servicetrans(wxData, APPID, APPSECRET){
-        console.log('3333333333')
         //判断当前用户身份
         let serviceInfo = await CustomServiceModel.findByCustomOpenid(wxData.FromUserName);
         let customInfo = await CustomServiceModel.findByServiceOpenid(wxData.FromUserName);
@@ -439,7 +438,6 @@ class WxController extends BaseController{
             await WechatService.sendCustomMessage(access_token, params);
         }
         else{
-            console.log('4444444444444')
             //转到客服系统
             let xml = await WechatService.transfer_customer_service(wxData.ToUserName, wxData.FromUserName);
             console.log(xml);
