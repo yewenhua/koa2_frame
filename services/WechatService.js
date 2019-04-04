@@ -116,12 +116,15 @@ class WechatService {
             </xml>
         `;
         const compiled = ejs.compile(tpl);
-
+        console.log('7777777777')
         let info = {};
         info.msgType = 'transfer_customer_service';
         info.createTime = new Date().getTime();
         info.toUsername = toUsername;
         info.fromUsername = fromUsername;
+        console.log(toUsername)
+        console.log(fromUsername)
+        console.log(compiled(info))
         return compiled(info);
     }
 
