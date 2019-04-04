@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75245eaa-3621-43c9-bf22-c6ec7671c2bb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/CustomServiceModel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/shema/custom_service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/WxController.js" afterPath="$PROJECT_DIR$/controllers/WxController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/UserModel.js" afterPath="$PROJECT_DIR$/models/UserModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/WechatService.js" afterPath="$PROJECT_DIR$/services/WechatService.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,29 +15,29 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
-              <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+              <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WxController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WxController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/WxController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="55" column="48" lean-forward="false" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+            <state relative-caret-position="880">
+              <caret line="499" column="1" lean-forward="true" selection-start-line="499" selection-start-column="1" selection-end-line="499" selection-end-column="1" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
                 <element signature="e#548#590#0" expanded="false" />
                 <element signature="n#!!block;n#check#0;n#WxController#0" expanded="false" />
                 <element signature="e#963#1003#0" expanded="false" />
+                <element signature="n#!!block;n#run#0;n#WxController#0" expanded="false" />
                 <element signature="e#1285#1370#0" expanded="false" />
                 <element signature="e#1490#1636#0" expanded="false" />
-                <element signature="e#1963#2305#0" expanded="false" />
                 <element signature="e#2361#2417#0" expanded="false" />
                 <element signature="e#2466#2819#0" expanded="false" />
                 <element signature="e#2872#2941#0" expanded="false" />
@@ -72,7 +68,18 @@
                 <element signature="n#!!block;n#servicetrans#0;n#WxController#0" expanded="false" />
                 <element signature="n#!!block;n#servicebind#0;n#WxController#0" expanded="false" />
                 <element signature="n#!!block;n#servicebtn#0;n#WxController#0" expanded="false" />
+                <element signature="n#!!block;n#serviceqrcode#0;n#WxController#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wechat.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/wechat.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -143,7 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ontify_url</find>
       <find>checkSign</find>
       <find>product_id</find>
       <find>sign</find>
@@ -173,6 +179,7 @@
       <find>transfer_customer_service</find>
       <find>serviceInfo</find>
       <find>jsonData</find>
+      <find>servicetrans</find>
     </findStrings>
     <dirStrings>
       <dir>D:\workspace\koa_project\controllers</dir>
@@ -230,7 +237,6 @@
         <option value="$PROJECT_DIR$/xml.js" />
         <option value="$PROJECT_DIR$/services/WxpayService.js" />
         <option value="$PROJECT_DIR$/../node/socket/index.js" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/../node/socket/index.html" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/services/SocketService.js" />
@@ -240,6 +246,7 @@
         <option value="$PROJECT_DIR$/models/CustomServiceModel.js" />
         <option value="$PROJECT_DIR$/services/WechatService.js" />
         <option value="$PROJECT_DIR$/controllers/WxController.js" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -320,6 +327,20 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="router" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="koa2_frame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="koa2_frame" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -346,7 +367,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../platform_api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cube-nblock" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -475,12 +496,12 @@
       <workItem from="1553671800398" duration="4450000" />
       <workItem from="1553739551909" duration="15520000" />
       <workItem from="1553764605255" duration="30388000" />
-      <workItem from="1553924439973" duration="2895000" />
+      <workItem from="1553924439973" duration="11892000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="469984000" />
+    <option name="totallyTimeSpent" value="478981000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -520,13 +541,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../autodown/crawl/emulate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../autodown/crawl/dimensions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -680,14 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/wechat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/ejs/ejs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -738,6 +744,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="28" column="33" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -787,6 +794,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#46#0" expanded="false" />
+            <element signature="n#!!block;n#transfer#0;n#ImageController#0" expanded="false" />
+            <element signature="n#!!block;n#upload#0;n#ImageController#0" expanded="false" />
+            <element signature="n#!!block;n#querylist#0;n#ImageController#0" expanded="false" />
+            <element signature="n#!!block;n#wxtrans#0;n#ImageController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -802,21 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/SocketService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -852,6 +851,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="11" column="67" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -866,17 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="235" column="17" lean-forward="true" selection-start-line="227" selection-start-column="16" selection-end-line="235" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/CustomServiceModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#52#0" expanded="false" />
-            <element signature="n#!!block;n#updateCustomService#0;n#CustomServiceModel#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -930,18 +919,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/services/SocketService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding>
+            <element signature="e#62#2520#0" expanded="false" />
+            <element signature="e#1459#2162#0" expanded="false" />
+            <element signature="e#2207#2339#0" expanded="false" />
+            <element signature="e#2382#2512#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/UserAgent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/CustomServiceModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!block;n#bindCustomService#0;n#CustomServiceModel#0" expanded="false" />
+            <element signature="n#!!block;n#updateCustomService#0;n#CustomServiceModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/WxController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="55" column="48" lean-forward="false" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+        <state relative-caret-position="880">
+          <caret line="499" column="1" lean-forward="true" selection-start-line="499" selection-start-column="1" selection-end-line="499" selection-end-column="1" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
             <element signature="e#548#590#0" expanded="false" />
             <element signature="n#!!block;n#check#0;n#WxController#0" expanded="false" />
             <element signature="e#963#1003#0" expanded="false" />
+            <element signature="n#!!block;n#run#0;n#WxController#0" expanded="false" />
             <element signature="e#1285#1370#0" expanded="false" />
             <element signature="e#1490#1636#0" expanded="false" />
-            <element signature="e#1963#2305#0" expanded="false" />
             <element signature="e#2361#2417#0" expanded="false" />
             <element signature="e#2466#2819#0" expanded="false" />
             <element signature="e#2872#2941#0" expanded="false" />
@@ -972,7 +993,24 @@
             <element signature="n#!!block;n#servicetrans#0;n#WxController#0" expanded="false" />
             <element signature="n#!!block;n#servicebind#0;n#WxController#0" expanded="false" />
             <element signature="n#!!block;n#servicebtn#0;n#WxController#0" expanded="false" />
+            <element signature="n#!!block;n#serviceqrcode#0;n#WxController#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/wechat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
