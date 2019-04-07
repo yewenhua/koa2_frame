@@ -467,7 +467,7 @@ class WechatService {
         let rtnData = await request2({
             url: url,
             formData: form,
-            //json: true
+            json: true
         });
 
         let res = null;
