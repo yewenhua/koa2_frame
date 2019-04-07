@@ -10,6 +10,7 @@ import redis from '../utils/redis';
 import CryptoJS from 'crypto-js';
 import fs from 'fs';
 import request2 from 'request';
+import Common from '../utils/common';
 
 const _ = require("lodash");
 const logUtil = require('../utils/LogUtil');
@@ -455,12 +456,18 @@ class WechatService {
 
         console.log(url);
         let form = {
-            media: await request2(media_path)
+            buffer: {
+                value: fs.readFileSync(media_path),
+                options: {
+                    media: Common.md5(media_path) + '.png',
+                    contentType: 'image/png'
+                }
+            }
         }
         let rtnData = await request2({
             url: url,
             formData: form,
-            json: true
+            //json: true
         });
 
         let res = null;
