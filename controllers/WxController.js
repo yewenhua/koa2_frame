@@ -5,7 +5,7 @@ import WxpayService from '../services/WxpayService';
 import CustomService from '../services/CustomService';
 import rawBody from 'raw-body';
 import UserModel from '../models/UserModel';
-import ImageModel from '../models/ImageModel';
+import WechatModel from '../models/WechatModel';
 import Common from '../utils/common';
 import redis from '../utils/redis';
 const logUtil = require('../utils/LogUtil');
@@ -58,6 +58,16 @@ class WxController extends BaseController{
                     let eventKey = (jsonData.EventKey).toLowerCase();
                     if(eventName == 'subscribe'){
                         //关注事件
+                        let row = await WechatModel.findByOpenid(jsonData.FromUserName);
+                        if(!row){
+                            //第一次关注
+                            await WechatModel.subscribe(jsonData.FromUserName);
+                        }
+                        else{
+                            //之前关注过
+                            await WechatModel.updateSubscribeStatus(jsonData.FromUserName, 'yes');
+                        }
+
                         if(eventKey.indexOf('qrscene_') !== false){
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey.substring(8);
@@ -66,6 +76,7 @@ class WxController extends BaseController{
                     }
                     else if(eventName == 'unsubscribe'){
                         //取消关注事件
+                        await WechatModel.updateSubscribeStatus(jsonData.FromUserName, 'no');
                     }
                     else if(eventName == 'scan'){
                         //用户已关注时的扫码事件推送
