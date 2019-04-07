@@ -197,21 +197,20 @@ class WxController extends BaseController{
         }
     }
 
-    static async token(ctx){
-        let APPID = wxconf.appID;
-        let APPSECRET = wxconf.appSecret;
+    static async jsapi(ctx){
+        //let APPID = wxconf.appID;
+        //let APPSECRET = wxconf.appSecret;
+        const APPID = 'wx184c063cea04b3d4';
+        const APPSECRET = '4fd028f45d13e4a6a8cc40dcd07010de';
         let url = decodeURIComponent(ctx.host + ctx.url);
-        let accessToken = await WechatService.accessToken(APPID, APPSECRET);
-        let jsapiTicket = await WechatService.jsapiTicket(APPID, APPSECRET);
-        let jssdkSign = await WechatService.jssdkSign(url, APPID);
-
+        console.log('000000000000');
+        console.log(url);
+        let jssdk = await WechatService.jssdk(url, APPID);
 
         return ctx.success({
-            msg:'登录成功',
+            msg:'操作成功',
             data: {
-                accessToken,
-                jsapiTicket,
-                jssdkSign
+                jssdk
             }
         });
     }

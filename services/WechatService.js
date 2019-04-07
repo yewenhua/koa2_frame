@@ -224,22 +224,26 @@ class WechatService {
         return string;
     }
 
-    static async jssdkSign(url, apppId) {
+    static async jssdk(url, appId) {
         // await ……
         let noncestr = Math.random().toString(36).substr(2, 15);
         let timestamp = parseInt(new Date().getTime() / 1000) + '';
         let jsapi_ticket = await WechatService.jsapiTicket();
 
-        let rtn = {
+        let params = {
             jsapi_ticket: jsapi_ticket,
             nonceStr: noncestr,
             timestamp: timestamp,
             url: url
         };
-        let string = await WechatService.raw(rtn);
+        let string = await WechatService.raw(params);
         let signature = sha1(string);
-        rtn.signature = signature;
-        rtn.appId = apppId;
+        let rtn = {
+            signature: signature,
+            appId: appId,
+            timeStamp: timestamp,
+            nonceStr: noncestr
+        };
 
         return rtn;
     }
