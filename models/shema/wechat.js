@@ -3,7 +3,7 @@ import db from '../db'
 
 const Table = db.define('wechat', {
     openid: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         set(val) {
             this.setDataValue('openid', val);
         },
