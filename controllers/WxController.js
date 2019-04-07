@@ -199,7 +199,7 @@ class WxController extends BaseController{
 
     static async jssdk(ctx){
         //let APPID = wxconf.appID;
-        const APPID = 'wx184c063cea04b3d4';
+        let APPID = 'wx184c063cea04b3d4';
         let url = ctx.body.url;
         console.log('000000000000');
         console.log(url);
