@@ -3,5 +3,6 @@ node_modules/
 .idea/workspace.xml
 logs/error
 logs/response
+package-lock.json
 
 
