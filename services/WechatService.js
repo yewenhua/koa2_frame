@@ -454,10 +454,17 @@ class WechatService {
         }
 
         console.log(url);
-        let form = {
-            media: fs.createReadStream(media_path)
-        }
-        let rtnData = await axios.post(url, form);
+        // let form = {
+        //     media: fs.createReadStream(media_path)
+        // }
+        // let rtnData = await axios.post(url, form);
+
+        var forms = new FormData()
+        var configs = {
+            headers:{'Content-Type':'multipart/form-data'}
+        };
+        forms.append('media', fs.createReadStream(media_path));
+        let rtnData = axios.post(url, forms ,configs)
 
         let res = null;
         console.log('77777777777777');
