@@ -61,11 +61,17 @@ class CustomService {
         }
 
         //生成二维码
+        console.log('22222222222222');
         let access_token = await WechatService.accessToken(APPID, APPSECRET);
+        console.log(access_token);
         let qrcode_img_url = await WechatService.qrcode(access_token, 'forever', param_str);
+        console.log('3333333333333333');
+        console.log(qrcode_img_url);
 
         //上传图片获取media_id，发送图片消息给客服
         let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url, 'shorttime', 'image');
+        console.log('444444444444444');
+        console.log(resUp);
         let params = {
             touser: wxData.FromUserName,
             msgtype: 'image',

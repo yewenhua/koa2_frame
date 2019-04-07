@@ -382,9 +382,12 @@ class WechatService {
             .set('Content-Type', 'application/json')
             .send(params);
 
+        console.log('55555555555');
+        console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
+                console.log('6666666666666');
                 let encode_ticket = await WechatService.urlencode(rtn.ticket);
                 qrcode_img_url = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + encode_ticket;
             }
@@ -451,10 +454,13 @@ class WechatService {
             .attach('media', media_path);
 
         let res = null;
+        console.log('77777777777777');
+        console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
                 res = rtn;
+                console.log('888888888888888');
             }
         }
 
