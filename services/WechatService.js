@@ -435,8 +435,17 @@ class WechatService {
         return rtn;
     }
 
-    static  async uploadMediaFile(access_token, media_path){
-        let url = 'https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=' + access_token + '&type=image';
+    static  async uploadMediaFile(access_token, media_path, timelong, type='image'){
+        let url;
+        if(timelong == 'forever') {
+            //永久素材
+            url = 'https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=' + access_token + '&type=' + type;
+        }
+        else{
+            //临时素材
+            url = 'https://api.weixin.qq.com/cgi-bin/media/upload?access_token=' + access_token + '&type=' + type;
+        }
+
         let rtnData = await request.post(url)
             .set('Content-Type', 'application/json')
             .attach('media', media_path);

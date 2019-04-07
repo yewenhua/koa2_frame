@@ -71,8 +71,6 @@ class WxController extends BaseController{
                         if(eventKey.indexOf('qrscene_') != -1){
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey.substring(8);
-                            console.log('1111111111');
-                            console.log(eventKey);
                             await CustomService.serviceqrcode(jsonData, param_str);
                         }
                     }
@@ -82,11 +80,9 @@ class WxController extends BaseController{
                     }
                     else if(eventName == 'scan'){
                         //用户已关注时的扫码事件推送
-                        if(eventKey.indexOf('bind') !== false && jsonData.Ticket){
+                        if(eventKey.indexOf('bind') != -1 && jsonData.Ticket){
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey;
-                            console.log('2222222222');
-                            console.log(eventKey);
                             await CustomService.serviceqrcode(jsonData, param_str);
                         }
                     }

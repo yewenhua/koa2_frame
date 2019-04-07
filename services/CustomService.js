@@ -65,7 +65,7 @@ class CustomService {
         let qrcode_img_url = await WechatService.qrcode(access_token, 'forever', param_str);
 
         //上传图片获取media_id，发送图片消息给客服
-        let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url);
+        let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url, 'shorttime', 'image');
         let params = {
             touser: wxData.FromUserName,
             msgtype: 'image',
