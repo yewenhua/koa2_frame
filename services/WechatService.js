@@ -224,11 +224,11 @@ class WechatService {
         return string;
     }
 
-    static async jssdk(url, appId) {
+    static async jssdk(url, appId, appSecret) {
         // await ……
         let noncestr = Math.random().toString(36).substr(2, 15);
         let timestamp = parseInt(new Date().getTime() / 1000) + '';
-        let jsapi_ticket = await WechatService.jsapiTicket();
+        let jsapi_ticket = await WechatService.jsapiTicket(appId, appSecret);
 
         let params = {
             jsapi_ticket: jsapi_ticket,
