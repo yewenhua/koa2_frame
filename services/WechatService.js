@@ -8,6 +8,7 @@ import sha1 from 'sha1';
 import request from 'superagent';
 import redis from '../utils/redis';
 import CryptoJS from 'crypto-js';
+import axios from 'axios';
 
 const _ = require("lodash");
 const logUtil = require('../utils/LogUtil');
@@ -452,9 +453,11 @@ class WechatService {
         }
 
         console.log(url);
-        let rtnData = await request.post(url)
-            .set('Content-Type', 'application/json')
-            .attach('media', media_path);
+        let param = new FormData();
+        param.append("media", media_path);
+        let rtnData = await axios.post(url, param, {
+            headers: { "Content-Type": "multipart/form-data" }
+        });
 
         let res = null;
         console.log('77777777777777');
