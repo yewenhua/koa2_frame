@@ -455,7 +455,7 @@ class WechatService {
         console.log(url);
         let media_stream = fs.createReadStream(media_path)
         let rtnData = await request.post(url)
-            .set('Content-Type', 'application/json')
+            //.set('Content-Type', 'application/json')
             .attach('media', media_stream);
 
         let res = null;
