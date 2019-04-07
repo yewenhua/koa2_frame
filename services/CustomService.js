@@ -14,7 +14,7 @@ class CustomService {
             };
 
             if(wxData.MsgType == 'text'){
-                params.content = jsonData.Content;
+                params.content = wxData.Content;
             }
             else if(wxData.MsgType == 'video' || wxData.MsgType == 'voice' || wxData.MsgType == 'image'){
                 params.mediaId = wxData.MediaId;
@@ -33,7 +33,7 @@ class CustomService {
             };
 
             if(wxData.MsgType == 'text'){
-                params.content = jsonData.Content;
+                params.content = wxData.Content;
             }
             else if(wxData.MsgType == 'video' || wxData.MsgType == 'voice' || wxData.MsgType == 'image'){
                 params.mediaId = wxData.MediaId;
@@ -53,7 +53,7 @@ class CustomService {
 
     static async servicebind(wxData, APPID, APPSECRET){
         let param_str;
-        if(jsonData.Content == '专属客服绑定') {
+        if(wxData.Content == '专属客服绑定') {
             param_str = 'bind_' + wxData.FromUserName;
         }
         else{
