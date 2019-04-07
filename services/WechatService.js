@@ -465,7 +465,7 @@ class WechatService {
 
         let res = null;
         console.log('77777777777777');
-        console.log(rtnData);
+        //console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
