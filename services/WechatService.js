@@ -380,15 +380,12 @@ class WechatService {
             .set('Content-Type', 'application/json')
             .send(params);
 
-        console.log('55555555555');
-        //console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
-                console.log('6666666666666');
+
             }
             else{
-                console.log('aaaaaaaaaaaaaa');
                 let encode_ticket = await WechatService.urlencode(rtn.ticket);
                 qrcode_img_url = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + encode_ticket;
             }
@@ -443,6 +440,7 @@ class WechatService {
     }
 
     static  async uploadMediaFile(access_token, media_path, timelong, type='image'){
+        console.log('ddddddddddd');
         let url;
         if(timelong == 'forever') {
             //永久素材
@@ -453,8 +451,9 @@ class WechatService {
             url = 'https://api.weixin.qq.com/cgi-bin/media/upload?access_token=' + access_token + '&type=' + type;
         }
 
+        console.log(url);
         let rtnData = await request.post(url)
-            //.set('Content-Type', 'application/json')
+            .set('Content-Type', 'application/json')
             .attach('media', media_path);
 
         let res = null;
