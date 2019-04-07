@@ -455,7 +455,7 @@ class WechatService {
 
         console.log(url);
         let form = {
-            media: fs.createReadStream(await request2(media_path))
+            media: await request2(media_path)
         }
         let rtnData = await request2({
             url: url,
