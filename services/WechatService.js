@@ -9,7 +9,7 @@ import request from 'superagent';
 import redis from '../utils/redis';
 import CryptoJS from 'crypto-js';
 import fs from 'fs';
-import axios from 'axios';
+import request2 from 'request';
 
 const _ = require("lodash");
 const logUtil = require('../utils/LogUtil');
@@ -457,7 +457,11 @@ class WechatService {
         let form = {
             media: fs.createReadStream(media_path)
         }
-        let rtnData = await axios.post(url, form);
+        let rtnData = await request2({
+            url: url,
+            formData: form,
+            json: true
+        });
 
         let res = null;
         console.log('77777777777777');
