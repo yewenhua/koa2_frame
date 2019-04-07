@@ -198,6 +198,7 @@ class WxController extends BaseController{
     }
 
     static async jssdk(ctx){
+        ctx.body = ctx.request.body;
         //let APPID = wxconf.appID;
         let APPID = 'wx184c063cea04b3d4';
         let url = ctx.body.url;
@@ -205,7 +206,7 @@ class WxController extends BaseController{
         console.log(url);
         let jssdk;
         if(url) {
-            jssdk = await WechatService.jssdk(url, APPID);
+            //jssdk = await WechatService.jssdk(url, APPID);
         }
 
         return ctx.success({
