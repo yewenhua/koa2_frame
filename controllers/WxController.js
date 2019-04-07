@@ -68,7 +68,7 @@ class WxController extends BaseController{
                             await WechatModel.updateSubscribeStatus(jsonData.FromUserName, 'yes');
                         }
 
-                        if(eventKey.indexOf('qrscene_') !== false){
+                        if(eventKey.indexOf('qrscene_') != -1){
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey.substring(8);
                             console.log('1111111111');
