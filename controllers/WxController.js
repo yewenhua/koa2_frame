@@ -203,8 +203,9 @@ class WxController extends BaseController{
         let url = ctx.body.url;
         console.log('000000000000');
         console.log(url);
+        let jssdk;
         if(url) {
-            let jssdk = await WechatService.jssdk(url, APPID);
+            jssdk = await WechatService.jssdk(url, APPID);
         }
 
         return ctx.success({
