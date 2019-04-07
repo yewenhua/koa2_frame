@@ -306,8 +306,6 @@ class WechatService {
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode == 0){
-                console.log('66666666666666');
-                console.log(rtnData);
                 logUtil.logDebug('userInfo==>' + rtnData.text);
                 return rtn;
             }
@@ -383,11 +381,14 @@ class WechatService {
             .send(params);
 
         console.log('55555555555');
-        console.log(rtnData);
+        //console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
                 console.log('6666666666666');
+            }
+            else{
+                console.log('aaaaaaaaaaaaaa');
                 let encode_ticket = await WechatService.urlencode(rtn.ticket);
                 qrcode_img_url = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + encode_ticket;
             }
@@ -406,6 +407,9 @@ class WechatService {
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
+
+            }
+            else{
                 res = rtn;
             }
         }
@@ -450,17 +454,20 @@ class WechatService {
         }
 
         let rtnData = await request.post(url)
-            .set('Content-Type', 'application/json')
+            //.set('Content-Type', 'application/json')
             .attach('media', media_path);
 
         let res = null;
         console.log('77777777777777');
-        console.log(rtnData);
+        //console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
-                res = rtn;
                 console.log('888888888888888');
+            }
+            else{
+                console.log('CCCCCCCCCCCCCCCC');
+                res = rtn;
             }
         }
 
@@ -501,6 +508,9 @@ class WechatService {
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
+
+            }
+            else{
                 res = rtn;
             }
         }
