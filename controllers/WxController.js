@@ -199,10 +199,8 @@ class WxController extends BaseController{
 
     static async jsapi(ctx){
         //let APPID = wxconf.appID;
-        //let APPSECRET = wxconf.appSecret;
         const APPID = 'wx184c063cea04b3d4';
-        const APPSECRET = '4fd028f45d13e4a6a8cc40dcd07010de';
-        const { url } = ctx.body;
+        let url = ctx.body.url;
         console.log('000000000000');
         console.log(url);
         let jssdk = await WechatService.jssdk(url, APPID);
