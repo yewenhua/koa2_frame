@@ -10,7 +10,6 @@ import redis from '../utils/redis';
 import CryptoJS from 'crypto-js';
 import fs from 'fs';
 import request2 from 'request';
-import Common from '../utils/common';
 
 const _ = require("lodash");
 const logUtil = require('../utils/LogUtil');
@@ -455,14 +454,9 @@ class WechatService {
         }
 
         console.log(url);
+        let data = await fs.readFile(media_path);
         let form = {
-            buffer: {
-                value: fs.readFileSync(media_path),
-                options: {
-                    media: Common.md5(media_path) + '.png',
-                    contentType: 'image/png'
-                }
-            }
+            media: data.toString()
         }
         let rtnData = await request2({
             url: url,
@@ -473,8 +467,8 @@ class WechatService {
         let res = null;
         console.log('77777777777777');
         console.log(rtnData.data);
-        if (rtnData.status == 200) {
-            let rtn = JSON.parse(rtnData.data);
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
                 console.log('888888888888888');
             }
