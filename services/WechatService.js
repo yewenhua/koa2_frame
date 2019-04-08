@@ -451,14 +451,9 @@ class WechatService {
             url = 'https://api.weixin.qq.com/cgi-bin/media/upload?access_token=' + access_token + '&type=' + type;
         }
 
-        console.log('11111111111');
-        //console.log(url);
-        //console.log(access_token);
-
         let filename = Common.md5(media_path);
         let filepath = './static/service/' + filename + '.png';
         if (!fs.existsSync(filepath)) {
-            console.log('666666666666666');
             await download(media_path).pipe(fs.createWriteStream(filepath));
         }
 
@@ -468,14 +463,12 @@ class WechatService {
 
         let res = null;
         if (rtnData.status == 200 && rtnData.text) {
-            console.log('22222222222');
             let rtn = JSON.parse(rtnData.text);
             console.log(rtn);
             if(rtn.errcode && rtn.errcode != 0){
-                console.log('555555555555');
+
             }
             else{
-                console.log('3333333333');
                 res = rtn;
             }
         }
@@ -484,13 +477,11 @@ class WechatService {
     }
 
     static async sendCustomMessage(access_token, params){
-        console.log('ddddddddddddddd');
         let url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=' + access_token;
         let obj = {};
         obj.touser = params.touser;
         obj.msgtype = params.msgtype;
         if(params.msgtype == 'text'){
-            console.log('eeeeeeeeeeeeee');
             obj.text = {
                 content: params.content
             }
@@ -517,14 +508,11 @@ class WechatService {
 
         let res = null;
         if (rtnData.status == 200 && rtnData.text) {
-            console.log('ffffffff');
             let rtn = JSON.parse(rtnData.text);
-            console.log(rtn);
             if(rtn.errcode && rtn.errcode != 0){
-                console.log('gggggg');
+
             }
             else{
-                console.log('hhhhhhhhhhh');
                 res = rtn;
             }
         }

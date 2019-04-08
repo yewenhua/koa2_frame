@@ -8,7 +8,6 @@ class CustomService {
         let customInfo = await CustomServiceModel.findByServiceOpenid(wxData.FromUserName);
         if(serviceInfo && serviceInfo.service_openid && serviceInfo.status == 'bind'){
             //当前身份是用户，已绑定专属客服，收到的是自己发送的消息,转到专属客服
-            console.log(serviceInfo.service_openid);
             let params = {
                 touser: serviceInfo.service_openid,
                 msgtype: wxData.MsgType
