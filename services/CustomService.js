@@ -60,7 +60,7 @@ class CustomService {
         }
         else{
             param_str = 'unbind_' + wxData.FromUserName;
-            type = 'limit';
+            type = 'forever';
         }
 
         //生成二维码
