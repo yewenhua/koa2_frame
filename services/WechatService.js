@@ -455,11 +455,9 @@ class WechatService {
             url = 'https://api.weixin.qq.com/cgi-bin/media/upload?access_token=' + access_token + '&type=' + type;
         }
 
-        console.log(url);
         let filename = Common.md5(media_path);
         let filepath = './static/service/' + filename + '.png';
         if (!fs.existsSync(filepath)) {
-            console.log('GGGGGGGGGGGGGGG');
             await download(media_path).pipe(fs.createWriteStream(filepath));
         }
 
@@ -468,15 +466,12 @@ class WechatService {
             .attach('media', fs.createReadStream(filepath));
 
         let res = null;
-        console.log('77777777777777');
-        //console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
-                console.log('888888888888888');
+
             }
             else{
-                console.log('CCCCCCCCCCCCCCCC');
                 res = rtn;
             }
         }

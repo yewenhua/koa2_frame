@@ -4,6 +4,7 @@ import WechatService from './WechatService';
 class CustomService {
     static async servicetrans(wxData, APPID, APPSECRET){
         //判断当前用户身份
+        console.log('jjjjjjjjjjjjjjjj');
         let serviceInfo = await CustomServiceModel.findByCustomOpenid(wxData.FromUserName);
         let customInfo = await CustomServiceModel.findByServiceOpenid(wxData.FromUserName);
         if(serviceInfo && serviceInfo.service_openid && serviceInfo.status == 'bind'){
@@ -63,13 +64,9 @@ class CustomService {
         //生成二维码
         let access_token = await WechatService.accessToken(APPID, APPSECRET);
         let qrcode_img_url = await WechatService.qrcode(access_token, 'forever', param_str);
-        console.log('3333333333333333');
-        console.log(qrcode_img_url);
 
         //上传图片获取media_id，发送图片消息给客服
         let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url, 'forever', 'image');
-        console.log('444444444444444');
-        console.log(resUp);
         let params = {
             touser: wxData.FromUserName,
             msgtype: 'image',
