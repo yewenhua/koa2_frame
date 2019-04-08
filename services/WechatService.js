@@ -13,7 +13,6 @@ import Common from '../utils/common';
 
 const _ = require("lodash");
 const logUtil = require('../utils/LogUtil');
-const ejs = require('ejs');
 const download = require('download');
 
 class WechatService {
@@ -43,96 +42,95 @@ class WechatService {
         return builder.buildObject(obj);
     }
 
-    static async reply (content, fromUsername, toUsername) {
+    static async reply (messageObj) {
         //回复消息模板
-        let tpl = `
-             <xml>
-                 <ToUserName><![CDATA[<%-toUsername%>]]></ToUserName>
-                 <FromUserName><![CDATA[<%-fromUsername%>]]></FromUserName>
-                 <CreateTime><%=createTime%></CreateTime>
-                 <MsgType><![CDATA[<%=msgType%>]]></MsgType>
-                 <% if (msgType === 'news') { %>
-                 <ArticleCount><%=content.length%></ArticleCount>
-                 <Articles>
-                 <% content.forEach(function(item){ %>
-                 <item>
-                 <Title><![CDATA[<%-item.title%>]]></Title>
-                 <Description><![CDATA[<%-item.description%>]]></Description>
-                 <PicUrl><![CDATA[<%-item.picUrl || item.picurl || item.pic || item.thumb_url %>]]></PicUrl>
-                 <Url><![CDATA[<%-item.url%>]]></Url>
-                 </item>
-                 <% }); %>
-                 </Articles>
-                 <% } else if (msgType === 'music') { %>
-                 <Music>
-                 <Title><![CDATA[<%-content.title%>]]></Title>
-                 <Description><![CDATA[<%-content.description%>]]></Description>
-                 <MusicUrl><![CDATA[<%-content.musicUrl || content.url %>]]></MusicUrl>
-                 <HQMusicUrl><![CDATA[<%-content.hqMusicUrl || content.hqUrl %>]]></HQMusicUrl>
-                 </Music>
-                 <% } else if (msgType === 'voice') { %>
-                 <Voice>
-                 <MediaId><![CDATA[<%-content.mediaId%>]]></MediaId>
-                 </Voice>
-                 <% } else if (msgType === 'image') { %>
-                 <Image>
-                 <MediaId><![CDATA[<%-content.mediaId%>]]></MediaId>
-                 </Image>
-                 <% } else if (msgType === 'video') { %>
-                 <Video>
-                 <MediaId><![CDATA[<%-content.mediaId%>]]></MediaId>
-                 <Title><![CDATA[<%-content.title%>]]></Title>
-                 <Description><![CDATA[<%-content.description%>]]></Description>
-                 </Video>
-                 <% } else { %>
-                 <Content><![CDATA[<%-content%>]]></Content>
-                 <% }                           
-            </xml>
-        `;
-        const compiled = ejs.compile(tpl);
+        var { ToUserName, FromUserName, MsgType = 'text'} = messageObj;
+        var CreateTime = new Date().getTime();
+        var header = `<xml>
+                    <ToUserName><![CDATA[${ToUserName}]]></ToUserName>
+                    <FromUserName><![CDATA[${FromUserName}]]></FromUserName>
+                    <CreateTime>${CreateTime}</CreateTime>
+                    <MsgType><![CDATA[${MsgType}]]></MsgType>`;
+        var content = '';
+        switch(MsgType) {
+            case 'text':
+                var { Content } = messageObj;
+                content = `<Content><![CDATA[${Content}]]></Content>
+                     </xml>`;
+                break;
+            case 'image':
+                var { MediaId }  = messageObj;
+                content = `<Image>
+                         <MediaId><![CDATA[${MediaId}]]></MediaId>
+                       </Image>
+                     </xml>`;
+                break;
+            case 'voice':
+                var { MediaId } = messageObj;
+                content = `<Voice>
+                         <MediaId><![CDATA[${MediaId}]]></MediaId>
+                       </Voice>
+                     </xml>`;
+                break;
+            case 'video':
+                var { MediaId, Title, Description } = messageObj;
+                content = `<Video>
+                         <MediaId><![CDATA[${MediaId}]]></MediaId>
+                         <Title><![CDATA[${Title}]]></Title>
+                         <Description><![CDATA[${Description}]]></Description>
+                       </Video> 
+                     </xml>`;
+                break;
+            case 'music':
+                var { Title, Description, MusicUrl, HQMusicUrl, ThumbMediaId } = messageObj;
+                content = `<Music>
+                         <Title><![CDATA[${Title}]]></Title>
+                         <Description><![CDATA[${Description}]]></Description>
+                         <MusicUrl><![CDATA[${MusicUrl}]]></MusicUrl>
+                         <HQMusicUrl><![CDATA[${HQMusicUrl}]]></HQMusicUrl>
+                         <ThumbMediaId><![CDATA[${ThumbMediaId}]]></ThumbMediaId>
+                       </Music>
+                     </xml>`;
+                break;
+            case 'news':
+                var { Articles } = messageObj;
+                var ArticleCount = Articles.length;
+                content = `<ArticleCount>${ArticleCount}</ArticleCount><Articles>`;
+                for (var i = 0; i < ArticleCount; i++) {
+                    content += `<item>
+                                <Title><![CDATA[${Articles[i].Title}]]></Title>
+                                <Description><![CDATA[${Articles[i].Description}]]></Description>
+                                <PicUrl><![CDATA[${Articles[i].PicUrl}]]></PicUrl>
+                                <Url><![CDATA[${Articles[i].Url}]]></Url>
+                              </item>`;
+                }
+                content += '</Articles></xml>';
+                break;
+            default:
+                content = `<Content><![CDATA[Error]]></Content>
+                     </xml>`;
+        }
 
-        let info = {};
-        let type = 'text';
-        info.content = content || '默认消息';
-        // 判断消息类型
-        if (Array.isArray(content)) {
-            type = 'news';
-        }
-        else if (typeof content === 'object') {
-            if (content.hasOwnProperty('type')) {
-                type = content.type;
-                info.content = content.content;
-            }
-            else {
-                type = 'music';
-            }
-        }
-        info.msgType = type;
-        info.createTime = new Date().getTime();
-        info.toUsername = toUsername;
-        info.fromUsername = fromUsername;
-        return compiled(info);
+        var xml = header + content;
+        return xml;
     }
 
     /*
      * 消息转发到客服
      */
     static async transfer_customer_service(fromUsername, toUsername){
-        let tpl = `
+        let msgType = 'transfer_customer_service';
+        let createTime = new Date().getTime();
+
+        let xml = `
              <xml>
-                 <ToUserName><![CDATA[<%-toUsername%>]]></ToUserName>
-                 <FromUserName><![CDATA[<%-fromUsername%>]]></FromUserName>
-                 <CreateTime><%=createTime%></CreateTime>
-                 <MsgType><![CDATA[<%=msgType%>]]></MsgType>          
+                 <ToUserName><![CDATA[${toUsername}]]></ToUserName>
+                 <FromUserName><![CDATA[${fromUsername}]]></FromUserName>
+                 <CreateTime>${createTime}</CreateTime>
+                 <MsgType><![CDATA[${msgType}]]></MsgType>          
             </xml>
         `;
-        const compiled = ejs.compile(tpl);
-        let info = {};
-        info.msgType = 'transfer_customer_service';
-        info.createTime = new Date().getTime();
-        info.toUsername = toUsername;
-        info.fromUsername = fromUsername;
-        return compiled(info);
+        return xml;
     }
 
     static async accessToken(apppId, appSecret) {
@@ -443,7 +441,6 @@ class WechatService {
     }
 
     static  async uploadMediaFile(access_token, media_path, timelong, type='image'){
-        console.log('ddddddddddd');
         let url;
         if(timelong == 'forever') {
             //永久素材

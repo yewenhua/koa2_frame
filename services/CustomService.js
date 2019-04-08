@@ -53,20 +53,22 @@ class CustomService {
     }
 
     static async servicebind(wxData, APPID, APPSECRET){
-        let param_str;
+        let param_str, type;
         if(wxData.Content == '专属客服绑定') {
             param_str = 'bind_' + wxData.FromUserName;
+            type = 'forever';
         }
         else{
             param_str = 'unbind_' + wxData.FromUserName;
+            type = 'limit';
         }
 
         //生成二维码
         let access_token = await WechatService.accessToken(APPID, APPSECRET);
-        let qrcode_img_url = await WechatService.qrcode(access_token, 'forever', param_str);
+        let qrcode_img_url = await WechatService.qrcode(access_token, type, param_str);
 
         //上传图片获取media_id，发送图片消息给客服
-        let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url, 'forever', 'image');
+        let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url, type, 'image');
         let params = {
             touser: wxData.FromUserName,
             msgtype: 'image',
@@ -75,7 +77,12 @@ class CustomService {
         await WechatService.sendCustomMessage(access_token, params);
 
         let content = '长按识别二维码绑定成为专属客服';
-        let xml = await WechatService.reply(content, wxData.ToUserName, wxData.FromUserName);
+        let xml = await WechatService.reply({
+            ToUserName: wxData.FromUserName,
+            FromUserName: wxData.ToUserName,
+            MsgType: 'text',
+            Content: content
+        });
 
         return xml;
     }

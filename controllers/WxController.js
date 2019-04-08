@@ -105,41 +105,54 @@ class WxController extends BaseController{
                         switch (eventKey) {
                             case 'V1001_FIRST':
                                 //单图文消息
-                                content = [{
-                                    title: '欢迎光临',
-                                    description: '点击查看~',
-                                    picurl:  'https://share.voc.so/app/images/t77_thumb@2x.png',
-                                    url: 'http://maoxy.com'
-                                }];
-                                replyMessageXml = await WechatService.reply(content, jsonData.ToUserName, jsonData.FromUserName);
+                                replyMessageXml = await WechatService.reply({
+                                    ToUserName: jsonData.FromUserName,
+                                    FromUserName: jsonData.ToUserName,
+                                    MsgType: 'news',
+                                    Articles: [
+                                        {
+                                            Title: '欢迎光临',
+                                            Description: '点击查看~',
+                                            PicUrl: 'https://share.voc.so/app/images/t77_thumb@2x.png',
+                                            Url: 'http://maoxy.com',
+                                        }
+                                    ]
+                                });
                                 ctx.type = 'application/xml';
                                 ctx.body = replyMessageXml;
                                 break;
                             case 'V1002_SECOND':
                                 //多图文消息
-                                let url = 'http://maoxy.com';
-                                content = [
-                                    {
-                                        title: '欢迎光临1',
-                                        description: '点击查看~',
-                                        picurl:  'https://share.voc.so/app/images/t77_thumb@2x.png',
-                                        url: url
-                                    },
-                                    {
-                                        title: '欢迎光临2',
-                                        description: '点击查看~',
-                                        picurl:  'https://share.voc.so/app/images/t77_thumb@2x.png',
-                                        url: url
-                                    }
-                                ];
-                                replyMessageXml = await WechatService.reply(content, jsonData.ToUserName, jsonData.FromUserName);
+                                replyMessageXml = await WechatService.reply({
+                                    ToUserName: jsonData.FromUserName,
+                                    FromUserName: jsonData.ToUserName,
+                                    MsgType: 'news',
+                                    Articles: [
+                                        {
+                                            Title: '欢迎光临1',
+                                            Description: '点击查看~',
+                                            PicUrl: 'https://share.voc.so/app/images/t77_thumb@2x.png',
+                                            Url: 'http://maoxy.com',
+                                        },
+                                        {
+                                            Title: '欢迎光临2',
+                                            Description: '点击查看~',
+                                            PicUrl: 'https://share.voc.so/app/images/t77_thumb@2x.png',
+                                            Url: 'http://maoxy.com',
+                                        }
+                                    ]
+                                });
                                 ctx.type = 'application/xml';
                                 ctx.body = replyMessageXml;
                                 break;
                             case 'V2001_FIRST':
                                 //文本消息
-                                content = '你好';
-                                replyMessageXml = await WechatService.reply(content, jsonData.ToUserName, jsonData.FromUserName);
+                                replyMessageXml = await WechatService.reply({
+                                    ToUserName: jsonData.FromUserName,
+                                    FromUserName: jsonData.ToUserName,
+                                    MsgType: 'text',
+                                    Content: '你好'
+                                });
                                 ctx.type = 'application/xml';
                                 ctx.body = replyMessageXml;
                                 break;
@@ -148,15 +161,16 @@ class WxController extends BaseController{
                                 break;
                             case 'V3001_FIRST':
                                 //music
-                                content = {
-                                    type: 'music',
-                                    content: {
-                                        title: 'Lemon Tree',
-                                        description: 'Lemon Tree',
-                                        musicUrl: 'http://mp3.com/xx.mp3'
-                                    },
-                                }
-                                replyMessageXml = await WechatService.reply(content, jsonData.ToUserName, jsonData.FromUserName);
+                                replyMessageXml = await WechatService.reply({
+                                    ToUserName: jsonData.FromUserName,
+                                    FromUserName: jsonData.ToUserName,
+                                    MsgType: 'music',
+                                    Title: 'Lemon Tree',
+                                    Description: '你好CAT',
+                                    MusicUrl: 'http://mp3.com/xx.mp3',
+                                    HQMusicUrl: '',
+                                    ThumbMediaId: ''
+                                });
                                 ctx.type = 'application/xml';
                                 ctx.body = replyMessageXml;
                                 break;
@@ -179,7 +193,6 @@ class WxController extends BaseController{
                 case 'transfer_customer_service':
                     break;
                 case 'image':
-                    console.log('hhhhhhhhhhhhhhhhh');
                     replyMessageXml = await CustomService.servicetrans(jsonData, APPID, APPSECRET);
                     ctx.type = 'application/xml';
                     ctx.body = replyMessageXml;
@@ -198,10 +211,8 @@ class WxController extends BaseController{
                     break;
                 case 'text':
                     content = jsonData.Content;
-                    console.log('0000000000');
                     if(content == '专属客服绑定' || content == '专属客服解绑'){
                         //生成专属客服二维码（带参数）参数 openid的16位MD5值
-                        console.log('1111111111111111111');
                         replyMessageXml = await CustomService.servicebind(jsonData, APPID, APPSECRET);
                         ctx.type = 'application/xml';
                         ctx.body = replyMessageXml;
