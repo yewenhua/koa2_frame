@@ -230,6 +230,9 @@ class WxController extends BaseController{
                             ctx.type = 'application/xml';
                             ctx.body = replyMessageXml;
                         }
+                        else{
+                            ctx.body = 'success';
+                        }
                     }
                     break;
                 case 'location':
