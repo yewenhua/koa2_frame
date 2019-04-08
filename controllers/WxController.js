@@ -216,15 +216,19 @@ class WxController extends BaseController{
                 case 'text':
                     content = jsonData.Content;
                     if(content == '专属客服绑定' || content == '专属客服解绑'){
+                        console.log('xxxxxxxxxxxx');
                         //生成专属客服二维码（带参数）参数 openid的16位MD5值
                         replyMessageXml = await CustomService.servicebind(jsonData, APPID, APPSECRET);
                         ctx.type = 'application/xml';
                         ctx.body = replyMessageXml;
                     }
                     else{
+                        console.log('aaaaaaaaaaaa');
                         replyMessageXml = await CustomService.servicetrans(jsonData, APPID, APPSECRET);
-                        ctx.type = 'application/xml';
-                        ctx.body = replyMessageXml;
+                        if(replyMessageXml) {
+                            ctx.type = 'application/xml';
+                            ctx.body = replyMessageXml;
+                        }
                     }
                     break;
                 case 'location':

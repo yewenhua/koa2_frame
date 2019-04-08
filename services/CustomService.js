@@ -9,6 +9,7 @@ class CustomService {
         let customInfo = await CustomServiceModel.findByServiceOpenid(wxData.FromUserName);
         if(serviceInfo && serviceInfo.service_openid && serviceInfo.status == 'bind'){
             //当前身份是用户，已绑定专属客服，收到的是自己发送的消息,转到专属客服
+            console.log('bbbbbbbbbbbbbb');
             let params = {
                 touser: serviceInfo.service_openid,
                 msgtype: wxData.MsgType
@@ -25,9 +26,11 @@ class CustomService {
             }
             let access_token = await WechatService.accessToken(APPID, APPSECRET);
             await WechatService.sendCustomMessage(access_token, params);
+            return null;
         }
         else if(customInfo && customInfo.custom_openid && customInfo.status == 'bind'){
             //当前身份是客服，收到的是自己发送的消息，转到客户
+            console.log('cccccccccccccccccc');
             let params = {
                 touser: customInfo.custom_openid,
                 msgtype: wxData.MsgType
@@ -44,6 +47,7 @@ class CustomService {
             }
             let access_token = await WechatService.accessToken(APPID, APPSECRET);
             await WechatService.sendCustomMessage(access_token, params);
+            return null;
         }
         else{
             //转到客服系统
