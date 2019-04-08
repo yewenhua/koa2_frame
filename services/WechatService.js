@@ -282,8 +282,8 @@ class WechatService {
 
         if (rtnData.status == 200 && rtnData.text) {
             console.log('555555555');
-            console.log(rtnData);
             let rtn = JSON.parse(rtnData.text);
+            console.log(rtn);
             if(rtn.errcode == 0){
                 logUtil.logDebug('authToken==>' + rtnData.text);
                 return rtn;
