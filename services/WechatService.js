@@ -530,10 +530,8 @@ class WechatService {
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
-                console.log('0000000000')
             }
             else{
-                console.log('11111111')
                 res = rtn;
             }
         }

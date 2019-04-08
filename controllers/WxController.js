@@ -204,6 +204,7 @@ class WxController extends BaseController{
                                     }
                                 }
                                 await WechatService.sendTemplateMessage(access_token, body);
+                                ctx.body = 'success';
                                 break;
                             case 'V3001_FIRST':
                                 //music
