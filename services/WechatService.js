@@ -452,13 +452,13 @@ class WechatService {
         }
 
         console.log('11111111111');
-        console.log(url);
-        console.log(access_token);
-        console.log(timelong);
+        //console.log(url);
+        //console.log(access_token);
 
         let filename = Common.md5(media_path);
         let filepath = './static/service/' + filename + '.png';
         if (!fs.existsSync(filepath)) {
+            console.log('666666666666666');
             await download(media_path).pipe(fs.createWriteStream(filepath));
         }
 
@@ -470,6 +470,7 @@ class WechatService {
         if (rtnData.status == 200 && rtnData.text) {
             console.log('22222222222');
             let rtn = JSON.parse(rtnData.text);
+            console.log(rtn);
             if(rtn.errcode && rtn.errcode != 0){
                 console.log('555555555555');
             }
