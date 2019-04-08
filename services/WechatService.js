@@ -459,7 +459,7 @@ class WechatService {
         let filename = Common.md5(media_path);
         let filepath = './static/service/' + filename + '.png';
         if (!fs.existsSync(filepath)) {
-            console.log('111111111111');
+            console.log('GGGGGGGGGGGGGGG');
             await download(media_path).pipe(fs.createWriteStream(filepath));
         }
 
