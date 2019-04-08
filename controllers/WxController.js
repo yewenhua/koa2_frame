@@ -355,13 +355,13 @@ class WxController extends BaseController{
         let rtn = {};
         console.log('aaaaaaaaaa');
         console.log(tokenInfo);
-        if(tokenInfo && !tokenInfo.errcode) {
+        if(tokenInfo && !tokenInfo.access_token) {
             let key = Common.md5(tokenInfo.openid + secret);
             redis.set(key, tokenInfo.openid, 2 * 3600);
             rtn.sessionkey = key;
             if (type != 'base') {
                 let info = await WechatService.userInfoByOauth(tokenInfo.openid, tokenInfo.access_token);
-                if(info && !info.errcode) {
+                if(info && info.openid) {
                     rtn.nickname = nickname;
                     rtn.sex = sex;
                     rtn.province = province;

@@ -281,10 +281,8 @@ class WechatService {
             .query({code: code});
 
         if (rtnData.status == 200 && rtnData.text) {
-            console.log('555555555');
             let rtn = JSON.parse(rtnData.text);
-            console.log(rtn);
-            if(rtn.errcode == 0){
+            if(rtn.access_token && rtn.openid){
                 return rtn;
             }
             else{
@@ -305,8 +303,7 @@ class WechatService {
 
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
-            if(rtn.errcode == 0){
-                logUtil.logDebug('userInfo==>' + rtnData.text);
+            if(rtn.openid){
                 return rtn;
             }
             else{
