@@ -503,7 +503,13 @@ class WxController extends BaseController{
                 }
             ]
         };
-        await WechatService.menu(access_token, menu_body);
+        let res = await WechatService.menu(access_token, menu_body);
+        if(res){
+            ctx.body = "创建成功"
+        }
+        else{
+            ctx.body = "创建失败"
+        }
     }
 }
 
