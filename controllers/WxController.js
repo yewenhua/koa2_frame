@@ -62,7 +62,7 @@ class WxController extends BaseController{
             switch (jsonData.MsgType){
                 case 'event':
                     let eventName = (jsonData.Event).toLowerCase();
-                    let eventKey = (jsonData.EventKey).toLowerCase();
+                    let eventKey = jsonData.EventKey;
                     if(eventName == 'subscribe'){
                         //关注事件
                         let row = await WechatModel.findByOpenid(jsonData.FromUserName);
@@ -105,7 +105,7 @@ class WxController extends BaseController{
                     }
                     else if(eventName == 'click'){
                         //点击菜单拉取消息时的事件推送
-                        let eventKey = (jsonData.EventKey).toLowerCase();
+                        let eventKey = jsonData.EventKey;
                         switch (eventKey) {
                             case 'V1001_FIRST':
                                 //单图文消息
