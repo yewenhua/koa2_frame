@@ -119,16 +119,16 @@ class CustomService {
 
     static async serviceqrcode(wxData, param_str){
         console.log('5555555555');
-        if(param_str.indexOf('unbind') !== false){
+        if(param_str.indexOf('unbind') != -1){
             //解绑二维码，用于交接
             console.log('66666666666666');
-            let original_openid = param_str.substring(6);
+            let original_openid = param_str.substring(7);
             await CustomServiceModel.updateCustomService(wxData.FromUserName, original_openid);
         }
         else{
             //绑定二维码
             console.log('777777777777777');
-            let service_openid = param_str.substring(4);
+            let service_openid = param_str.substring(5);
             await CustomServiceModel.bindCustomService(wxData.FromUserName, service_openid);
         }
     }
