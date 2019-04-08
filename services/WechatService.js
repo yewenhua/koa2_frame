@@ -458,19 +458,18 @@ class WechatService {
         console.log(url);
         let filename = Common.md5(media_path);
         let filepath = './static/service/' + filename + '.png';
-        await download(media_path).pipe(fs.createWriteStream(filepath));
-        let form = {
-            media: fs.createReadStream(filepath)
+        if (!fs.existsSync(filepath)) {
+            console.log('111111111111');
+            await download(media_path).pipe(fs.createWriteStream(filepath));
         }
-        let rtnData = await request2({
-            url: url,
-            formData: form,
-            json: true
-        });
+
+        let rtnData = await request.post(url)
+            .set('Content-Type', 'application/json')
+            .attach('media', fs.createReadStream(filepath));
 
         let res = null;
         console.log('77777777777777');
-        console.log(rtnData.data);
+        //console.log(rtnData);
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){

@@ -67,7 +67,7 @@ class CustomService {
         console.log(qrcode_img_url);
 
         //上传图片获取media_id，发送图片消息给客服
-        let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url, 'shorttime', 'image');
+        let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url, 'forever', 'image');
         console.log('444444444444444');
         console.log(resUp);
         let params = {
