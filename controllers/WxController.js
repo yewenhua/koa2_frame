@@ -321,13 +321,16 @@ class WxController extends BaseController{
     static async outhurl(ctx){
         ctx.body = ctx.request.body;
         let { type, state, redirect_uri } = ctx.body;
-        let appId = wxconf.appID;
+        //let APPID = wxconf.appID;
+        const APPID = 'wx71cc2de74794ade8';
+        const APPSECRET = '58d671c294af16e312132e588563fa4a';
+
         let url;
         if(type == 'base'){
-            url = await WechatService.oauthBase(appId, redirect_uri, state);
+            url = await WechatService.oauthBase(APPID, redirect_uri, state);
         }
         else{
-            url = await WechatService.oauthUserinfo(appId, redirect_uri, state);
+            url = await WechatService.oauthUserinfo(APPID, redirect_uri, state);
         }
 
         return ctx.success({
@@ -341,15 +344,21 @@ class WxController extends BaseController{
     static async outhinfo(ctx){
         ctx.body = ctx.request.body;
         let { code, type } = ctx.body;
-        let appId = wxconf.appID;
-        let appSecret = wxconf.appSecret;
+        //let APPID = wxconf.appID;
+        //let APPSECRET = wxconf.appSecret;
+
+        const APPID = 'wx71cc2de74794ade8';
+        const APPSECRET = '58d671c294af16e312132e588563fa4a';
+
         let secret = process.env.SECRET;
-        let tokenInfo = await WechatService.authInfoByCode(code, appId, appSecret);
+        let tokenInfo = await WechatService.authInfoByCode(code, APPID, APPSECRET);
         let rtn = {};
+        console.log('aaaaaaaaaa');
+        console.log(tokenInfo);
         if(tokenInfo && !tokenInfo.errcode) {
             let key = Common.md5(tokenInfo.openid + secret);
             redis.set(key, tokenInfo.openid, 2 * 3600);
-            rtn.openkey = key;
+            rtn.sessionkey = key;
             if (type != 'base') {
                 let info = await WechatService.userInfoByOauth(tokenInfo.openid, tokenInfo.access_token);
                 if(info && !info.errcode) {
