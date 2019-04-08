@@ -529,8 +529,8 @@ class WxController extends BaseController{
                         },
                         {
                             "type":"view",
-                            "name":"超级链接",
-                            "url":"http://baidu.com"
+                            "name":"微信支付",
+                            "url":"http://wxpay.maoxy.com"
                         }]
                 },
                 {
