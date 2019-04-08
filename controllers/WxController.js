@@ -67,6 +67,7 @@ class WxController extends BaseController{
                         //关注事件
                         let row = await WechatModel.findByOpenid(jsonData.FromUserName);
                         let access_token = await WechatService.accessToken(APPID, APPSECRET);
+                        console.log('000000000000');
                         let userInfo = await WechatService.userInfoByOpenid(access_token, jsonData.FromUserName);
                         console.log('===========');
                         console.log(userInfo);
