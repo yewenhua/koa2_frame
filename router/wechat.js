@@ -9,6 +9,7 @@ const wechat = new Router({
 wechat
     .get('/entry', WxCtrl.check)
     .post('/entry', WxCtrl.run)
+    .get('/menu', WxCtrl.menu)
     .post('/jssdk', WxCtrl.jssdk)
     .post('/wxpay', WxCtrl.wxpay)
     .post('/notify', WxCtrl.notify)

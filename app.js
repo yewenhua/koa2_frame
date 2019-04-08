@@ -56,6 +56,7 @@ app.use(koaJwt({
         /^\/api\/login/,
         /^\/api\/forget/,
         /^\/wechat\/entry/,
+        /^\/wechat\/menu/,
         /^\/wechat\/jssdk/,
         /^\/wechat\/wxpay/,
         /^\/wechat\/outhurl/,
