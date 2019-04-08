@@ -540,7 +540,7 @@ class WechatService {
         let rtnData = await request.get(url)
             .query({lang: 'zh_CN'})
             .query({openid: openid})
-            .query({access_token: accessToken});
+            .query({access_token: access_token});
 
         let res = null;
         console.log('111111111');
