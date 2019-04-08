@@ -245,7 +245,6 @@ class WxController extends BaseController{
                 case 'transfer_customer_service':
                     break;
                 case 'image':
-                    console.log('00000000')
                     replyMessageXml = await CustomService.servicetrans(jsonData, APPID, APPSECRET);
                     if(replyMessageXml) {
                         ctx.type = 'application/xml';

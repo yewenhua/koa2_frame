@@ -483,8 +483,6 @@ class WechatService {
             }
         }
         else if(params.msgtype == 'image'){
-            console.log('444444444444')
-            console.log(params)
             obj.image = {
                 media_id: params.mediaId
             }
@@ -507,8 +505,6 @@ class WechatService {
         let res = null;
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
-            console.log('55555555555')
-            console.log(rtn)
             if(rtn.errcode && rtn.errcode != 0){
 
             }

@@ -4,12 +4,10 @@ import WechatService from './WechatService';
 class CustomService {
     static async servicetrans(wxData, APPID, APPSECRET){
         //判断当前用户身份
-        console.log('111111111')
         let serviceInfo = await CustomServiceModel.findByCustomOpenid(wxData.FromUserName);
         let customInfo = await CustomServiceModel.findByServiceOpenid(wxData.FromUserName);
         if(serviceInfo && serviceInfo.service_openid && serviceInfo.status == 'bind'){
             //当前身份是用户，已绑定专属客服，收到的是自己发送的消息,转到专属客服
-            console.log('222222222')
             let params = {
                 touser: serviceInfo.service_openid,
                 msgtype: wxData.MsgType
@@ -19,7 +17,6 @@ class CustomService {
                 params.content = wxData.Content;
             }
             else if(wxData.MsgType == 'video' || wxData.MsgType == 'voice' || wxData.MsgType == 'image'){
-                console.log('3333333333')
                 params.mediaId = wxData.MediaId;
             }
             else{
