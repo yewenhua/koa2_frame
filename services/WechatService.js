@@ -10,10 +10,12 @@ import redis from '../utils/redis';
 import CryptoJS from 'crypto-js';
 import fs from 'fs';
 import request2 from 'request';
+import Common from '../utils/common';
 
 const _ = require("lodash");
 const logUtil = require('../utils/LogUtil');
-const ejs = require('ejs')
+const ejs = require('ejs');
+const download = require('download');
 
 class WechatService {
     static async checkSignature(signature, timestamp, nonce, token) {
@@ -454,9 +456,11 @@ class WechatService {
         }
 
         console.log(url);
-        let data = fs.readFileSync(media_path);
+        let filename = Common.md5(media_path);
+        let filepath = './static/service/' + filename + '.png';
+        await download(media_path).pipe(fs.createWriteStream(filepath));
         let form = {
-            media: data.toString()
+            media: fs.createReadStream(filepath)
         }
         let rtnData = await request2({
             url: url,
