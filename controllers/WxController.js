@@ -355,7 +355,7 @@ class WxController extends BaseController{
         let rtn = {};
         console.log('aaaaaaaaaa');
         console.log(tokenInfo);
-        if(tokenInfo && !tokenInfo.access_token) {
+        if(tokenInfo && tokenInfo.access_token) {
             let key = Common.md5(tokenInfo.openid + secret);
             redis.set(key, tokenInfo.openid, 2 * 3600);
             rtn.sessionkey = key;
