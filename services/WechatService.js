@@ -402,16 +402,12 @@ class WechatService {
             .send(menu_body);
 
         let res = null;
-        console.log('aaaa');
         if (rtnData.status == 200 && rtnData.text) {
-            console.log('00000000000');
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
-                console.log('111111');
-                console.log(rtn);
+
             }
             else{
-                console.log('22222222');
                 res = rtn;
             }
         }
@@ -517,6 +513,27 @@ class WechatService {
 
             }
             else{
+                res = rtn;
+            }
+        }
+
+        return res;
+    }
+
+    static async sendTemplateMessage(access_token, body){
+        let url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=' + access_token;
+        let rtnData = await request.post(url)
+            .set('Content-Type', 'application/json')
+            .send(body);
+
+        let res = null;
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.errcode && rtn.errcode != 0){
+                console.log('0000000000')
+            }
+            else{
+                console.log('11111111')
                 res = rtn;
             }
         }

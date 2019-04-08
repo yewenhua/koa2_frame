@@ -139,6 +139,18 @@ class WxController extends BaseController{
                                             Description: '点击查看~',
                                             PicUrl: 'https://share.voc.so/app/images/t77_thumb@2x.png',
                                             Url: 'http://maoxy.com',
+                                        },
+                                        {
+                                            Title: '欢迎光临3',
+                                            Description: '点击查看~',
+                                            PicUrl: 'https://share.voc.so/app/images/t77_thumb@2x.png',
+                                            Url: 'http://maoxy.com',
+                                        },
+                                        {
+                                            Title: '欢迎光临4',
+                                            Description: '点击查看~',
+                                            PicUrl: 'https://share.voc.so/app/images/t77_thumb@2x.png',
+                                            Url: 'http://maoxy.com',
                                         }
                                     ]
                                 });
@@ -157,7 +169,41 @@ class WxController extends BaseController{
                                 ctx.body = replyMessageXml;
                                 break;
                             case 'V2002_SECOND':
-                                //图片消息
+                                //模板消息
+                                let template_id = '0XX48AtUALAUdlLeOr3Xjn84FnawmWibvtc3PKY6gtY';
+                                let access_token = await WechatService.accessToken(APPID, APPSECRET);
+                                let body = {
+                                    touser: jsonData.FromUserName,
+                                    template_id: template_id,
+                                    url: "https://www.baidu.com",
+                                    data: {
+                                        first: {
+                                            value: '恭喜您竞猜成功',
+                                            color: '#173177'
+                                        },
+                                        keyword1: {
+                                            value: '2018-12-25',
+                                            color: '#173177'
+                                        },
+                                        keyword2: {
+                                            value: '迪士尼主题',
+                                            color: '#173177'
+                                        },
+                                        keyword3: {
+                                            value: '巴西夺冠',
+                                            color: '#173177'
+                                        },
+                                        keyword4: {
+                                            value: '巴西夺冠',
+                                            color: '#173177'
+                                        },
+                                        remark: {
+                                            value: '欢迎您再次竞猜',
+                                            color: '#173177'
+                                        }
+                                    }
+                                }
+                                await WechatService.sendTemplateMessage(access_token, body);
                                 break;
                             case 'V3001_FIRST':
                                 //music
@@ -491,9 +537,9 @@ class WxController extends BaseController{
                             "key":"V2001_FIRST"
                         },
                         {
-                            "type":"view",
-                            "name":"超级链接",
-                            "url":"http://maoxy.com"
+                            "type":"click",
+                            "name":"模板消息",
+                            "key":"V2002_SECOND"
                         }]
                 },
                 {
