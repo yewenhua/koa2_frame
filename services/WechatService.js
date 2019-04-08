@@ -543,11 +543,8 @@ class WechatService {
             .query({access_token: access_token});
 
         let res = null;
-        console.log('111111111');
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
-            console.log('222222');
-            console.log(rtn);
             if(rtn.errcode && rtn.errcode != 0){
 
             }

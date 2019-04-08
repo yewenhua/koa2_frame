@@ -67,17 +67,17 @@ class WxController extends BaseController{
                         //关注事件
                         let row = await WechatModel.findByOpenid(jsonData.FromUserName);
                         let access_token = await WechatService.accessToken(APPID, APPSECRET);
-                        console.log('000000000000');
                         let userInfo = await WechatService.userInfoByOpenid(access_token, jsonData.FromUserName);
-                        console.log('===========');
-                        console.log(userInfo);
+                        let subscribe = 'yes';
+                        let address = userInfo.country + userInfo.province + userInfo.city;
+                        let unionid = '';
                         if(!row){
                             //第一次关注
-                            await WechatModel.subscribe(jsonData.FromUserName);
+                            await WechatModel.insertOne(userInfo.openid, userInfo.nickname, userInfo.sex, subscribe, userInfo.headimgurl, address, unionid);
                         }
                         else{
                             //之前关注过
-                            await WechatModel.updateSubscribeStatus(jsonData.FromUserName, 'yes');
+                            await WechatModel.updateOne(userInfo.openid, userInfo.nickname, userInfo.sex, subscribe, userInfo.headimgurl, address, unionid);
                         }
 
                         if(eventKey.indexOf('qrscene_') != -1){
