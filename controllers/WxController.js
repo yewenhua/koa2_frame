@@ -75,8 +75,10 @@ class WxController extends BaseController{
                             await WechatModel.updateSubscribeStatus(jsonData.FromUserName, 'yes');
                         }
 
+                        console.log('0000000000');
                         if(eventKey.indexOf('qrscene_') != -1){
                             //带参数二维码，绑定专属客服
+                            console.log('1111111111111');
                             let param_str = eventKey.substring(8);
                             await CustomService.serviceqrcode(jsonData, param_str);
                         }
@@ -87,7 +89,9 @@ class WxController extends BaseController{
                     }
                     else if(eventName == 'scan'){
                         //用户已关注时的扫码事件推送
+                        console.log('22222222222');
                         if(eventKey.indexOf('bind') != -1 && jsonData.Ticket){
+                            console.log('3333333333333');
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey;
                             await CustomService.serviceqrcode(jsonData, param_str);
