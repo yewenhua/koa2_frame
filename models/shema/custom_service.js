@@ -3,7 +3,7 @@ import db from '../db'
 
 const Table = db.define('customer_service', {
     service_openid: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         set(val) {
             this.setDataValue('service_openid', val);
         },
@@ -13,7 +13,7 @@ const Table = db.define('customer_service', {
         }
     },
     custom_openid: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         set(val) {
             this.setDataValue('custom_openid', val);
         },
