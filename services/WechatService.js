@@ -9,7 +9,6 @@ import request from 'superagent';
 import redis from '../utils/redis';
 import CryptoJS from 'crypto-js';
 import fs from 'fs';
-import request2 from 'request';
 import Common from '../utils/common';
 
 const _ = require("lodash");

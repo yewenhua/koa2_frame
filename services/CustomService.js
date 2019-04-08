@@ -73,6 +73,11 @@ class CustomService {
             media_id: resUp.media_id
         }
         await WechatService.sendCustomMessage(access_token, params);
+
+        let content = '长按识别二维码绑定成为专属客服';
+        let xml = await WechatService.reply(content, wxData.ToUserName, wxData.FromUserName);
+
+        return xml;
     }
 
     static async servicebtn(wxData, APPID, APPSECRET){
