@@ -483,11 +483,13 @@ class WechatService {
     }
 
     static async sendCustomMessage(access_token, params){
+        console.log('ddddddddddddddd');
         let url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=' + access_token;
         let obj = {};
         obj.touser = params.touser;
         obj.msgtype = params.msgtype;
         if(params.msgtype == 'text'){
+            console.log('eeeeeeeeeeeeee');
             obj.text = {
                 content: params.content
             }
@@ -514,11 +516,13 @@ class WechatService {
 
         let res = null;
         if (rtnData.status == 200 && rtnData.text) {
+            console.log('ffffffff');
             let rtn = JSON.parse(rtnData.text);
             if(rtn.errcode && rtn.errcode != 0){
-
+                console.log('gggggg');
             }
             else{
+                console.log('hhhhhhhhhhh');
                 res = rtn;
             }
         }
