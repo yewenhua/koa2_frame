@@ -534,6 +534,26 @@ class WechatService {
 
         return res;
     }
+
+    static async userInfoByOpenid(access_token, openid){
+        let url = "https://api.weixin.qq.com/cgi-bin/user/info";
+        let rtnData = await request.get(url)
+            .query({lang: 'zh_CN'})
+            .query({openid: openid})
+            .query({access_token: accessToken});
+
+        let res = null;
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.errcode && rtn.errcode != 0){
+            }
+            else{
+                res = rtn;
+            }
+        }
+
+        return res;
+    }
 }
 
 export default WechatService

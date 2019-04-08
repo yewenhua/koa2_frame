@@ -66,6 +66,10 @@ class WxController extends BaseController{
                     if(eventName == 'subscribe'){
                         //关注事件
                         let row = await WechatModel.findByOpenid(jsonData.FromUserName);
+                        let access_token = await WechatService.accessToken(APPID, APPSECRET);
+                        let userInfo = await WechatService.userInfoByOpenid(access_token, jsonData.FromUserName);
+                        console.log('===========');
+                        console.log(userInfo);
                         if(!row){
                             //第一次关注
                             await WechatModel.subscribe(jsonData.FromUserName);
@@ -353,8 +357,6 @@ class WxController extends BaseController{
         let secret = process.env.SECRET;
         let tokenInfo = await WechatService.authInfoByCode(code, APPID, APPSECRET);
         let rtn = {};
-        console.log('aaaaaaaaaa');
-        console.log(tokenInfo);
         if(tokenInfo && tokenInfo.access_token) {
             let key = Common.md5(tokenInfo.openid + secret);
             redis.set(key, tokenInfo.openid, 2 * 3600);
