@@ -53,14 +53,16 @@ class CustomService {
     }
 
     static async servicebind(wxData, APPID, APPSECRET){
-        let param_str, type;
+        let param_str, type, content;
         if(wxData.Content == '专属客服绑定') {
             param_str = 'bind_' + wxData.FromUserName;
             type = 'forever';
+            content = '长按识别二维码绑定成为专属客服';
         }
         else{
             param_str = 'unbind_' + wxData.FromUserName;
             type = 'forever';
+            content = '扫码二维码解除绑定专属客服';
         }
 
         //生成二维码
@@ -78,7 +80,6 @@ class CustomService {
         }
         await WechatService.sendCustomMessage(access_token, params);
 
-        let content = '长按识别二维码绑定成为专属客服';
         let xml = await WechatService.reply({
             ToUserName: wxData.FromUserName,
             FromUserName: wxData.ToUserName,
