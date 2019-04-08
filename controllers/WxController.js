@@ -226,6 +226,7 @@ class WxController extends BaseController{
                         console.log('aaaaaaaaaaaa');
                         replyMessageXml = await CustomService.servicetrans(jsonData, APPID, APPSECRET);
                         if(replyMessageXml) {
+                            console.log('iiiiiiiiiiiiiiii');
                             ctx.type = 'application/xml';
                             ctx.body = replyMessageXml;
                         }

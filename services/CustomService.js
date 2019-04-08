@@ -27,7 +27,13 @@ class CustomService {
             }
             let access_token = await WechatService.accessToken(APPID, APPSECRET);
             await WechatService.sendCustomMessage(access_token, params);
-            return null;
+            let xml = await WechatService.reply({
+                ToUserName: wxData.FromUserName,
+                FromUserName: wxData.ToUserName,
+                MsgType: 'text',
+                Content: '999'
+            });
+            return xml;
         }
         else if(customInfo && customInfo.custom_openid && customInfo.status == 'bind'){
             //当前身份是客服，收到的是自己发送的消息，转到客户
