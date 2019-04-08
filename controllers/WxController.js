@@ -362,12 +362,12 @@ class WxController extends BaseController{
             if (type != 'base') {
                 let info = await WechatService.userInfoByOauth(tokenInfo.openid, tokenInfo.access_token);
                 if(info && info.openid) {
-                    rtn.nickname = nickname;
-                    rtn.sex = sex;
-                    rtn.province = province;
-                    rtn.city = city;
-                    rtn.country = country;
-                    rtn.headimgurl = headimgurl;
+                    rtn.nickname = info.nickname;
+                    rtn.sex = info.sex;
+                    rtn.province = info.province;
+                    rtn.city = info.city;
+                    rtn.country = info.country;
+                    rtn.headimgurl = info.headimgurl;
                 }
             }
 
