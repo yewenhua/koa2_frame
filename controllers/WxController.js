@@ -453,8 +453,8 @@ class WxController extends BaseController{
     static async menu(ctx){
         //let APPID = wxconf.appID;
         //let APPSECRET = wxconf.appSecret;
-        let APPID = 'wx184c063cea04b3d4';
-        let APPSECRET = '4fd028f45d13e4a6a8cc40dcd07010de';
+        const APPID = 'wx71cc2de74794ade8';
+        const APPSECRET = '58d671c294af16e312132e588563fa4a';
         let access_token = await WechatService.accessToken(APPID, APPSECRET);
         let menu_body = {
             "button":[
