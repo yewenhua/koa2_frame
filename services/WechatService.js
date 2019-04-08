@@ -454,7 +454,7 @@ class WechatService {
         }
 
         console.log(url);
-        let data = await fs.readFile(media_path);
+        let data = fs.readFileSync(media_path);
         let form = {
             media: data.toString()
         }
