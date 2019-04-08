@@ -75,10 +75,8 @@ class WxController extends BaseController{
                             await WechatModel.updateSubscribeStatus(jsonData.FromUserName, 'yes');
                         }
 
-                        console.log('0000000000');
                         if(eventKey.indexOf('qrscene_') != -1){
                             //带参数二维码，绑定专属客服
-                            console.log('1111111111111');
                             let param_str = eventKey.substring(8);
                             await CustomService.serviceqrcode(jsonData, param_str);
                         }
@@ -89,9 +87,7 @@ class WxController extends BaseController{
                     }
                     else if(eventName == 'scan'){
                         //用户已关注时的扫码事件推送
-                        console.log('22222222222');
                         if(eventKey.indexOf('bind') != -1 && jsonData.Ticket){
-                            console.log('3333333333333');
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey;
                             await CustomService.serviceqrcode(jsonData, param_str);
@@ -198,35 +194,47 @@ class WxController extends BaseController{
                     break;
                 case 'image':
                     replyMessageXml = await CustomService.servicetrans(jsonData, APPID, APPSECRET);
-                    ctx.type = 'application/xml';
-                    ctx.body = replyMessageXml;
+                    if(replyMessageXml) {
+                        ctx.type = 'application/xml';
+                        ctx.body = replyMessageXml;
+                    }
+                    else{
+                        ctx.body = 'success';
+                    }
                     break;
                 case 'link':
                     break;
                 case 'voice':
                     replyMessageXml = await CustomService.servicetrans(jsonData, APPID, APPSECRET);
-                    ctx.type = 'application/xml';
-                    ctx.body = replyMessageXml;
+                    if(replyMessageXml) {
+                        ctx.type = 'application/xml';
+                        ctx.body = replyMessageXml;
+                    }
+                    else{
+                        ctx.body = 'success';
+                    }
                     break;
                 case 'video':
                     replyMessageXml = await CustomService.servicetrans(jsonData, APPID, APPSECRET);
-                    ctx.type = 'application/xml';
-                    ctx.body = replyMessageXml;
+                    if(replyMessageXml) {
+                        ctx.type = 'application/xml';
+                        ctx.body = replyMessageXml;
+                    }
+                    else{
+                        ctx.body = 'success';
+                    }
                     break;
                 case 'text':
                     content = jsonData.Content;
                     if(content == '专属客服绑定' || content == '专属客服解绑'){
-                        console.log('xxxxxxxxxxxx');
                         //生成专属客服二维码（带参数）参数 openid的16位MD5值
                         replyMessageXml = await CustomService.servicebind(jsonData, APPID, APPSECRET);
                         ctx.type = 'application/xml';
                         ctx.body = replyMessageXml;
                     }
                     else{
-                        console.log('aaaaaaaaaaaa');
                         replyMessageXml = await CustomService.servicetrans(jsonData, APPID, APPSECRET);
                         if(replyMessageXml) {
-                            console.log('iiiiiiiiiiiiiiii');
                             ctx.type = 'application/xml';
                             ctx.body = replyMessageXml;
                         }
@@ -440,6 +448,62 @@ class WxController extends BaseController{
 
         let replayXml = await WxpayService.scanPayCb(cbJsonData, params);
         ctx.body = replayXml;
+    }
+
+    static async menu(ctx){
+        //let APPID = wxconf.appID;
+        //let APPSECRET = wxconf.appSecret;
+        let APPID = 'wx184c063cea04b3d4';
+        let APPSECRET = '4fd028f45d13e4a6a8cc40dcd07010de';
+        let access_token = await WechatService.accessToken(APPID, APPSECRET);
+        let menu_body = {
+            "button":[
+                {
+                    "name":"公共查询",
+                    "sub_button":[
+                        {
+                            "type":"click",
+                            "name":"单图文消息",
+                            "key":"V1001_FIRST"
+                        },
+                        {
+                            "type":"click",
+                            "name":"多图文消息",
+                            "key":"V1002_SECOND"
+                        },
+                        {
+                            "type":"view",
+                            "name":"超级链接",
+                            "url":"http://baidu.com"
+                        }]
+                },
+                {
+                    "name":"微信查询",
+                    "sub_button":[
+                        {
+                            "type":"scancode_push",
+                            "name":"扫一扫",
+                            "key":"scancode_push"
+                        },
+                        {
+                            "type":"click",
+                            "name":"文本消息",
+                            "key":"V2001_FIRST"
+                        },
+                        {
+                            "type":"view",
+                            "name":"超级链接",
+                            "url":"http://maoxy.com"
+                        }]
+                },
+                {
+                    "type":"click",
+                    "name":"联系我们",
+                    "key":"V3003_SERVICE"
+                }
+            ]
+        };
+        await WechatService.menu(access_token, menu_body);
     }
 }
 

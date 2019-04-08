@@ -4,12 +4,10 @@ import WechatService from './WechatService';
 class CustomService {
     static async servicetrans(wxData, APPID, APPSECRET){
         //判断当前用户身份
-        console.log('jjjjjjjjjjjjjjjj');
         let serviceInfo = await CustomServiceModel.findByCustomOpenid(wxData.FromUserName);
         let customInfo = await CustomServiceModel.findByServiceOpenid(wxData.FromUserName);
         if(serviceInfo && serviceInfo.service_openid && serviceInfo.status == 'bind'){
             //当前身份是用户，已绑定专属客服，收到的是自己发送的消息,转到专属客服
-            console.log('bbbbbbbbbbbbbb');
             console.log(serviceInfo.service_openid);
             let params = {
                 touser: serviceInfo.service_openid,
@@ -31,7 +29,6 @@ class CustomService {
         }
         else if(customInfo && customInfo.custom_openid && customInfo.status == 'bind'){
             //当前身份是客服，收到的是自己发送的消息，转到客户
-            console.log('cccccccccccccccccc');
             let params = {
                 touser: customInfo.custom_openid,
                 msgtype: wxData.MsgType
@@ -74,8 +71,6 @@ class CustomService {
         let access_token = await WechatService.accessToken(APPID, APPSECRET);
         let qrcode_img_url = await WechatService.qrcode(access_token, type, param_str);
 
-        console.log('00000000000000');
-        console.log(qrcode_img_url);
         //上传图片获取media_id，发送图片消息给客服
         let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url, type, 'image');
         let params = {
@@ -120,22 +115,24 @@ class CustomService {
             //消息转发到默认客服系统（可随机分配等其他逻辑，看需求）
             content = "请在下方文本框输入您要咨询的消息到大众客服";
         }
-        let xml = await WechatService.reply(content, wxData.ToUserName, wxData.FromUserName);
+        let xml = await WechatService.reply({
+            ToUserName: wxData.FromUserName,
+            FromUserName: wxData.ToUserName,
+            MsgType: 'text',
+            Content: content
+        });
 
         return xml;
     }
 
     static async serviceqrcode(wxData, param_str){
-        console.log('5555555555');
         if(param_str.indexOf('unbind') != -1){
             //解绑二维码，用于交接
-            console.log('66666666666666');
             let original_openid = param_str.substring(7);
             await CustomServiceModel.updateCustomService(wxData.FromUserName, original_openid);
         }
         else{
             //绑定二维码
-            console.log('777777777777777');
             let service_openid = param_str.substring(5);
             await CustomServiceModel.bindCustomService(wxData.FromUserName, service_openid);
         }
