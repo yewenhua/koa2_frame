@@ -486,17 +486,17 @@ class WechatService {
             console.log('444444444444')
             console.log(params)
             obj.image = {
-                media_id: params.media_id
+                media_id: params.mediaId
             }
         }
         else if(params.msgtype == 'video'){
             obj.video = {
-                media_id: params.media_id
+                media_id: params.mediaId
             }
         }
         else if(params.msgtype == 'voice'){
             obj.voice = {
-                media_id: params.media_id
+                media_id: params.mediaId
             }
         }
 
