@@ -24,11 +24,11 @@ class CustomServiceModel {
         });
     };
 
-    static async updateCustomService(new_service_openid, old_service_openid){
+    static async updateCustomService(new_service_openid, old_service_openid, status='bind'){
         await CustomService.update(
         {
             service_openid: new_service_openid,
-            status: 'bind'
+            status: status
         }, {
             where: {
                 service_openid: old_service_openid

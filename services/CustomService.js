@@ -134,7 +134,7 @@ class CustomService {
         if(param_str.indexOf('unbind') != -1){
             //解绑二维码，用于交接
             let original_openid = param_str.substring(7);
-            await CustomServiceModel.updateCustomService(wxData.FromUserName, original_openid);
+            await CustomServiceModel.updateCustomService(wxData.FromUserName, original_openid, 'unbind');
             xml = await WechatService.reply({
                 ToUserName: wxData.FromUserName,
                 FromUserName: wxData.ToUserName,
