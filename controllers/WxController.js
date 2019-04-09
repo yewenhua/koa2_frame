@@ -306,6 +306,7 @@ class WxController extends BaseController{
                         }
                     }
                     else if(content == '签到'){
+                        console.log('00000000000');
                         replyMessageXml = await InteractionService.qrcode(jsonData, APPID, APPSECRET);
                         if(replyMessageXml) {
                             ctx.type = 'application/xml';

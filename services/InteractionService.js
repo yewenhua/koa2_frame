@@ -9,7 +9,7 @@ class InteractionService {
         let param_str = 'sign_' + wxData.FromUserName;
         let type = 'forever';
         let content = '你的入口签到二维码，请注意查收';
-
+        console.log('11111111111');
         //生成二维码
         let access_token = await WechatService.accessToken(APPID, APPSECRET);
         let qrcode_img_url = await WechatService.qrcode(access_token, type, param_str);
@@ -17,6 +17,8 @@ class InteractionService {
         //上传图片获取media_id，发送图片消息给客服
         let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url, type, 'image');
         if(resUp) {
+            console.log('22222222222222');
+            console.log(resUp);
             let params = {
                 touser: wxData.FromUserName,
                 msgtype: 'image',
