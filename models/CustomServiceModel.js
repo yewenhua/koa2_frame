@@ -8,11 +8,17 @@ class CustomServiceModel {
     };
 
     static async findByCustomOpenid(openid) {
-        return await CustomService.findOne({where: {custom_openid: openid}});
+        return await CustomService.findOne({
+            where: {custom_openid: openid},
+            order: [['id', 'DESC']]
+        });
     };
 
     static async findByServiceOpenid(openid) {
-        return await CustomService.findOne({where: {service_openid: openid}});
+        return await CustomService.findOne({
+            where: {service_openid: openid},
+            order: [['id', 'DESC']]
+        });
     };
 
     static async bindCustomService (custom_openid, service_openid) {
