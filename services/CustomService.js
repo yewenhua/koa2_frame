@@ -76,7 +76,7 @@ class CustomService {
             let params = {
                 touser: wxData.FromUserName,
                 msgtype: 'image',
-                media_id: resUp.media_id
+                mediaId: resUp.media_id
             }
             await WechatService.sendCustomMessage(access_token, params);
 
