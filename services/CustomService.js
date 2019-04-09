@@ -1,4 +1,5 @@
 import CustomServiceModel from '../models/CustomServiceModel';
+import WechatModel from '../models/WechatModel';
 import WechatService from './WechatService';
 
 class CustomService {
@@ -100,20 +101,23 @@ class CustomService {
         if(info && info.service_openid && info.status == 'bind'){
             //已绑定客服，消息转发到专属客服微信
             //发送信息给专属客服
+            let customer = await WechatModel.findByOpenid(wxData.FromUserName);
             let access_token = await WechatService.accessToken(APPID, APPSECRET);
             let params = {
                 touser: info.service_openid,
                 msgtype: 'text',
-                content: '顾客XXX申请在线客服'
+                content: '顾客' + (customer ? customer.nickname : '') + '申请在线客服'
             }
             await WechatService.sendCustomMessage(access_token, params);
 
             //发给用户
-            content = "您的专属客服是九指神丐，请在下方文本框输入您要咨询的消息";
+            let service = await WechatModel.findByOpenid(info.service_openid);
+            content = "您的专属客服是"+ (service ? service.nickname : '') + "，请在下方文本框输入您要咨询的消息";
         }
         else if(info && info.service_openid && info.status == 'unbind'){
             //专属客服已解绑（可随机分配等其他逻辑，看需求）
-            content = "您的专属客服已离职，请在下方文本框输入您要咨询的消息到大众客服";
+            let service = await WechatModel.findByOpenid(info.service_openid);
+            content = "您的专属客服"+ (service ? service.nickname : '') + "已离职，请在下方文本框输入您要咨询的消息到大众客服";
         }
         else{
             //消息转发到默认客服系统（可随机分配等其他逻辑，看需求）
@@ -139,7 +143,7 @@ class CustomService {
                 ToUserName: wxData.FromUserName,
                 FromUserName: wxData.ToUserName,
                 MsgType: 'text',
-                Content: '解绑成功'
+                Content: '客服解绑成功'
             });
         }
         else{
@@ -150,7 +154,7 @@ class CustomService {
                 ToUserName: wxData.FromUserName,
                 FromUserName: wxData.ToUserName,
                 MsgType: 'text',
-                Content: '绑定成功'
+                Content: '客服绑定成功'
             });
         }
         return xml;
