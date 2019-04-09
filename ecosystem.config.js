@@ -24,7 +24,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'git@github.com:yewenhua/koa2_frame.git', // Github上的仓库地址
       path : '/home/cat/koa2',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
+      'post-deploy' : 'npm install && chown -R www:www /home/cat/koa2 && chmod -R 777 /home/cat/koa2/current/static/service && pm2 reload ecosystem.config.js --env production'
     }
   }
 };

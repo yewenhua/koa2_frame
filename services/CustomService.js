@@ -72,21 +72,26 @@ class CustomService {
 
         //上传图片获取media_id，发送图片消息给客服
         let resUp = await WechatService.uploadMediaFile(access_token, qrcode_img_url, type, 'image');
-        let params = {
-            touser: wxData.FromUserName,
-            msgtype: 'image',
-            media_id: resUp.media_id
+        if(resUp) {
+            let params = {
+                touser: wxData.FromUserName,
+                msgtype: 'image',
+                media_id: resUp.media_id
+            }
+            await WechatService.sendCustomMessage(access_token, params);
+
+            let xml = await WechatService.reply({
+                ToUserName: wxData.FromUserName,
+                FromUserName: wxData.ToUserName,
+                MsgType: 'text',
+                Content: content
+            });
+
+            return xml;
         }
-        await WechatService.sendCustomMessage(access_token, params);
-
-        let xml = await WechatService.reply({
-            ToUserName: wxData.FromUserName,
-            FromUserName: wxData.ToUserName,
-            MsgType: 'text',
-            Content: content
-        });
-
-        return xml;
+        else{
+            return null;
+        }
     }
 
     static async servicebtn(wxData, APPID, APPSECRET){

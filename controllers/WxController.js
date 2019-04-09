@@ -281,8 +281,13 @@ class WxController extends BaseController{
                     if(content == '专属客服绑定' || content == '专属客服解绑'){
                         //生成专属客服二维码（带参数）参数 openid的16位MD5值
                         replyMessageXml = await CustomService.servicebind(jsonData, APPID, APPSECRET);
-                        ctx.type = 'application/xml';
-                        ctx.body = replyMessageXml;
+                        if(replyMessageXml) {
+                            ctx.type = 'application/xml';
+                            ctx.body = replyMessageXml;
+                        }
+                        else{
+                            ctx.body = 'success';
+                        }
                     }
                     else{
                         replyMessageXml = await CustomService.servicetrans(jsonData, APPID, APPSECRET);
