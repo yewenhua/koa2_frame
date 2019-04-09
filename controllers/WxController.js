@@ -3,6 +3,7 @@ import wxconf from '../config/wechat';
 import WechatService from '../services/WechatService';
 import WxpayService from '../services/WxpayService';
 import CustomService from '../services/CustomService';
+import InteractionService from '../services/InteractionService';
 import rawBody from 'raw-body';
 import UserModel from '../models/UserModel';
 import WechatModel from '../models/WechatModel';
@@ -84,7 +85,12 @@ class WxController extends BaseController{
                         if(eventKey.indexOf('qrscene_') != -1){
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey.substring(8);
-                            replyMessageXml = await CustomService.serviceqrcode(jsonData, param_str);
+                            if(param_str.indexOf('bind') != -1) {
+                                replyMessageXml = await CustomService.serviceqrcode(jsonData, param_str);
+                            }
+                            else if(param_str.indexOf('sign') != -1){
+                                replyMessageXml = await InteractionService.sign(jsonData, param_str);
+                            }
                             ctx.type = 'application/xml';
                             ctx.body = replyMessageXml;
                         }
@@ -99,6 +105,11 @@ class WxController extends BaseController{
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey;
                             replyMessageXml = await CustomService.serviceqrcode(jsonData, param_str);
+                            ctx.type = 'application/xml';
+                            ctx.body = replyMessageXml;
+                        }
+                        else if(eventKey.indexOf('sign') != -1){
+                            replyMessageXml = await InteractionService.sign(jsonData, eventKey);
                             ctx.type = 'application/xml';
                             ctx.body = replyMessageXml;
                         }
@@ -286,6 +297,16 @@ class WxController extends BaseController{
                     if(content == '专属客服绑定' || content == '专属客服解绑'){
                         //生成专属客服二维码（带参数）参数 openid的16位MD5值
                         replyMessageXml = await CustomService.servicebind(jsonData, APPID, APPSECRET);
+                        if(replyMessageXml) {
+                            ctx.type = 'application/xml';
+                            ctx.body = replyMessageXml;
+                        }
+                        else{
+                            ctx.body = 'success';
+                        }
+                    }
+                    else if(content == '签到'){
+                        replyMessageXml = await InteractionService.qrcode(jsonData, APPID, APPSECRET);
                         if(replyMessageXml) {
                             ctx.type = 'application/xml';
                             ctx.body = replyMessageXml;
