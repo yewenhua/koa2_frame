@@ -449,27 +449,22 @@ class WechatService {
 
         let filename = Common.md5(media_path);
         let filepath = './static/service/' + filename + '.png';
-        console.log('00000000000')
         if (!fs.existsSync(filepath)) {
-            console.log('11111111')
             await download(media_path).pipe(fs.createWriteStream(filepath));
+            fs.chmodSync(filepath, '0777');
         }
 
         let rtnData = await request.post(url)
             .set('Content-Type', 'application/json')
             .attach('media', fs.createReadStream(filepath));
-        console.log('22222222')
 
         let res = null;
         if (rtnData.status == 200 && rtnData.text) {
-            console.log('33333333333333')
             let rtn = JSON.parse(rtnData.text);
-            console.log(rtn);
             if(rtn.errcode && rtn.errcode != 0){
-                console.log('4444444')
+
             }
             else{
-                console.log('5555555555')
                 res = rtn;
             }
         }
