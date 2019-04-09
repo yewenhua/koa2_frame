@@ -43,12 +43,21 @@ class InteractionService {
     static async sign(wxData, param_str){
         let xml;
         let userInfo = await WechatModel.findByOpenid(wxData.FromUserName);
+
         xml = await WechatService.reply({
             ToUserName: wxData.FromUserName,
             FromUserName: wxData.ToUserName,
-            MsgType: 'text',
-            Content: '您好，' + (userInfo ? (userInfo.nickname + '，') : '') + '签到成功'
+            MsgType: 'news',
+            Articles: [
+                {
+                    Title: '您好，' + (userInfo ? (userInfo.nickname + '，') : '') + '签到成功',
+                    Description: '点击查看并添加更多信息~',
+                    PicUrl: (userInfo ? userInfo.headimgurl : 'https://share.voc.so/app/images/t77_thumb@2x.png'),
+                    Url: 'http://maoxy.com',
+                }
+            ]
         });
+
         return xml;
     }
 }
