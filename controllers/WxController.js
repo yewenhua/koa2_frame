@@ -96,6 +96,7 @@ class WxController extends BaseController{
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey;
                             await CustomService.serviceqrcode(jsonData, param_str);
+                            ctx.body = 'success';
                         }
                     }
                     else if(eventName == 'location'){
