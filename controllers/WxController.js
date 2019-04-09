@@ -83,7 +83,9 @@ class WxController extends BaseController{
                         if(eventKey.indexOf('qrscene_') != -1){
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey.substring(8);
-                            await CustomService.serviceqrcode(jsonData, param_str);
+                            replyMessageXml = await CustomService.serviceqrcode(jsonData, param_str);
+                            ctx.type = 'application/xml';
+                            ctx.body = replyMessageXml;
                         }
                     }
                     else if(eventName == 'unsubscribe'){
@@ -95,8 +97,9 @@ class WxController extends BaseController{
                         if(eventKey.indexOf('bind') != -1 && jsonData.Ticket){
                             //带参数二维码，绑定专属客服
                             let param_str = eventKey;
-                            await CustomService.serviceqrcode(jsonData, param_str);
-                            ctx.body = 'success';
+                            replyMessageXml = await CustomService.serviceqrcode(jsonData, param_str);
+                            ctx.type = 'application/xml';
+                            ctx.body = replyMessageXml;
                         }
                     }
                     else if(eventName == 'location'){

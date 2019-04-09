@@ -130,16 +130,30 @@ class CustomService {
     }
 
     static async serviceqrcode(wxData, param_str){
+        let xml;
         if(param_str.indexOf('unbind') != -1){
             //解绑二维码，用于交接
             let original_openid = param_str.substring(7);
             await CustomServiceModel.updateCustomService(wxData.FromUserName, original_openid);
+            xml = await WechatService.reply({
+                ToUserName: wxData.FromUserName,
+                FromUserName: wxData.ToUserName,
+                MsgType: 'text',
+                Content: '解绑成功'
+            });
         }
         else{
             //绑定二维码
             let service_openid = param_str.substring(5);
             await CustomServiceModel.bindCustomService(wxData.FromUserName, service_openid);
+            xml = await WechatService.reply({
+                ToUserName: wxData.FromUserName,
+                FromUserName: wxData.ToUserName,
+                MsgType: 'text',
+                Content: '绑定成功'
+            });
         }
+        return xml;
     }
 }
 
