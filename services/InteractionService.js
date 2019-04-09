@@ -51,7 +51,7 @@ class InteractionService {
             Articles: [
                 {
                     Title: '您好，' + (userInfo ? (userInfo.nickname + '，') : '') + '签到成功',
-                    Description: '点击查看并添加更多信息~',
+                    Description: '点击查看并添加更多信息，八荒六合唯我独尊~',
                     PicUrl: (userInfo ? userInfo.headimgurl : 'https://share.voc.so/app/images/t77_thumb@2x.png'),
                     Url: 'http://maoxy.com',
                 }
