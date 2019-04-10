@@ -25,12 +25,12 @@ class CustomService {
             }
             let access_token = await WechatService.accessToken(APPID, APPSECRET);
             await WechatService.sendCustomMessage(access_token, params);
-            serviceInfo.remark = wxData.MsgType;
+            serviceInfo.remark = wxData.MsgType + '_' + (new Date()).getTime();
             await serviceInfo.save();
             return null;
         }
         else if(customInfo && customInfo.custom_openid && customInfo.status == 'bind'){
-            //当前身份是客服，收到的是自己发送的消息，转到客户
+            //当前身份是客服，收到的是自己发送的消息，转到客户    取最新的客户openid或者@的用户openid
             let params = {
                 touser: customInfo.custom_openid,
                 msgtype: wxData.MsgType
