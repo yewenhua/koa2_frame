@@ -5,12 +5,10 @@ import WechatService from './WechatService';
 class CustomService {
     static async servicetrans(wxData, APPID, APPSECRET){
         //判断当前用户身份
-        console.log('2222222222');
         let serviceInfo = await CustomServiceModel.findByCustomOpenid(wxData.FromUserName);
         let customInfo = await CustomServiceModel.findByServiceOpenid(wxData.FromUserName);
         if(serviceInfo && serviceInfo.service_openid && serviceInfo.status == 'bind'){
             //当前身份是用户，已绑定专属客服，收到的是自己发送的消息,转到专属客服
-            console.log('33333333333333');
             let params = {
                 touser: serviceInfo.service_openid,
                 msgtype: wxData.MsgType
@@ -31,7 +29,6 @@ class CustomService {
         }
         else if(customInfo && customInfo.custom_openid && customInfo.status == 'bind'){
             //当前身份是客服，收到的是自己发送的消息，转到客户
-            console.log('4444444444444444');
             let params = {
                 touser: customInfo.custom_openid,
                 msgtype: wxData.MsgType
@@ -52,7 +49,6 @@ class CustomService {
         }
         else{
             //转到客服系统
-            console.log('55555555555555');
             let xml = await WechatService.transfer_customer_service(wxData.ToUserName, wxData.FromUserName);
             return xml;
         }
@@ -153,7 +149,16 @@ class CustomService {
         else{
             //绑定二维码
             let service_openid = param_str.substring(5);
-            await CustomServiceModel.bindCustomService(wxData.FromUserName, service_openid);
+            let row = await CustomServiceModel.findByServiceAndCustom(service_openid, wxData.FromUserName);
+            console.log('0000000000000');
+            console.log(row);
+            if(row){
+                await CustomServiceModel.rebindCustomService(wxData.FromUserName, service_openid);
+            }
+            else {
+                await CustomServiceModel.bindCustomService(wxData.FromUserName, service_openid);
+            }
+
             xml = await WechatService.reply({
                 ToUserName: wxData.FromUserName,
                 FromUserName: wxData.ToUserName,

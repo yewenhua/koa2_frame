@@ -22,11 +22,22 @@ class CustomServiceModel {
     };
 
     static async bindCustomService (custom_openid, service_openid) {
-        // 向 user 表中插入数据
+        // 向表中插入数据
         return await CustomService.create({
             custom_openid: custom_openid,
             service_openid: service_openid,
             status: 'bind'
+        });
+    };
+
+    static async rebindCustomService (custom_openid, service_openid) {
+        return await CustomService.update({
+            status: 'bind'
+        }, {
+            where: {
+                custom_openid: custom_openid,
+                service_openid: service_openid,
+            }
         });
     };
 
@@ -41,6 +52,16 @@ class CustomServiceModel {
             }
         });
     }
+
+    static async findByServiceAndCustom(service_openid, custom_openid) {
+        return await CustomService.findOne({
+            where: {
+                service_openid: service_openid,
+                custom_openid: custom_openid
+            },
+            order: [['id', 'DESC']]
+        });
+    };
 }
 
 export default CustomServiceModel;
