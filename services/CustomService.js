@@ -25,6 +25,8 @@ class CustomService {
             }
             let access_token = await WechatService.accessToken(APPID, APPSECRET);
             await WechatService.sendCustomMessage(access_token, params);
+            serviceInfo.remark = wxData.MsgType;
+            await serviceInfo.save();
             return null;
         }
         else if(customInfo && customInfo.custom_openid && customInfo.status == 'bind'){
@@ -150,8 +152,6 @@ class CustomService {
             //绑定二维码
             let service_openid = param_str.substring(5);
             let row = await CustomServiceModel.findByServiceAndCustom(service_openid, wxData.FromUserName);
-            console.log('0000000000000');
-            console.log(row);
             if(row){
                 await CustomServiceModel.rebindCustomService(wxData.FromUserName, service_openid);
             }

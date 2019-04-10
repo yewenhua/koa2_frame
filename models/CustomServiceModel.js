@@ -17,7 +17,7 @@ class CustomServiceModel {
     static async findByServiceOpenid(openid) {
         return await CustomService.findOne({
             where: {service_openid: openid},
-            order: [['id', 'DESC']]
+            order: [['updated_at', 'DESC']]
         });
     };
 
