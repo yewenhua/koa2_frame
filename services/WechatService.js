@@ -450,11 +450,9 @@ class WechatService {
         let filename = Common.md5(media_path);
         let filepath = './static/service/' + filename + '.png';
         if (!fs.existsSync(filepath)) {
-            console.log('33333333333333');
             await download(media_path).pipe(fs.createWriteStream(filepath));
             fs.chmodSync(filepath, '0777');
         }
-        console.log('5555555555555');
         let rtnData = await request.post(url)
             .set('Content-Type', 'application/json')
             .attach('media', fs.createReadStream(filepath));
@@ -462,8 +460,6 @@ class WechatService {
         let res = null;
         if (rtnData.status == 200 && rtnData.text) {
             let rtn = JSON.parse(rtnData.text);
-            console.log('66666666666');
-            console.log(rtn);
             if(rtn.errcode && rtn.errcode != 0){
 
             }
@@ -544,6 +540,69 @@ class WechatService {
             .query({lang: 'zh_CN'})
             .query({openid: openid})
             .query({access_token: access_token});
+
+        let res = null;
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.errcode && rtn.errcode != 0){
+
+            }
+            else{
+                res = rtn;
+            }
+        }
+
+        return res;
+    }
+
+    static async kflist(access_token){
+        let url = "https://api.weixin.qq.com/cgi-bin/customservice/getonlinekflist";
+        let rtnData = await request.get(url)
+            .query({access_token: access_token});
+
+        let res = null;
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            if(rtn.errcode && rtn.errcode != 0){
+
+            }
+            else{
+                res = rtn;
+            }
+        }
+
+        return res;
+    }
+
+    static async addkf(access_token, accountObj){
+        let url = 'https://api.weixin.qq.com/customservice/kfaccount/add?access_token=' + access_token;
+        let rtnData = await request.post(url)
+            .set('Content-Type', 'application/json')
+            .send(accountObj);
+
+        let res = null;
+        console.log('66666666')
+        console.log(res)
+        if (rtnData.status == 200 && rtnData.text) {
+            let rtn = JSON.parse(rtnData.text);
+            console.log('555555555555')
+            console.log(rtn)
+            if(rtn.errcode && rtn.errcode != 0){
+
+            }
+            else{
+                res = rtn;
+            }
+        }
+
+        return res;
+    }
+
+    static async invitekf(access_token, inviteObj){
+        let url = 'https://api.weixin.qq.com/customservice/kfaccount/inviteworker?access_token=' + access_token;
+        let rtnData = await request.post(url)
+            .set('Content-Type', 'application/json')
+            .send(inviteObj);
 
         let res = null;
         if (rtnData.status == 200 && rtnData.text) {

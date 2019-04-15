@@ -18,6 +18,7 @@ wechat
     .post('/outhurl', WxCtrl.outhurl)
     .post('/outhinfo', WxCtrl.outhinfo)
     .post('/minilogin', MiniController.minilogin)
+    .get('/service', WxCtrl.service)
 
 
 export default wechat;

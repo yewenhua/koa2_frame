@@ -602,6 +602,40 @@ class WxController extends BaseController{
             ctx.body = "创建失败"
         }
     }
+
+    static async service(ctx){
+        const APPID = 'wx71cc2de74794ade8';
+        const APPSECRET = '58d671c294af16e312132e588563fa4a';
+        let access_token = await WechatService.accessToken(APPID, APPSECRET);
+        //let rd = Math.random() * 1000;
+        let rd = 1;
+        let kflist = await WechatService.kflist(access_token);
+        let addkf = await WechatService.addkf(access_token, {
+            "kf_account" : rd + "_service@gh_f2f330d21ef7",
+            "nickname" : "客服" + rd
+        });
+        let invitekf = await WechatService.invitekf(access_token, {
+            "kf_account": rd + "_service@gh_f2f330d21ef7",
+            "invite_wx" : 'cat514176213'
+        });
+
+        console.log('0000000000')
+        console.log(kflist)
+
+        console.log('1111111111')
+        console.log(addkf)
+
+        console.log('2222222222222')
+        console.log(invitekf)
+
+
+        if(addkf){
+            ctx.body = "创建成功"
+        }
+        else{
+            ctx.body = "创建失败"
+        }
+    }
 }
 
 export default WxController;
