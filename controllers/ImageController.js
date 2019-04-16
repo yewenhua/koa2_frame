@@ -99,7 +99,7 @@ class ImageController extends BaseController{
 
                 if (flag) {
                     console.log("7777777777777");
-                    console.log(rtn);
+                    //console.log(rtn);
                     return ctx.success({
                         msg: '转换成功',
                         data: rtn
