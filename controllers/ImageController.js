@@ -41,6 +41,9 @@ class ImageController extends BaseController{
 
                     if (rtnData.status == 200 && rtnData.text) {
                         let rtn = JSON.parse(rtnData.text);
+                        console.log("**************");
+                        console.log(rtn);
+                        console.log("**************");
                         if (rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
                             let back = [];
                             for (let i = 0; i < rtn.prism_wordsInfo.length; i++) {
