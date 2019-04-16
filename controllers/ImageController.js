@@ -40,13 +40,13 @@ class ImageController extends BaseController{
                         .send(sendData);
 
                     console.log("88888888888888");
-                    console.log(sendData);
+                    //console.log(sendData);
 
                     if (rtnData.status == 200 && rtnData.text) {
                         let rtn = JSON.parse(rtnData.text);
                         console.log("**************");
-                        console.log(rtn);
-                        console.log("**************");
+                        //console.log(rtn);
+                        //console.log("**************");
                         if (rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
                             let back = [];
                             for (let i = 0; i < rtn.prism_wordsInfo.length; i++) {
@@ -99,6 +99,7 @@ class ImageController extends BaseController{
 
                 if (flag) {
                     console.log("7777777777777");
+                    console.log(rtn);
                     return ctx.success({
                         msg: '转换成功',
                         data: rtn
