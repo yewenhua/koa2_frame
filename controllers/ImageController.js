@@ -39,6 +39,9 @@ class ImageController extends BaseController{
                         .set('Content-Type', 'application/json')
                         .send(sendData);
 
+                    console.log("88888888888888");
+                    console.log(sendData);
+
                     if (rtnData.status == 200 && rtnData.text) {
                         let rtn = JSON.parse(rtnData.text);
                         console.log("**************");
