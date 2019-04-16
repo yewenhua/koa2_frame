@@ -35,6 +35,10 @@ module.exports = function () {
                 return ctx.error({ msg:new Error('未知错误!') });
             }
 
+            console.log('=================')
+            console.log(err)
+            console.log('=================')
+
             if (err.status === 401) {
                 ctx.error({msg:'认证失败!',error: err, status: ctx.status });
             } else {
