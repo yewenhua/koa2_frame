@@ -41,7 +41,11 @@ module.exports = function () {
 
             if (err.status === 401) {
                 ctx.error({msg:'认证失败!',error: err, status: ctx.status });
-            } else {
+            }
+            else if (err.name == 'TokenExpiredError') {
+                ctx.error({msg:'认证过期!',error: err, status: 402 });
+            }
+            else {
                 ctx.error({msg:'服务器错误!',error: err, status: ctx.status });
             }
         }
