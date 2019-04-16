@@ -88,20 +88,24 @@ class ImageController extends BaseController{
 
                 let flag = false;
                 if (success > 0) {
+                    console.log("555555555555");
                     let uid = ctx.user.id;
                     let payRes = await UserModel.payCountMoney(uid, success, rtn);
                     if (payRes && payRes.id) {
+                        console.log("6666666666");
                         flag = true;
                     }
                 }
 
                 if (flag) {
+                    console.log("7777777777777");
                     return ctx.success({
                         msg: '转换成功',
                         data: rtn
                     });
                 }
                 else {
+                    console.log("QQQQQQQQQQQQQQQQQ");
                     return ctx.error({
                         code: 10001,
                         msg: '转换失败',
