@@ -1,5 +1,4 @@
 import Charge from  './shema/charge';
-import db from './db'
 
 class ChargeModel {
     // 通过卡密查找

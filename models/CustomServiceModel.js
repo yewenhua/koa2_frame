@@ -1,5 +1,4 @@
 import CustomService from  './shema/custom_service';
-import db from './db'
 
 class CustomServiceModel {
     // 通过 ID 查找文章

@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import db from '../db'
+import { db } from '../db'
 
 const Image = db.define('image', {
     pwd_id: {

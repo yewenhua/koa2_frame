@@ -1,5 +1,4 @@
 import Paylog from  './shema/paylog';
-import db from './db'
 
 class PaylogModel {
     // 通过pwdid查找

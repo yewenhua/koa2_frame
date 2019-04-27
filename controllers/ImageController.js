@@ -25,7 +25,7 @@ class ImageController extends BaseController{
                 let url = "https://ocrapi-document.taobao.com/ocrservice/document";
                 let appcode = "0172b53613af48ebbf0fd99fcda79342";
                 let auth = 'APPCODE ' + appcode;
-                let rtn = [];
+                let format_arr = [];
                 let format = [];
                 for (let i = 0; i < pics.length; i++) {
                     let pic = pics[i].url;
@@ -39,14 +39,8 @@ class ImageController extends BaseController{
                         .set('Content-Type', 'application/json')
                         .send(sendData);
 
-                    console.log("88888888888888");
-                    //console.log(sendData);
-
                     if (rtnData.status == 200 && rtnData.text) {
                         let rtn = JSON.parse(rtnData.text);
-                        console.log("**************");
-                        //console.log(rtn);
-                        //console.log("**************");
                         if (rtn.prism_wnum && rtn.prism_wordsInfo && rtn.prism_wordsInfo.length > 0) {
                             let back = [];
                             for (let i = 0; i < rtn.prism_wordsInfo.length; i++) {
@@ -83,30 +77,25 @@ class ImageController extends BaseController{
                         }
                     }
 
-                    rtn.push(format);
+                    format_arr.push(format);
                 }
 
                 let flag = false;
                 if (success > 0) {
-                    console.log("555555555555");
                     let uid = ctx.user.id;
-                    let payRes = await UserModel.payCountMoney(uid, success, rtn);
+                    let payRes = await UserModel.payCountMoney(uid, success, format_arr);
                     if (payRes && payRes.id) {
-                        console.log("6666666666");
                         flag = true;
                     }
                 }
 
                 if (flag) {
-                    console.log("7777777777777");
-                    //console.log(rtn);
                     return ctx.success({
                         msg: '转换成功',
-                        data: rtn
+                        data: format_arr
                     });
                 }
                 else {
-                    console.log("QQQQQQQQQQQQQQQQQ");
                     return ctx.error({
                         code: 10001,
                         msg: '转换失败',

@@ -1,5 +1,4 @@
 import Wechat from  './shema/wechat';
-import db from './db'
 
 class WechatModel {
     // 通过 ID 查找文章

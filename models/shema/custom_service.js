@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import db from '../db'
+import { db } from '../db'
 
 const Table = db.define('customer_service', {
     service_openid: {

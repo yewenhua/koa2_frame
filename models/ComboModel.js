@@ -1,5 +1,4 @@
 import Combo from  './shema/combo';
-import db from './db'
 
 class ComboModel {
 

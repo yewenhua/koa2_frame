@@ -6,8 +6,7 @@ import Combo from  './shema/combo';
 import ComboSite from  './shema/combo_site';
 import Paylog from  './shema/paylog';
 import Images from  './shema/images';
-import db from './db'
-import Common from '../utils/common';
+import { db } from './db'
 
 const Op = Sequelize.Op;
 class UserModel {

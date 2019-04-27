@@ -1,5 +1,4 @@
 import ComboSite from  './shema/combo_site';
-import db from './db'
 
 class ComboSiteModel {
     // 通过website_id查找

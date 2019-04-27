@@ -1,5 +1,4 @@
 import Memcombo from  './shema/memcombo';
-import db from './db'
 
 class MemcomboModel {
     // 通过pwdid查找
