@@ -1,8 +1,8 @@
 import Sequelize from 'sequelize';
-import { mysql,  sql_mall} from '../config/mysql';
+import mysql from '../config/mysql';
 
-let db = new Sequelize(mysql.database, mysql.user, mysql.password, {
-    host: mysql.host, // 数据库地址
+let db = new Sequelize(mysql.platform.database, mysql.platform.user, mysql.platform.password, {
+    host: mysql.platform.host, // 数据库地址
     dialect: 'mysql', // 指定连接的数据库类型
     timezone: 'Asia/Shanghai',
     pool: {
@@ -12,8 +12,8 @@ let db = new Sequelize(mysql.database, mysql.user, mysql.password, {
     }
 });
 
-let db_mall = new Sequelize(sql_mall.database, sql_mall.user, sql_mall.password, {
-    host: sql_mall.host, // 数据库地址
+let db_mall = new Sequelize(mysql.mall.database, mysql.mall.user, mysql.mall.password, {
+    host: mysql.mall.host, // 数据库地址
     dialect: 'mysql', // 指定连接的数据库类型
     timezone: 'Asia/Shanghai',
     pool: {
