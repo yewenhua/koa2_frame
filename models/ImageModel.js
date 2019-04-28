@@ -6,13 +6,16 @@ class ImageModel {
     // 添加
     static async findByPage (offset, num, label) {
         // 向 image 表中插入数据
-        let like = '%' + label +'%';
+        let where = {};
+        if(label){
+            let like = '%' + label + '%';
+            where.label = {
+                [Op.like]: like
+            }
+        }
+
         return await Image.findAndCountAll({
-            where: {
-                label: {
-                    [Op.like]: like
-                }
-            },
+            where: where,
             offset: offset,
             limit: num
         });

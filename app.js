@@ -16,6 +16,7 @@ import koaBody from 'koa-body';
 import admin from './router/admin'
 import api from './router/api'
 import wechat from './router/wechat'
+import mall from './router/mall'
 
 import filter from './middlewares/filter'
 import response from './middlewares/response'
@@ -68,7 +69,10 @@ app.use(koaJwt({
         /^\/api\/word/,
         /^\/api\/wxtrans/,
         /^\/api\/upload/,
-        /^\/api\/minilogin/
+        /^\/api\/minilogin/,
+
+        /^\/mall\/goodslist/,
+        /^\/mall\/category/
     ]
     //数组中的路径不需要通过jwt验证
 }));
@@ -91,6 +95,7 @@ app.use(koaBody({
 app.use(admin.routes()).use(admin.allowedMethods());
 app.use(api.routes()).use(api.allowedMethods());
 app.use(wechat.routes()).use(wechat.allowedMethods());
+app.use(mall.routes()).use(mall.allowedMethods());
 
 app.on('error', function(err, ctx){
     //如果错误被try-catch捕获，就不触发error事件，这时必须调用ctx.app.emit(),手动释放error事件
