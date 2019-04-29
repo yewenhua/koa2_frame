@@ -11,7 +11,8 @@ class CategoryModel {
         // 向 image 表中插入数据
         let where = {
             is_open: 1,
-            level: 2
+            level: 2,
+            deletedAt: null
         };
 
         return await Category.findAll({

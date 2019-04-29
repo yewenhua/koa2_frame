@@ -69,9 +69,10 @@ app.use(koaJwt({
         /^\/api\/word/,
         /^\/api\/wxtrans/,
         /^\/api\/upload/,
-        /^\/api\/minilogin/,
+        /^\/wechat\/minilogin/,
 
         /^\/mall\/goodslist/,
+        /^\/mall\/goodsdetail/,
         /^\/mall\/category/
     ]
     //数组中的路径不需要通过jwt验证

@@ -6,6 +6,7 @@ const mall = new Router({
 })
 
 mall.post('/goodslist', MallCtrl.goodslist)
+    .get('/goodsdetail', MallCtrl.goodsdetail)
     .post('/category', MallCtrl.category);
 
 

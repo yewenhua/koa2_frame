@@ -36,6 +36,48 @@ class MallController extends BaseController{
         });
     }
 
+    static async goodsdetail(ctx){
+        let { id } = ctx.query;
+        if(id) {
+            let good = await GoodsModel.findById(id);
+            if (good) {
+                let images = await good.getImages();
+                good.images = images;
+                let skus = await good.getSkus();
+                good.skus = skus;
+
+                for (let j = 0; j < skus.length; j++) {
+                    let sku = skus[j];
+                    let firstProperty = await sku.getFirstProperty();
+                    let secondProperty = await sku.getSecondProperty();
+                    good.skus[j].firstProperty = firstProperty;
+                    good.skus[j].secondProperty = secondProperty;
+                }
+
+                console.log('==========');
+                console.log(good)
+                return ctx.success({
+                    msg: '操作成功',
+                    data: good
+                });
+            }
+            else{
+                return ctx.error({
+                    code: 10002,
+                    msg: '数据不存在',
+                    data: null
+                });
+            }
+        }
+        else{
+            return ctx.error({
+                code: 10001,
+                msg: '参数缺失',
+                data: null
+            });
+        }
+    }
+
     static async category(ctx){
         ctx.body = ctx.request.body;
         let { num, searchKey } = ctx.body;
@@ -48,7 +90,7 @@ class MallController extends BaseController{
                 if(pathGoods && pathGoods.length > 0){
                     for(let j=0; j<pathGoods.length; j++){
                         let images = await pathGoods[j].getImages();
-                        pathGoods[j].images = images;
+                        pathGoods[j].dataValues.images = images;
                         let face = '';
                         if(images && images.length > 0){
                             for(let k=0; k<images.length; k++){
@@ -58,11 +100,12 @@ class MallController extends BaseController{
                                 }
                             }
                         }
-                        pathGoods[j].face = face;
+                        pathGoods[j].dataValues.face = face;
                     }
                 }
-                datalist[i].goodslist = pathGoods;
+                datalist[i].dataValues.goodslist = pathGoods;
             }
+
 
             console.log('==========');
             console.log(datalist)
