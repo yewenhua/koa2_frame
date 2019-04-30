@@ -41,18 +41,28 @@ class MallController extends BaseController{
         if(id) {
             let good = await GoodsModel.findById(id);
             if (good) {
+                let face = '';
                 let images = await good.getImages();
-                good.images = images;
-                let skus = await good.getSkus();
-                good.skus = skus;
+                good.dataValues.images = images;
+                if(images && images.length > 0){
+                    for(let k=0; k<images.length; k++){
+                        if(images[k].type == 'main'){
+                            face = images[k].url;
+                            break;
+                        }
+                    }
+                }
+                good.dataValues.face = face;
 
+                let skus = await good.getSkus();
                 for (let j = 0; j < skus.length; j++) {
                     let sku = skus[j];
                     let firstProperty = await sku.getFirstProperty();
                     let secondProperty = await sku.getSecondProperty();
-                    good.skus[j].firstProperty = firstProperty;
-                    good.skus[j].secondProperty = secondProperty;
+                    skus[j].dataValues.firstProperty = firstProperty;
+                    skus[j].dataValues.secondProperty = secondProperty;
                 }
+                good.dataValues.skus = skus;
 
                 console.log('==========');
                 console.log(good)
