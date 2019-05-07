@@ -73,7 +73,10 @@ app.use(koaJwt({
 
         /^\/mall\/goodslist/,
         /^\/mall\/goodsdetail/,
-        /^\/mall\/category/
+        /^\/mall\/category/,
+        /^\/mall\/orderlist/,
+        /^\/mall\/order/,
+        /^\/mall\/address/
     ]
     //数组中的路径不需要通过jwt验证
 }));

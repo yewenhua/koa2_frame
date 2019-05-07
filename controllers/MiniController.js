@@ -1,9 +1,10 @@
 import BaseController from './BaseController';
 import miniconf from '../config/mini';
 import MiniService from '../services/MiniService';
-import WxpayService from '../services/WxpayService';
+import UtilsService from '../services/UtilsService';
 import Common from '../utils/common';
 import redis from '../utils/redis';
+import MiniuserModel from '../models/mall/MiniuserModel';
 
 const logUtil = require('../utils/LogUtil');
 
@@ -22,6 +23,22 @@ class MiniController extends BaseController{
                 session_key: rtn.session_key
             };
             redis.set(key, JSON.stringify(value), 2 * 24 * 3600);
+            let row = await MiniuserModel.findByOpenId(rtn.openid);
+            if(!row){
+                let code = await UtilsService.random_str(6);
+                let parent_key = process.env.DEFAULT_PARENT;
+                await MiniuserModel.insertOne({
+                    openid: rtn.openid,
+                    nickname: '',
+                    gender: 0,
+                    avatarurl: '',
+                    city: '',
+                    province: '',
+                    country: '',
+                    code: code,
+                    parent_key: parent_key
+                });
+            }
 
             return ctx.success({
                 msg:'登录成功',
