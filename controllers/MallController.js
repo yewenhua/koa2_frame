@@ -261,18 +261,22 @@ class MallController extends BaseController{
                         process_arr = [
                             {
                                 status: constants.PROCESS_CREATE,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_PAY,
+                                name: '创建',
                                 lighted: false
                             },
                             {
                                 status: constants.PROCESS_SEND,
+                                name: '创建',
                                 lighted: false
                             },
                             {
                                 status: constants.PROCESS_COMPLETE,
+                                name: '创建',
                                 lighted: false
                             }
                         ];
@@ -281,18 +285,22 @@ class MallController extends BaseController{
                         process_arr = [
                             {
                                 status: constants.PROCESS_CREATE,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_PAY,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_SEND,
+                                name: '创建',
                                 lighted: false
                             },
                             {
                                 status: constants.PROCESS_COMPLETE,
+                                name: '创建',
                                 lighted: false
                             }
                         ];
@@ -301,18 +309,22 @@ class MallController extends BaseController{
                         process_arr = [
                             {
                                 status: constants.PROCESS_CREATE,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_PAY,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_SEND,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_COMPLETE,
+                                name: '创建',
                                 lighted: false
                             }
                         ];
@@ -321,18 +333,22 @@ class MallController extends BaseController{
                         process_arr = [
                             {
                                 status: constants.PROCESS_CREATE,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_PAY,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_SEND,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_COMPLETE,
+                                name: '创建',
                                 lighted: true
                             }
                         ];
@@ -341,10 +357,12 @@ class MallController extends BaseController{
                         process_arr = [
                             {
                                 status: constants.PROCESS_CREATE,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_CANCEL,
+                                name: '创建',
                                 lighted: true
                             }
                         ];
@@ -354,18 +372,22 @@ class MallController extends BaseController{
                         process_arr = [
                             {
                                 status: constants.PROCESS_CREATE,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_PAY,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_SEND,
+                                name: '创建',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_REFUND,
+                                name: '创建',
                                 lighted: false
                             }
                         ];
@@ -376,14 +398,17 @@ class MallController extends BaseController{
                             process_arr = [
                                 {
                                     status: constants.PROCESS_CREATE,
+                                    name: '创建',
                                     lighted: true
                                 },
                                 {
                                     status: constants.PROCESS_PAY,
+                                    name: '创建',
                                     lighted: true
                                 },
                                 {
                                     status: constants.PROCESS_REFUND,
+                                    name: '创建',
                                     lighted: true
                                 }
                             ];
@@ -393,18 +418,22 @@ class MallController extends BaseController{
                             process_arr = [
                                 {
                                     status: constants.PROCESS_CREATE,
+                                    name: '创建',
                                     lighted: true
                                 },
                                 {
                                     status: constants.PROCESS_PAY,
+                                    name: '创建',
                                     lighted: true
                                 },
                                 {
                                     status: constants.PROCESS_SEND,
+                                    name: '创建',
                                     lighted: true
                                 },
                                 {
                                     status: constants.PROCESS_REFUND,
+                                    name: '创建',
                                     lighted: true
                                 }
                             ];
