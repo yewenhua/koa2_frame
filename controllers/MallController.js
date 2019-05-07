@@ -6,6 +6,7 @@ import MiniuserModel from '../models/mall/MiniuserModel';
 import OrdersModel from '../models/mall/OrdersModel';
 import UtilsService from '../services/UtilsService';
 import redis from '../utils/redis';
+import * as constants from '../models/Constants.js'
 
 class MallController extends BaseController{
     static async goodslist(ctx){
@@ -252,8 +253,165 @@ class MallController extends BaseController{
                 let address = await AddressModel.findById(order.address_id);
                 order.dataValues.address = address;
 
+                let process_arr;
                 let process = await order.getProcesses();
-                order.dataValues.process = process;
+                if(process){
+                    let last = process[process.length - 1];
+                    if(last.status == constants.PROCESS_CREATE) {
+                        process_arr = [
+                            {
+                                status: constants.PROCESS_CREATE,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_PAY,
+                                lighted: false
+                            },
+                            {
+                                status: constants.PROCESS_SEND,
+                                lighted: false
+                            },
+                            {
+                                status: constants.PROCESS_COMPLETE,
+                                lighted: false
+                            }
+                        ];
+                    }
+                    else if(last.status == constants.PROCESS_PAY) {
+                        process_arr = [
+                            {
+                                status: constants.PROCESS_CREATE,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_PAY,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_SEND,
+                                lighted: false
+                            },
+                            {
+                                status: constants.PROCESS_COMPLETE,
+                                lighted: false
+                            }
+                        ];
+                    }
+                    else if(last.status == constants.PROCESS_SEND) {
+                        process_arr = [
+                            {
+                                status: constants.PROCESS_CREATE,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_PAY,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_SEND,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_COMPLETE,
+                                lighted: false
+                            }
+                        ];
+                    }
+                    else if(last.status == constants.PROCESS_COMPLETE) {
+                        process_arr = [
+                            {
+                                status: constants.PROCESS_CREATE,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_PAY,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_SEND,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_COMPLETE,
+                                lighted: true
+                            }
+                        ];
+                    }
+                    else if(last.status == constants.PROCESS_CANCEL) {
+                        process_arr = [
+                            {
+                                status: constants.PROCESS_CREATE,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_CANCEL,
+                                lighted: true
+                            }
+                        ];
+                    }
+                    else if(last.status == constants.PROCESS_REFUNDING) {
+                        //未发货时申请退款，直接退款成功，已发货时申请退款需要审核（状态为退款中，退款中的只有发货了才能有退款中）
+                        process_arr = [
+                            {
+                                status: constants.PROCESS_CREATE,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_PAY,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_SEND,
+                                lighted: true
+                            },
+                            {
+                                status: constants.PROCESS_REFUND,
+                                lighted: false
+                            }
+                        ];
+                    }
+                    else if(last.status == constants.PROCESS_REFUND) {
+                        if(process.length == 3) {
+                            //未发货时申请退款
+                            process_arr = [
+                                {
+                                    status: constants.PROCESS_CREATE,
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_PAY,
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_REFUND,
+                                    lighted: true
+                                }
+                            ];
+                        }
+                        else if(process.length == 4) {
+                            //已发货时申请退款
+                            process_arr = [
+                                {
+                                    status: constants.PROCESS_CREATE,
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_PAY,
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_SEND,
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_REFUND,
+                                    lighted: true
+                                }
+                            ];
+                        }
+                    }
+                }
+                order.dataValues.process = process_arr;
 
                 return ctx.success({
                     msg: '操作成功',

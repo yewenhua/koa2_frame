@@ -15,5 +15,6 @@ export const PROCESS_CANCEL='CANCEL';
 export const PROCESS_SEND='SEND';
 export const PROCESS_COMPLETE='COMPLETE';
 export const PROCESS_REFUND='REFUND';
+export const PROCESS_REFUNDING='REFUNDING';
 
 
