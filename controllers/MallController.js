@@ -266,17 +266,17 @@ class MallController extends BaseController{
                             },
                             {
                                 status: constants.PROCESS_PAY,
-                                name: '创建',
+                                name: '支付',
                                 lighted: false
                             },
                             {
                                 status: constants.PROCESS_SEND,
-                                name: '创建',
+                                name: '发货',
                                 lighted: false
                             },
                             {
                                 status: constants.PROCESS_COMPLETE,
-                                name: '创建',
+                                name: '完成',
                                 lighted: false
                             }
                         ];
@@ -290,17 +290,17 @@ class MallController extends BaseController{
                             },
                             {
                                 status: constants.PROCESS_PAY,
-                                name: '创建',
+                                name: '支付',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_SEND,
-                                name: '创建',
+                                name: '发货',
                                 lighted: false
                             },
                             {
                                 status: constants.PROCESS_COMPLETE,
-                                name: '创建',
+                                name: '完成',
                                 lighted: false
                             }
                         ];
@@ -314,17 +314,17 @@ class MallController extends BaseController{
                             },
                             {
                                 status: constants.PROCESS_PAY,
-                                name: '创建',
+                                name: '支付',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_SEND,
-                                name: '创建',
+                                name: '发货',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_COMPLETE,
-                                name: '创建',
+                                name: '完成',
                                 lighted: false
                             }
                         ];
@@ -338,17 +338,17 @@ class MallController extends BaseController{
                             },
                             {
                                 status: constants.PROCESS_PAY,
-                                name: '创建',
+                                name: '支付',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_SEND,
-                                name: '创建',
+                                name: '发货',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_COMPLETE,
-                                name: '创建',
+                                name: '完成',
                                 lighted: true
                             }
                         ];
@@ -362,7 +362,7 @@ class MallController extends BaseController{
                             },
                             {
                                 status: constants.PROCESS_CANCEL,
-                                name: '创建',
+                                name: '取消',
                                 lighted: true
                             }
                         ];
@@ -377,17 +377,17 @@ class MallController extends BaseController{
                             },
                             {
                                 status: constants.PROCESS_PAY,
-                                name: '创建',
+                                name: '支付',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_SEND,
-                                name: '创建',
+                                name: '发货',
                                 lighted: true
                             },
                             {
                                 status: constants.PROCESS_REFUND,
-                                name: '创建',
+                                name: '退货',
                                 lighted: false
                             }
                         ];
@@ -403,12 +403,12 @@ class MallController extends BaseController{
                                 },
                                 {
                                     status: constants.PROCESS_PAY,
-                                    name: '创建',
+                                    name: '支付',
                                     lighted: true
                                 },
                                 {
                                     status: constants.PROCESS_REFUND,
-                                    name: '创建',
+                                    name: '退货',
                                     lighted: true
                                 }
                             ];
@@ -423,17 +423,17 @@ class MallController extends BaseController{
                                 },
                                 {
                                     status: constants.PROCESS_PAY,
-                                    name: '创建',
+                                    name: '支付',
                                     lighted: true
                                 },
                                 {
                                     status: constants.PROCESS_SEND,
-                                    name: '创建',
+                                    name: '发货',
                                     lighted: true
                                 },
                                 {
                                     status: constants.PROCESS_REFUND,
-                                    name: '创建',
+                                    name: '退货',
                                     lighted: true
                                 }
                             ];

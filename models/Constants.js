@@ -2,7 +2,8 @@ export const ORDER_NOPAY=0;
 export const ORDER_PAYED=1;
 export const ORDER_SENDED=2;
 export const ORDER_COMPLETED=3;
-export const ORDER_CANCELED=98;
+export const ORDER_CANCELED=97;
+export const ORDER_REFUNDING=98;
 export const ORDER_REFUND=99;
 
 export const CASH_NOCHECK=0;
