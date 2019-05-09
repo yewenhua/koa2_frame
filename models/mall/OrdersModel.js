@@ -17,8 +17,6 @@ class OrdersModel {
                 address_id: address_id,
                 mini_id: mini_id,
                 money: money,
-                status: constants.ORDER_NOPAY,
-                cash_status: constants.CASH_NOCHECK,
                 pay_no: '',
                 pay_time: null,
             }, {transaction: t});
@@ -46,7 +44,9 @@ class OrdersModel {
                     goods_price: row ? row.sale_price : 0,
                     goods_img: goods[i].face,
                     goods_name: row ? row.name : '',
-                    goods_sku: goods[i].selectedProperties.attr_id
+                    goods_sku: goods[i].selectedProperties.attr_id,
+                    status: constants.ORDER_NOPAY,
+                    cash_status: constants.CASH_NOCHECK,
                 };
                 let orderGood = await Model.OrderGoods.create(params, {transaction: t});
                 if(!orderGood){

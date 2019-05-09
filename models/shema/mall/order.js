@@ -32,16 +32,6 @@ const Order = db_mall.define('orders', {
             return val;
         }
     },
-    status: {
-        type: Sequelize.INTEGER,
-        set(val) {
-            this.setDataValue('status', val);
-        },
-        get() {
-            const val = this.getDataValue('status');
-            return val;
-        }
-    },
     pay_no: {
         type: Sequelize.STRING,
         set(val) {
@@ -61,16 +51,6 @@ const Order = db_mall.define('orders', {
         },
         get() {
             const val = this.getDataValue('pay_time');
-            return val;
-        }
-    },
-    cash_status: {
-        type: Sequelize.INTEGER,
-        set(val) {
-            this.setDataValue('cash_status', val);
-        },
-        get() {
-            const val = this.getDataValue('cash_status');
             return val;
         }
     },
@@ -174,6 +154,26 @@ const OrderGoods = db_mall.define('order_goods', {
         },
         get() {
             const val = this.getDataValue('goods_sku');
+            return val;
+        }
+    },
+    status: {
+        type: Sequelize.INTEGER,
+        set(val) {
+            this.setDataValue('status', val);
+        },
+        get() {
+            const val = this.getDataValue('status');
+            return val;
+        }
+    },
+    cash_status: {
+        type: Sequelize.INTEGER,
+        set(val) {
+            this.setDataValue('cash_status', val);
+        },
+        get() {
+            const val = this.getDataValue('cash_status');
             return val;
         }
     },
