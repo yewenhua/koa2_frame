@@ -4,6 +4,7 @@ import CategoryModel from '../models/mall/CategoryModel';
 import AddressModel from '../models/mall/AddressModel';
 import MiniuserModel from '../models/mall/MiniuserModel';
 import OrdersModel from '../models/mall/OrdersModel';
+import OrderGoodsModel from '../models/mall/OrderGoodsModel';
 import UtilsService from '../services/UtilsService';
 import redis from '../utils/redis';
 import * as constants from '../models/Constants.js'
@@ -243,158 +244,41 @@ class MallController extends BaseController{
     }
 
     static async orderdetail(ctx){
-        let { id } = ctx.query;
-        if(id) {
-            let order = await OrdersModel.findById(id);
+        let { order_id, order_goods_id } = ctx.query;
+        if(order_id, order_goods_id) {
+            let order = await OrdersModel.findById(order_id);
             if (order) {
-                let orderGoods = await order.getGoods();
-                order.dataValues.orderGoods = orderGoods;
-
-                let address = await AddressModel.findById(order.address_id);
-                order.dataValues.address = address;
-
-                let process_arr;
-                let process = await order.getProcesses();
-                if(process){
-                    let last = process[process.length - 1];
-                    if(last.status == constants.PROCESS_CREATE) {
-                        process_arr = [
-                            {
-                                status: constants.PROCESS_CREATE,
-                                name: '创建',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_PAY,
-                                name: '支付',
-                                lighted: false
-                            },
-                            {
-                                status: constants.PROCESS_SEND,
-                                name: '发货',
-                                lighted: false
-                            },
-                            {
-                                status: constants.PROCESS_COMPLETE,
-                                name: '完成',
-                                lighted: false
-                            }
-                        ];
-                    }
-                    else if(last.status == constants.PROCESS_PAY) {
-                        process_arr = [
-                            {
-                                status: constants.PROCESS_CREATE,
-                                name: '创建',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_PAY,
-                                name: '支付',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_SEND,
-                                name: '发货',
-                                lighted: false
-                            },
-                            {
-                                status: constants.PROCESS_COMPLETE,
-                                name: '完成',
-                                lighted: false
-                            }
-                        ];
-                    }
-                    else if(last.status == constants.PROCESS_SEND) {
-                        process_arr = [
-                            {
-                                status: constants.PROCESS_CREATE,
-                                name: '创建',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_PAY,
-                                name: '支付',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_SEND,
-                                name: '发货',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_COMPLETE,
-                                name: '完成',
-                                lighted: false
-                            }
-                        ];
-                    }
-                    else if(last.status == constants.PROCESS_COMPLETE) {
-                        process_arr = [
-                            {
-                                status: constants.PROCESS_CREATE,
-                                name: '创建',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_PAY,
-                                name: '支付',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_SEND,
-                                name: '发货',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_COMPLETE,
-                                name: '完成',
-                                lighted: true
-                            }
-                        ];
-                    }
-                    else if(last.status == constants.PROCESS_CANCEL) {
-                        process_arr = [
-                            {
-                                status: constants.PROCESS_CREATE,
-                                name: '创建',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_CANCEL,
-                                name: '取消',
-                                lighted: true
-                            }
-                        ];
-                    }
-                    else if(last.status == constants.PROCESS_REFUNDING) {
-                        //未发货时申请退款，直接退款成功，已发货时申请退款需要审核（状态为退款中，退款中的只有发货了才能有退款中）
-                        process_arr = [
-                            {
-                                status: constants.PROCESS_CREATE,
-                                name: '创建',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_PAY,
-                                name: '支付',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_SEND,
-                                name: '发货',
-                                lighted: true
-                            },
-                            {
-                                status: constants.PROCESS_REFUND,
-                                name: '退货',
-                                lighted: false
-                            }
-                        ];
-                    }
-                    else if(last.status == constants.PROCESS_REFUND) {
-                        if(process.length == 3) {
-                            //未发货时申请退款
+                let orderGood = await OrderGoodsModel.findById(order_goods_id);
+                if(orderGood){
+                    let process_arr;
+                    let process = await orderGood.getProcesses();
+                    if(process){
+                        let last = process[process.length - 1];
+                        if(last.status == constants.PROCESS_CREATE) {
+                            process_arr = [
+                                {
+                                    status: constants.PROCESS_CREATE,
+                                    name: '创建',
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_PAY,
+                                    name: '支付',
+                                    lighted: false
+                                },
+                                {
+                                    status: constants.PROCESS_SEND,
+                                    name: '发货',
+                                    lighted: false
+                                },
+                                {
+                                    status: constants.PROCESS_COMPLETE,
+                                    name: '完成',
+                                    lighted: false
+                                }
+                            ];
+                        }
+                        else if(last.status == constants.PROCESS_PAY) {
                             process_arr = [
                                 {
                                     status: constants.PROCESS_CREATE,
@@ -407,14 +291,81 @@ class MallController extends BaseController{
                                     lighted: true
                                 },
                                 {
-                                    status: constants.PROCESS_REFUND,
-                                    name: '退货',
+                                    status: constants.PROCESS_SEND,
+                                    name: '发货',
+                                    lighted: false
+                                },
+                                {
+                                    status: constants.PROCESS_COMPLETE,
+                                    name: '完成',
+                                    lighted: false
+                                }
+                            ];
+                        }
+                        else if(last.status == constants.PROCESS_SEND) {
+                            process_arr = [
+                                {
+                                    status: constants.PROCESS_CREATE,
+                                    name: '创建',
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_PAY,
+                                    name: '支付',
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_SEND,
+                                    name: '发货',
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_COMPLETE,
+                                    name: '完成',
+                                    lighted: false
+                                }
+                            ];
+                        }
+                        else if(last.status == constants.PROCESS_COMPLETE) {
+                            process_arr = [
+                                {
+                                    status: constants.PROCESS_CREATE,
+                                    name: '创建',
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_PAY,
+                                    name: '支付',
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_SEND,
+                                    name: '发货',
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_COMPLETE,
+                                    name: '完成',
                                     lighted: true
                                 }
                             ];
                         }
-                        else if(process.length == 4) {
-                            //已发货时申请退款
+                        else if(last.status == constants.PROCESS_CANCEL) {
+                            process_arr = [
+                                {
+                                    status: constants.PROCESS_CREATE,
+                                    name: '创建',
+                                    lighted: true
+                                },
+                                {
+                                    status: constants.PROCESS_CANCEL,
+                                    name: '取消',
+                                    lighted: true
+                                }
+                            ];
+                        }
+                        else if(last.status == constants.PROCESS_REFUNDING) {
+                            //未发货时申请退款，直接退款成功，已发货时申请退款需要审核（状态为退款中，退款中的只有发货了才能有退款中）
                             process_arr = [
                                 {
                                     status: constants.PROCESS_CREATE,
@@ -434,17 +385,71 @@ class MallController extends BaseController{
                                 {
                                     status: constants.PROCESS_REFUND,
                                     name: '退货',
-                                    lighted: true
+                                    lighted: false
                                 }
                             ];
                         }
+                        else if(last.status == constants.PROCESS_REFUND) {
+                            if(process.length == 3) {
+                                //未发货时申请退款
+                                process_arr = [
+                                    {
+                                        status: constants.PROCESS_CREATE,
+                                        name: '创建',
+                                        lighted: true
+                                    },
+                                    {
+                                        status: constants.PROCESS_PAY,
+                                        name: '支付',
+                                        lighted: true
+                                    },
+                                    {
+                                        status: constants.PROCESS_REFUND,
+                                        name: '退货',
+                                        lighted: true
+                                    }
+                                ];
+                            }
+                            else if(process.length == 4) {
+                                //已发货时申请退款
+                                process_arr = [
+                                    {
+                                        status: constants.PROCESS_CREATE,
+                                        name: '创建',
+                                        lighted: true
+                                    },
+                                    {
+                                        status: constants.PROCESS_PAY,
+                                        name: '支付',
+                                        lighted: true
+                                    },
+                                    {
+                                        status: constants.PROCESS_SEND,
+                                        name: '发货',
+                                        lighted: true
+                                    },
+                                    {
+                                        status: constants.PROCESS_REFUND,
+                                        name: '退货',
+                                        lighted: true
+                                    }
+                                ];
+                            }
+                        }
                     }
+                    orderGood.dataValues.process = process_arr;
                 }
-                order.dataValues.process = process_arr;
+
+                let address = await AddressModel.findById(order.address_id);
+                order.dataValues.address = address;
 
                 return ctx.success({
                     msg: '操作成功',
-                    data: order
+                    data: {
+                        order,
+                        orderGood,
+                        address
+                    }
                 });
             }
             else{

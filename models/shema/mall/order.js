@@ -200,13 +200,13 @@ const OrderGoods = db_mall.define('order_goods', {
 });
 
 const OrderProcess  = db_mall.define('order_process', {
-    order_id: {
+    order_goods_id: {
         type: Sequelize.INTEGER,
         set(val) {
-            this.setDataValue('order_id', val);
+            this.setDataValue('order_goods_id', val);
         },
         get() {
-            const val = this.getDataValue('order_id');
+            const val = this.getDataValue('order_goods_id');
             return val;
         }
     },
@@ -249,8 +249,8 @@ OrderProcess.sync({ force: false });
 Order.hasMany(OrderGoods, {foreignKey: 'order_id', sourceKey:'id', as: 'Goods'});
 OrderGoods.belongsTo(Order, {foreignKey: 'order_id', targetKey:'id'});
 
-Order.hasMany(OrderProcess, {foreignKey: 'order_id', sourceKey:'id', as: 'Processes'});
-OrderProcess.belongsTo(Order, {foreignKey: 'order_id', targetKey:'id'});
+OrderGoods.hasMany(OrderProcess, {foreignKey: 'order_goods_id', sourceKey:'id', as: 'Processes'});
+OrderProcess.belongsTo(OrderGoods, {foreignKey: 'order_goods_id', targetKey:'id'});
 
 module.exports = {
     Order,

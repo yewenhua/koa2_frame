@@ -21,13 +21,9 @@ class OrdersModel {
                 pay_time: null,
             }, {transaction: t});
 
-            let process =  await Model.OrderProcess.create({
-                order_id: order.id,
-                status: constants.PROCESS_CREATE
-            }, {transaction: t});
-
             let flag = false;
             let total = 0;
+            let process;
             for(let i=0; i<goods.length; i++){
                 let row = await GoodsModel.findById(goods[i].goods_id);
                 if(row){
@@ -51,6 +47,12 @@ class OrdersModel {
                 let orderGood = await Model.OrderGoods.create(params, {transaction: t});
                 if(!orderGood){
                     flag = true;
+                }
+                else{
+                    process =  await Model.OrderProcess.create({
+                        order_goods_id: orderGood.id,
+                        status: constants.PROCESS_CREATE
+                    }, {transaction: t});
                 }
             }
 
